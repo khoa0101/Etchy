@@ -14,7 +14,6 @@ const mSTP = (state) => {
 const mDTP = (dispatch) => {
   return {
     action: (user) => dispatch(signup(user)),
-    otherForm: null,
     closeModal: () => dispatch(closeModal())
   }
 };

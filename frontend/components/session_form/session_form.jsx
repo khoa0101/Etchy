@@ -53,7 +53,7 @@ class SessionForm extends React.Component{
           </div>
         )
       }
-    }
+    };
 
     const inputSection = () => {
       if (this.props.formType === signup) {
@@ -80,7 +80,7 @@ class SessionForm extends React.Component{
               onChange={this.handleChange('password')}
               />
             </label>
-            <button>Register</button>
+            <input type="submit" value="Register"/>
           </div>
         )
       } else {
@@ -100,25 +100,24 @@ class SessionForm extends React.Component{
             onChange={this.handleChange('password')}
             />
           </label>
-          <button>Sign in</button>
+          <button>Sign In</button>
         </div>
         )
       }
-    }
+    };
 
     return (
       <div className="login-form-container">
+        <div onClick={this.props.closeModal} className="close-x">X</div>
+        {greetingMessage()}
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          <div onClick={this.props.closeModal} className="close-x">X</div>
-          {greetingMessage()}
-          <br/>
           {this.renderErrors()}
-          <br/>
           {inputSection()}
+          <button>{this.props.formType}</button>
         </form>
       </div>
     )
-  }
+  };
 };
 
 export default SessionForm;
