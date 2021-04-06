@@ -10,7 +10,7 @@ class SessionForm extends React.Component{
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  
+
   handleChange(field){
     return e => this.setState({
       [field]: e.target.value
@@ -80,7 +80,7 @@ class SessionForm extends React.Component{
               onChange={this.handleChange('password')}
               />
             </label>
-            <input type="submit" value="Register"/>
+            <button>Register</button> 
           </div>
         )
       } else {
