@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Greeting = ({ currentUser, logout, openModal }) => {
-
   const sessionButton = () => (
     <nav className="login">
       <button onClick={() => openModal('Login')}>Login</button>

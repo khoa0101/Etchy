@@ -36,25 +36,27 @@ class SessionForm extends React.Component{
   }
 
   render(){
+    const signup = "Signup";
     const greetingMessage = () => {
-      if (this.props.fromType === "Signup"){
+      if (this.props.formType === signup){
         return (
           <div className="login-form-greeting">
             <h1 className="signup-header">Create your account</h1>
-            <h2 classname="signup-header-message">Registration is easy</h2>
+            <h2 className="signup-header-message">Registration is easy</h2>
           </div>
         )
       } else {
         return (
           <div className="login-form-greeting">
             <h1 className="login-header">Sign In</h1>
+            {this.props.otherForm}
           </div>
         )
       }
     }
 
     const inputSection = () => {
-      if (this.props.formType === "Signup"){
+      if (this.props.formType === signup) {
         return (
           <div className="login-form">
             <label>Email address
@@ -107,8 +109,9 @@ class SessionForm extends React.Component{
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form-box">
-          {greetingMessage()}
           <div onClick={this.props.closeModal} className="close-x">X</div>
+          {greetingMessage()}
+          <br/>
           {this.renderErrors()}
           <br/>
           {inputSection()}
