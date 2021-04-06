@@ -1,24 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { LOGOUT_CURRENT_USER } from '../../actions/session_actions';
 
-class Greeting extends React.Component{
-  render(){
-    const { currentUser, logout } = this.props;
-    const sessionLink = () => (
-      <nav className="login">
-        <Link to="/login">Sign In</Link>
-      </nav>
-    );
+const Greeting = ({ currentUser, logout, openModal }) => {
 
-    const personalGreeting = () => (
-      <hgroup className="header-group">
-        <h2 className="header-name">Welcome back, {curentUser.username}!</h2>
-        <button className="header-link" onClick={logout}>Sign Out</button>
+  const sessionButton = () => (
+    <nav className="login">
+      <button onClick={() => openModal('Login')}>Login</button>
+    </nav>
+  );
+
+  const personalGreeting = () => (
+    <hgroup className="header-group">
+      <h2 className="header-name">Hi, {currentUser.username}!</h2>
+        <button className="header-button" onClick={logout}>Log Out</button>
       </hgroup>
-    );
-    return currentUser ? personalGreeting() : sessionLink();
-  }
+  );   
+
+    return (currentUser ? personalGreeting() : sessionButton());
 }
 
 export default Greeting;
