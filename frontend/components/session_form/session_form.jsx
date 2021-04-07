@@ -9,6 +9,7 @@ class SessionForm extends React.Component{
       password: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.loginDemo = this.loginDemo.bind(this);
   }
 
   handleChange(field){
@@ -21,6 +22,12 @@ class SessionForm extends React.Component{
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.action(user).then(this.props.closeModal);
+  }
+
+  loginDemo(e) {
+    e.preventDefault();
+    const demo = Object.assign({ username: 'demo_1', email: 'demo@demo.com', password: 'demo123'})
+    this.props.action(demo).then(this.props.closeModal);
   }
 
   renderErrors() {
@@ -113,8 +120,8 @@ class SessionForm extends React.Component{
         <form onSubmit={this.handleSubmit} className="login-form-box">
           {this.renderErrors()}
           {inputSection()}
-          <button>{this.props.formType}</button>
         </form>
+        <button onClick={this.loginDemo}>Demo User</button>
       </div>
     )
   };
