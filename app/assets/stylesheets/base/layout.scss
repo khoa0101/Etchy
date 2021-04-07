@@ -1,0 +1,25 @@
+html {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  margin: 0 auto;
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+}
+
+button {
+  color: #222222;
+  padding: 10px 15px;
+  font-size: 12px;
+  font-weight: bold;
+  box-shadow: 0 0 5px 10px rgba(0, 0, 0, 0.0);
+  transition: ease 0.5s;
+  &:hover{
+    background-color: rgb(221, 218, 218);
+    border-radius: 100px;
+    box-shadow: 0 0 5px 10px rgba(0, 0, 0, 0.05);
+  }
+}

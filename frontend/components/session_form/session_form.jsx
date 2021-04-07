@@ -27,7 +27,12 @@ class SessionForm extends React.Component{
   loginDemo(e) {
     e.preventDefault();
     const demo = Object.assign({ username: 'demo_1', email: 'demo@demo.com', password: 'demo123'})
-    this.props.action(demo).then(this.props.closeModal);
+    if (this.props.formType === "Signup"){
+      this.props.login(demo).then(this.props.closeModal);
+    }
+    else {
+      this.props.action(demo).then(this.props.closeModal);
+    }
   }
 
   renderErrors() {
@@ -47,9 +52,9 @@ class SessionForm extends React.Component{
     const greetingMessage = () => {
       if (this.props.formType === signup){
         return (
-          <div className="login-form-greeting">
+          <div className="signup-form-greeting">
             <h1 className="signup-header">Create your account</h1>
-            <h2 className="signup-header-message">Registration is easy</h2>
+            <h2 className="signup-header-message">Registration is easy.</h2>
           </div>
         )
       } else {
@@ -115,13 +120,12 @@ class SessionForm extends React.Component{
 
     return (
       <div className="login-form-container">
-        <div onClick={this.props.closeModal} className="close-x">X</div>
         {greetingMessage()}
         <form onSubmit={this.handleSubmit} className="login-form-box">
           {this.renderErrors()}
           {inputSection()}
         </form>
-        <button onClick={this.loginDemo}>Demo User</button>
+        <button className="demo-login" onClick={this.loginDemo}>Demo User</button>
       </div>
     )
   };
