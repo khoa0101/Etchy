@@ -1,20 +1,13 @@
 import React from 'react';
 
-const Greeting = ({ currentUser, logout, openModal }) => {
-  const sessionButton = () => (
-    <nav className="login">
-      <button onClick={() => openModal('Login')}>Login</button>
-    </nav>
-  );
-
+const Greeting = ({ currentUser }) => {
   const personalGreeting = () => (
-    <hgroup className="header-group">
-      <h2 className="header-name">Hi, {currentUser.username}!</h2>
-        <button className="header-button" onClick={logout}>Log Out</button>
-      </hgroup>
+    <div className="header-group">
+      <h2 className="header-name">Welcome back, {currentUser.username}!</h2>
+    </div>
   );   
 
-    return (currentUser ? personalGreeting() : sessionButton());
+    return (currentUser ? personalGreeting() : null);
 }
 
 export default Greeting;
