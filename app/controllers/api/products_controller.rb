@@ -25,23 +25,6 @@ class Api::ProductsController < ApplicationController
     end
   end
 
-  def update
-    @product = Product.find(params[:id])
-    
-    if current_user.id = @product.user_id
-      if @product && @product.update_attributes(product_params)
-        render 'api/products/show'
-      else
-        render json: @error.full_messages, status: 422
-      end 
-    else
-      render json: ['Invalid credentials'], status 402
-    end
-  end
-
-  def delete
-  end
-
   private 
   def product_params
     params.require(:product).permit(:name, :type, :price, :price, :discount, :seller_id)
