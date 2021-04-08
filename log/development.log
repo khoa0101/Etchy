@@ -5150,3 +5150,150 @@ Processing by StaticPagesController#root as HTML
 Completed 200 OK in 936ms (Views: 933.9ms | ActiveRecord: 1.0ms)
 
 
+Started GET "/" for ::1 at 2021-04-07 15:03:16 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "iTHlJT1ZOddYlwmO/avZ4g=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "mpbwkAz+bsjTCyX62Fif0A=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:35
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 39ms (Views: 36.1ms | ActiveRecord: 1.5ms)
+
+
+Started DELETE "/api/session" for ::1 at 2021-04-07 15:03:45 -0700
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "iTHlJT1ZOddYlwmO/avZ4g=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "9FKRDQ04T2GRRwZbmq0EFw=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:35
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "C0aJfUjoNcBinI0eBWYT8Q=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:26
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "demo_1"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "demo@demo.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "C0aJfUjoNcBinI0eBWYT8Q=="], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:29
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "C0aJfUjoNcBinI0eBWYT8Q=="], ["updated_at", "2021-04-07 22:03:45.266516"], ["id", 1]]
+  ↳ app/models/user.rb:29
+  [1m[35m (4.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:29
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.2ms)
+  Rendered api/users/show.json.jbuilder (1.3ms)
+Completed 200 OK in 21ms (Views: 5.3ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/" for ::1 at 2021-04-07 16:56:42 -0700
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/khoa/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+
+ActiveRecord::PendingMigrationError - Migrations are pending. To resolve this issue, run:
+        bin/rails db:migrate RAILS_ENV=development:
+
+Started POST "/__better_errors/7091b4930177ff25/variables" for ::1 at 2021-04-07 16:56:43 -0700
+Started GET "/" for ::1 at 2021-04-07 18:07:23 -0700
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/khoa/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+
+ActiveRecord::PendingMigrationError - Migrations are pending. To resolve this issue, run:
+        bin/rails db:migrate RAILS_ENV=development:
+
+Started POST "/__better_errors/9986943aba20e015/variables" for ::1 at 2021-04-07 18:07:24 -0700
+  [1m[35m (5.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3282585161043830565)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateProducts (20210407232723)
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE  INDEX  "index_products_on_name" ON "products"  ("name")[0m
+  ↳ db/migrate/20210407232723_create_products.rb:15
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_products_on_name" ON "products"  ("name")[0m
+  ↳ db/migrate/20210407232723_create_products.rb:15
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3282585161043830565)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3282585161043830565)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateProducts (20210407232723)
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_products_on_name" ON "products"  ("name")[0m
+  ↳ db/migrate/20210407232723_create_products.rb:15
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE  INDEX  "index_products_on_name" ON "products"  ("name")[0m
+  ↳ db/migrate/20210407232723_create_products.rb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(3282585161043830565)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3282585161043830565)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateProducts (20210407232723)
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE  INDEX  "index_products_on_name" ON "products"  ("name")[0m
+  ↳ db/migrate/20210407232723_create_products.rb:15
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_products_on_name" ON "products"  ("name")[0m
+  ↳ db/migrate/20210407232723_create_products.rb:15
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3282585161043830565)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3282585161043830565)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateProducts (20210407232723)
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX  "index_products_on_name" ON "products"  ("name")[0m
+  ↳ db/migrate/20210407232723_create_products.rb:15
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE  INDEX  "index_products_on_name" ON "products"  ("name")[0m
+  ↳ db/migrate/20210407232723_create_products.rb:15
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3282585161043830565)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3282585161043830565)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateProducts (20210407232723)
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_products_on_name" ON "products"  ("name")[0m
+  ↳ db/migrate/20210407232723_create_products.rb:15
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_products_on_name" ON "products"  ("name")[0m
+  ↳ db/migrate/20210407232723_create_products.rb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(3282585161043830565)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3282585161043830565)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateProducts (20210407232723)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (133.9ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "name" character varying NOT NULL, "type" character varying NOT NULL, "description" text NOT NULL, "quantity" integer NOT NULL, "price" float DEFAULT 0.0, "discount" float DEFAULT 0.0, "seller_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210407232723_create_products.rb:3
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE  INDEX  "index_products_on_name" ON "products"  ("name")[0m
+  ↳ db/migrate/20210407232723_create_products.rb:14
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE  INDEX  "index_products_on_type" ON "products"  ("type")[0m
+  ↳ db/migrate/20210407232723_create_products.rb:15
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE  INDEX  "index_products_on_seller_id" ON "products"  ("seller_id")[0m
+  ↳ db/migrate/20210407232723_create_products.rb:16
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210407232723"]]
+  ↳ bin/rails:9
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (10.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(3282585161043830565)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for ::1 at 2021-04-07 18:39:17 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/khoa/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 1037ms (Views: 1035.6ms | ActiveRecord: 0.0ms)
+
+
