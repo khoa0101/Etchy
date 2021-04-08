@@ -50,6 +50,8 @@ GEM
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
+    autoprefixer-rails (10.2.4.0)
+      execjs
     bcrypt (3.1.16)
     better_errors (2.9.1)
       coderay (>= 1.0.0)
@@ -111,10 +113,12 @@ GEM
     marcel (1.0.1)
     method_source (1.0.0)
     mini_mime (1.1.0)
+    mini_portile2 (2.5.0)
     minitest (5.14.4)
     msgpack (1.4.2)
     nio4r (2.5.7)
-    nokogiri (1.11.2-x86_64-linux)
+    nokogiri (1.11.2)
+      mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     pg (1.2.3)
     pry (0.14.0)
@@ -203,10 +207,11 @@ GEM
       nokogiri (~> 1.8)
 
 PLATFORMS
-  x86_64-linux
+  ruby
 
 DEPENDENCIES
   annotate
+  autoprefixer-rails
   bcrypt (~> 3.1.7)
   better_errors
   binding_of_caller
@@ -234,4 +239,4 @@ RUBY VERSION
    ruby 2.5.1p57
 
 BUNDLED WITH
-   2.2.11
+   2.1.4

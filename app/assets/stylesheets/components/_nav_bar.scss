@@ -1,0 +1,14 @@
+header {
+  display: flex;
+  height: 10vh;
+  padding: 0 10% 0 10%;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid rgb(223, 223, 223);
+}
+
+.header-link{
+  color: #f1641e;
+  font-family: 'Gaurdian Egyptian Headline', Georgia, serif;
+  font-size: 35px;
+}
