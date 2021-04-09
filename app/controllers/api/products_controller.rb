@@ -14,16 +14,6 @@ class Api::ProductsController < ApplicationController
 
     render 'api/products/show'
   end
-  
-  def create
-    @product = Product.new(product_params)
-    
-    if @product.save
-      render 'api/products/show'
-    else
-      render json: @error.full_messages, status: 422
-    end
-  end
 
   private 
   def product_params

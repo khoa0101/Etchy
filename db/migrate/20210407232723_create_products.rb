@@ -5,6 +5,7 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.string :type, null: false
       t.text :description, null: false
       t.integer :quantity, null: false
+      t.integer :sales, default: 0
       t.float :price, default: 0.00
       t.float :discount, default: 0.00
       t.integer :seller_id, null: false
