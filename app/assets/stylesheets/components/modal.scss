@@ -9,10 +9,12 @@
   justify-content: center;
   align-items: center;
   z-index: 10;
+  overflow: auto;
 }
 
 
 .login-form-container{
+  position: relative;
   background-color: white;
   padding: 5%;
   border-radius: 20px; 
@@ -52,6 +54,8 @@
     border-radius: 100px;
     &:hover {
       background-color: white;
+      transition: .1s ease-in-out;
+      transform: scale(1.03) perspective(1px);
     }
   }
 }
@@ -78,6 +82,11 @@
     text-align: center;
     background-color: black;
     border-radius: 100px;
+    &:hover{
+      background-color: #272727;
+      transition: .1s ease-in-out;
+      transform: scale(1.03) perspective(1px);
+    }
   }
 }
 
@@ -101,6 +110,11 @@
   text-align: center;
   background-color: black;
   border-radius: 100px;
+  &:hover{
+    background-color: #272727;
+    transition: .1s ease-in-out;
+    transform: scale(1.03) perspective(1px);
+  }
 }
 
 ul {

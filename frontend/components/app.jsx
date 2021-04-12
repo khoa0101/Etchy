@@ -1,13 +1,13 @@
 import React from 'react';
 import {
   Route,
-  Redirect,
   Switch,
   Link
 } from 'react-router-dom';
 import Modal from './modal/modal';
-import GreetingContainer from './greeting/greeting_container'
-import NavBarContainer from './nav_bar/nav_bar_container'
+import NavBarContainer from './nav_bar/nav_bar_container';
+import SplashContainer from './splash/spash_container';
+import ProductShowContainer from './products/product_show_container';
 
 const App = () => (
   <div>
@@ -16,7 +16,11 @@ const App = () => (
       <Link to="/" className="header-link"><h1>Etchy</h1></Link>
       <NavBarContainer />
     </header>
-    <GreetingContainer />
+    <Switch>
+      <Route path="/" exact component={SplashContainer}/>
+      <Route exact path="/products/:productId" component={ProductShowContainer}/> 
+      <Route path="*" component={() => "404 NOT FOUND "} />
+    </Switch>
   </div>
 );
 

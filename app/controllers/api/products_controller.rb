@@ -4,7 +4,7 @@ class Api::ProductsController < ApplicationController
 
   
   def index
-    @products = Product.all.include(:seller)
+    @products = Product.all.includes(:seller)
     
     render 'api/products/index'
   end
@@ -17,6 +17,6 @@ class Api::ProductsController < ApplicationController
 
   private 
   def product_params
-    params.require(:product).permit(:name, :type, :price, :price, :discount, :seller_id)
+    params.require(:product).permit(:name, :description, :price, :discount, :seller_id)
   end
 end

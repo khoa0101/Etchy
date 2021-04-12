@@ -7,8 +7,7 @@ const Root = ({ store }) => (
   <Provider store={store}>
     <HashRouter>
       <Switch>
-        <Route exact path="/" component={App} />
-        <Route path="*" component={() => "404 NOT FOUND "} />
+        <App/>
       </Switch>
     </HashRouter>
   </Provider>
