@@ -9,7 +9,8 @@ class ProductShow extends React.Component{
 
     if (!this.props.product) {return null};
 
-    const {name, price, discount, sales, description, quantity, imageUrl} = this.props.product;
+    const { name, price, discount, sales, description, quantity, imageUrl } = this.props.product;
+    const { username } = this.props.product.seller;
 
     const quanArr = (quantity) => {
       let arr = []
@@ -19,7 +20,7 @@ class ProductShow extends React.Component{
       return arr;
     } 
 
-    const originalPrice= <i className="current-price">${(price * ((100 - discount)/100)).toFixed(2)}</i>
+    const originalPrice= <i className="current-price">${(price * ((100 - discount)/100)).toFixed(2)} </i>
 
     const discountInfo = () => {
       if (discount != 0){
@@ -27,6 +28,7 @@ class ProductShow extends React.Component{
           <div className="price-header">
             {originalPrice}
             <i className="original-price"> ${(price).toFixed(2)} </i>
+            <br/>
             <i className="saving">You save ${(price * (discount/100)).toFixed(2)}</i>
             <i className="discount">({discount}% off)</i>
           </div>
@@ -39,7 +41,14 @@ class ProductShow extends React.Component{
 
     return (
       <div className="product-show">
+        <div className="image-info">
+          <img className="thumbnail" src={imageUrl}/>
+          <img className="display-image"src={imageUrl}/>
+        </div>
         <div className="product-info">
+          <i className="product-seller">{username}</i>
+          <br/>
+          <i className="product-sales">{sales.toLocaleString()} sales</i>
           <h1 className="product-name">{name}</h1>
           {discountInfo()}
           <label>Quantity
@@ -49,11 +58,8 @@ class ProductShow extends React.Component{
               )}
             </select>
           </label>
+          <h1 className="des-header">Description</h1>
           <p>{description}</p>
-        </div>
-        <div>
-          <img className="thumb-nail" src={imageUrl}/>
-          <img className="display-image"src={imageUrl}/>
         </div>
       </div>
     )
