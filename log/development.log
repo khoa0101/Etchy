@@ -28883,3 +28883,168 @@ Processing by Api::ProductsController#show as JSON
 Completed 200 OK in 11ms (Views: 9.0ms | ActiveRecord: 1.1ms)
 
 
+Started GET "/" for ::1 at 2021-04-13 09:19:08 -0700
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/khoa/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "QueJuduwRRVKu1clLgyRAg=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "o1h0tn5EC2POt+fcp+7sng=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:39
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (59.8ms)
+Started GET "/" for ::1 at 2021-04-13 09:19:10 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "QueJuduwRRVKu1clLgyRAg=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "ZlU5nQgdzhw28eK9/yNxpg=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:39
+  Rendered api/users/_user.json.jbuilder (1.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 7295ms (Views: 7292.9ms | ActiveRecord: 1.0ms)
+
+
+Completed 200 OK in 9910ms (Views: 9894.1ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/api/products" for ::1 at 2021-04-13 09:19:18 -0700
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  ↳ app/views/api/products/index.json.jbuilder:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "6c6QU+n32f2nrYUslUAgkw=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:39
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/_product.json.jbuilder:2
+  Rendered api/products/_product.json.jbuilder (109.4ms)
+  Rendered api/products/index.json.jbuilder (165.5ms)
+Completed 500 Internal Server Error in 205ms (ActiveRecord: 5.6ms)
+
+
+
+NameError - uninitialized constant ActiveStorage::Attachment::ActiveStorage::Blob:
+  app/views/api/products/_product.json.jbuilder:2:in `_app_views_api_products__product_json_jbuilder__2438400147253909430_70168639949000'
+  app/views/api/products/index.json.jbuilder:3:in `block (2 levels) in _app_views_api_products_index_json_jbuilder___3264884191691600576_70168640212680'
+  app/views/api/products/index.json.jbuilder:2:in `block in _app_views_api_products_index_json_jbuilder___3264884191691600576_70168640212680'
+  app/views/api/products/index.json.jbuilder:1:in `_app_views_api_products_index_json_jbuilder___3264884191691600576_70168640212680'
+  app/controllers/api/products_controller.rb:9:in `index'
+
+Started GET "/" for ::1 at 2021-04-13 09:19:48 -0700
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "QueJuduwRRVKu1clLgyRAg=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "gt1YIXhmGVHnUAnNezlNHA=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:39
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 56ms (Views: 53.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/products" for ::1 at 2021-04-13 09:19:48 -0700
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  ↳ app/views/api/products/index.json.jbuilder:1
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "W3LrXjT1l3vThOttoNVS1Q=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:39
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/_product.json.jbuilder:2
+  Rendered api/products/_product.json.jbuilder (25.5ms)
+  Rendered api/products/index.json.jbuilder (33.9ms)
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 2.1ms)
+
+
+
+NameError - uninitialized constant ActiveStorage::Attachment::ActiveStorage::Blob:
+  app/views/api/products/_product.json.jbuilder:2:in `_app_views_api_products__product_json_jbuilder__2438400147253909430_70168611836520'
+  app/views/api/products/index.json.jbuilder:3:in `block (2 levels) in _app_views_api_products_index_json_jbuilder___3264884191691600576_70168611619300'
+  app/views/api/products/index.json.jbuilder:2:in `block in _app_views_api_products_index_json_jbuilder___3264884191691600576_70168611619300'
+  app/views/api/products/index.json.jbuilder:1:in `_app_views_api_products_index_json_jbuilder___3264884191691600576_70168611619300'
+  app/controllers/api/products_controller.rb:9:in `index'
+
+Started GET "/" for ::1 at 2021-04-13 09:20:15 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/khoa/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "QueJuduwRRVKu1clLgyRAg=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "NO/DH6eFrxMHv1jAqcgSXw=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:39
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (23.5ms)
+Completed 200 OK in 1189ms (Views: 1182.6ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/api/products" for ::1 at 2021-04-13 09:20:17 -0700
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  ↳ app/views/api/products/index.json.jbuilder:1
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "+SkZzwibVan45ocy2fG60A=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:39
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/_product.json.jbuilder:2
+  Rendered api/products/_product.json.jbuilder (36.9ms)
+  Rendered api/products/index.json.jbuilder (61.4ms)
+Completed 500 Internal Server Error in 82ms (ActiveRecord: 7.3ms)
+
+
+
+NameError - uninitialized constant ActiveStorage::Attachment::ActiveStorage::Blob:
+  app/views/api/products/_product.json.jbuilder:2:in `_app_views_api_products__product_json_jbuilder___1357347349222374658_70015000235100'
+  app/views/api/products/index.json.jbuilder:3:in `block (2 levels) in _app_views_api_products_index_json_jbuilder__1873536305864199158_70015000748680'
+  app/views/api/products/index.json.jbuilder:2:in `block in _app_views_api_products_index_json_jbuilder__1873536305864199158_70015000748680'
+  app/views/api/products/index.json.jbuilder:1:in `_app_views_api_products_index_json_jbuilder__1873536305864199158_70015000748680'
+  app/controllers/api/products_controller.rb:9:in `index'
+
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 6], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+Started GET "/" for ::1 at 2021-04-13 09:24:40 -0700
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/khoa/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "QueJuduwRRVKu1clLgyRAg=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "xD/aCbas5ZD960Fej438KA=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:39
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (20.1ms)
+Completed 200 OK in 727ms (Views: 721.0ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/api/products" for ::1 at 2021-04-13 09:24:41 -0700
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (1.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 2]]
+  ↳ app/views/api/products/index.json.jbuilder:1
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VseqN6mo4zaQTWSWxCbBfA=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:39
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/_product.json.jbuilder:2
+  Rendered api/products/_product.json.jbuilder (34.5ms)
+  Rendered api/products/index.json.jbuilder (55.2ms)
+Completed 500 Internal Server Error in 65ms (ActiveRecord: 6.0ms)
+
+
+
+NameError - uninitialized constant ActiveStorage::Attachment::ActiveStorage::Blob:
+  app/views/api/products/_product.json.jbuilder:2:in `_app_views_api_products__product_json_jbuilder__913715114553241961_69838168049060'
+  app/views/api/products/index.json.jbuilder:3:in `block (2 levels) in _app_views_api_products_index_json_jbuilder__4370148803162231217_69838168582060'
+  app/views/api/products/index.json.jbuilder:2:in `block in _app_views_api_products_index_json_jbuilder__4370148803162231217_69838168582060'
+  app/views/api/products/index.json.jbuilder:1:in `_app_views_api_products_index_json_jbuilder__4370148803162231217_69838168582060'
+  app/controllers/api/products_controller.rb:9:in `index'
+
