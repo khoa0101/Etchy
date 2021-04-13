@@ -17,7 +17,7 @@ const App = () => (
       <NavBarContainer />
     </header>
     <Switch>
-      <Route path="/" exact component={SplashContainer}/>
+      <Route exact path="/" component={SplashContainer}/>
       <Route exact path="/products/:productId" component={ProductShowContainer}/> 
       <Route path="*" component={() => "404 NOT FOUND "} />
     </Switch>
