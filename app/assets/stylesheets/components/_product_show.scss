@@ -1,0 +1,79 @@
+.product-show{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 20px 10%;
+  color: #222;
+  .product-info{
+    max-width: 300px;
+    .product-seller{
+      font-size: 16px;
+    }
+    .product-sales{
+      font-size: 12px;
+    }
+    .product-name{
+      margin-top: 20px;
+      font-family: 'Gaurdian Egyptian Headline', Georgia, serif;
+      font-size: 30px;
+    }
+
+    .price-header{
+      margin-top: 20px;
+      margin-bottom: 20px;  
+      .current-price{
+        font-size: 24px;
+        font-weight: bold;
+      }
+      .original-price{
+        text-decoration: line-through;
+        color: rgb(160, 160, 160);
+        font-size: 18px;
+      }
+      .saving, .discount{
+        font-size: 12px;
+        color: #258635;
+      }
+
+    }
+
+    label select{
+      margin: 10px 0;
+      padding: 10px;
+      width: 100%;
+      border-color: rgb(175, 175, 175);
+      border-radius: 5px;
+      box-shadow: 0 0 5px 10px rgba(0, 0, 0, 0.01);
+    }
+
+    .des-header {
+      padding: 10px 0;
+      font-size: 20px;
+      font-weight: bold;
+      
+    }
+  }
+
+  .image-info{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    max-width: 600px;
+    max-height: 600px;
+    .display-image{
+      height: 80%;
+      width: 80%;
+    }
+
+    .thumbnail{
+      height: 8vh;
+      width: 8vh;
+      border: solid 3px black;
+      border-radius: 5px;
+    }
+
+  }  
+
+}
