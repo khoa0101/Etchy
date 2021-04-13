@@ -15,7 +15,7 @@ class Splash extends React.Component{
         <div className="new-products">
         <h1 className="new-products-header">New from shops you might like</h1>
           <ul className="new-products-list">
-            {products.slice(0, 5).map(product =>
+            {products.map(product =>
               <ProductIndexItem 
               key={`product-${product.id}`}
               product={product}

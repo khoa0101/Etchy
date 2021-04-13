@@ -51,7 +51,7 @@ class ProductShow extends React.Component{
           <i className="product-sales">{sales.toLocaleString()} sales</i>
           <h1 className="product-name">{name}</h1>
           {discountInfo()}
-          <label>Quantity
+          <label>Quantity<br/>
             <select>
               {quanArr(quantity).map((option) => 
                 <option key={`opt-${option}`}>{option}</option>
@@ -61,6 +61,7 @@ class ProductShow extends React.Component{
           <h1 className="des-header">Description</h1>
           <p>{description}</p>
         </div>
+        
       </div>
     )
   }
