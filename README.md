@@ -16,9 +16,11 @@ Etchy is a clone of Etsy.com. Simular to Etsy, Etchy is an online shopping websi
 
 ## Features
 ### User Auth
-* Users can create accounts, sign in with existing accounts, and sign out. Demo login is available for demonstration purposes. 
+* Users can create accounts, sign in with existing accounts, and sign out. Demo login is available for demonstration purposes.
+![User demo](https://media.giphy.com/media/zTwvIklAmGZJkGtRJh/giphy.gif) 
 ### Products
 * Users can browse through products and checkout listed products in greater details. 
+![Product demo](https://media.giphy.com/media/21lQjkeG4fHBF3Z3vy/giphy.gif)
 ## Future Plans
 * Shopping Cart
 * Reviews
