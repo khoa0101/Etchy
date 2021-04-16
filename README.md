@@ -26,3 +26,28 @@ Etchy is a clone of Etsy.com. Simular to Etsy, Etchy is an online shopping websi
 * Reviews
 * Search Bar
 ## Code Snippet
+````
+<div className="product-show">
+  <div className="image-info">
+    <img className="thumbnail" src={imageUrl}/>
+    <img className="display-image"src={imageUrl}/>
+  </div>
+  <div className="product-info">
+    <i className="product-seller">{username}</i>
+    <br/>
+    <i className="product-sales">{sales.toLocaleString()} sales</i>
+    <h1 className="product-name">{name}</h1>
+    {discountInfo()}
+    <label>Quantity<br/>
+      <select>
+        {quanArr(quantity).map((option) => 
+          <option key={`opt-${option}`}>{option}</option>
+        )}
+      </select>
+    </label>
+    <h1 className="des-header">Description</h1>
+    <p>{description}</p>
+  </div>
+
+</div>
+````
