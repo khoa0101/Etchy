@@ -9,10 +9,10 @@ Etchy is a clone of Etsy.com. Simular to Etsy, Etchy is an online shopping websi
 
 ## Languagues and Frameworks
 
-* Ruby on Rails(Ruby): Backend
+* Ruby on Rails (Ruby): Backend
 * PostgeSQL: Database 
 * AWS: Image Storage
-* React-Redux(JavaScript): Frontend
+* React-Redux (JavaScript): Frontend
 
 ## Features
 ### User Auth
