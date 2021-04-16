@@ -7,12 +7,12 @@
 ## Overview
 Etchy is a clone of Etsy.com. Simular to Etsy, Etchy is an online shopping website that users can checkout new and creative items for sale. Unlike the original website where only products from independent creators are available, this website allows all artistic and creative products to be listed here, independent or otherwise.  
 
-## Languague and Framework
+## Languagues and Frameworks
 
-* Ruby on Rails: Backend
+* Ruby on Rails(Ruby): Backend
 * PostgeSQL: Database 
 * AWS: Image Storage
-* React-Redux: Frontend
+* React-Redux(JavaScript): Frontend
 
 ## Features
 ### User Auth
