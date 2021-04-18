@@ -6,6 +6,10 @@ class User < ApplicationRecord
   has_many :products,
     foreign_key: :seller_id,
     class_name: 'Product'
+  
+  has_many :carts,
+    foreign_key: :buyer_id,
+    class_name: 'Cart'
 
   attr_reader :password
   after_initialize :ensure_session_token
