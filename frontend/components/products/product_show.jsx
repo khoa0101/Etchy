@@ -71,6 +71,7 @@ class ProductShow extends React.Component{
               )}
             </select>
           </label>
+          <button className="add-cart-button">Add to cart</button>
           <h1 className="des-header">Description</h1>
           <p>{description}</p>
         </div>
