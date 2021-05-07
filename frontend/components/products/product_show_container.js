@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-
 import { requestProduct } from '../../actions/product_actions'; 
+import { addToCart } from '../../actions/cart_actions';
 import ProductShow from './product_show';
 
 const mSTP = (state, ownProps) => {
@@ -12,6 +12,7 @@ const mSTP = (state, ownProps) => {
 const mDTP = (dispatch) => {
   return {
     requestProduct: (productId) => dispatch(requestProduct(productId)),
+    addToCart: (cart) => dispatch(addToCart(cart))
   }
 }
 

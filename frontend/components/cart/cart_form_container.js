@@ -1,22 +1,20 @@
 import { connect } from 'react-redux';
-
 import { requestProduct } from '../../actions/product_actions'; 
 import { addToCart, editCart, deleteCart } from '../../actions/cart_actions';
 import CartForm from './cart_form';
 
-const mSTP = (state, ownProps) => {
+const mSTP = (state) => {
   return {
-    products: state.entities.products[ownProps.match.params.productId],
+    currentUser: state.entities.users[state.session.id]
   }
 };
 
 const mDTP = (dispatch) => {
   return {
-    requestProducts: (productId) => dispatch(requestProduct(productId)),
-    addToCart: (cart) => dispatch(addToCart(cart)),
+    // requestProduct: (productId) => dispatch(requestProduct(productId)),
     editCart: (cart) => dispatch(editCart(cart)),
     deleteCart: (cartId) => dispatch(deleteCart(cartId))
   }
 }
 
-export default connect(mSTP)(mDTP)(CartForm);
+export default connect(mSTP, mDTP)(CartForm);
