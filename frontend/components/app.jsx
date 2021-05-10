@@ -21,12 +21,12 @@ const App = () => (
         <button className="search-button"></button>
       </form>
       <NavBarContainer />
-      <Link to="/users/:userId/cart" className="shopping-cart"><button className="shopping-cart-button"/></Link>
+      <Link to="/cart" className="shopping-cart"><button className="shopping-cart-button"/></Link>
     </header>
     <Switch>
       <Route exact path="/" component={SplashContainer}/>
       <Route exact path="/products/:productId" component={ProductShowContainer}/>
-      <ProtectedRoute exact path="/users/:userId/cart" component={CartFormContainer}/>
+      <ProtectedRoute exact path="/cart" component={CartFormContainer}/>
       <Route path="*" component={() => "404 NOT FOUND "} />
     </Switch>
   </div>

@@ -50,6 +50,6 @@ require 'open-uri'
 # kda_img = open("http://lol-stats.net/uploads/cG86fgQqVM1tRBa9JbCVrH6AyxpsRBd0UrdiyzVh.jpeg")
 # Product.find(9).image.attach(io: kda_img, filename: "KDA_Pop/Stars_post.png")
 
-shopping_cart_1 = Cart.create({quantity: 1, buyer_id: 1, product_id: 1});
-shopping_cart_2 = Cart.create({quantity: 2, buyer_id: 1, product_id: 2});
-shopping_cart_3 = Cart.create({quantity: 1, buyer_id: 3, product_id: 3})
+# shopping_cart_1 = Cart.create({quantity: 1, buyer_id: 1, product_id: 1});
+# shopping_cart_2 = Cart.create({quantity: 2, buyer_id: 1, product_id: 2});
+# shopping_cart_3 = Cart.create({quantity: 1, buyer_id: 3, product_id: 3});

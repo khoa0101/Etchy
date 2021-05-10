@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { requestProduct } from '../../actions/product_actions'; 
-import { addToCart, editCart, deleteCart } from '../../actions/cart_actions';
+import { editCart, deleteCart } from '../../actions/cart_actions';
 import CartForm from './cart_form';
 
 const mSTP = (state) => {
@@ -11,7 +11,7 @@ const mSTP = (state) => {
 
 const mDTP = (dispatch) => {
   return {
-    // requestProduct: (productId) => dispatch(requestProduct(productId)),
+    requestProduct: (productId) => dispatch(requestProduct(productId)),
     editCart: (cart) => dispatch(editCart(cart)),
     deleteCart: (cartId) => dispatch(deleteCart(cartId))
   }
