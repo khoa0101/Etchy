@@ -4,11 +4,9 @@ class Api::CartsController < ApplicationController
 
   def create
     @cart = Cart.new(cart_params)
-    @cart.buyer_id = params[:buyer_id]
-    @cart.product_id = params[:product_id]
-
+    
     if @cart.save
-      render "api/users/show"
+      render "api/carts/show"
     else
       render json: @cart.errors.full_messages, status: 422
     end
@@ -19,7 +17,7 @@ class Api::CartsController < ApplicationController
     
     if current_user.id == @cart.buyer_id
       if @cart && @cart.update_attributes(cart_params)
-        render "api/users/show"
+        render "api/carts/show"
       else
         render json: @event.errors.full_messages, status: 422
       end

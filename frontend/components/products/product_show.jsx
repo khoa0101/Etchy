@@ -25,26 +25,45 @@ class ProductShow extends React.Component{
     e.preventDefault();
     const { currentUser } = this.props;
     const cart = Object.assign({}, this.state);
-    console.log(cart);
-    if (currentUser.carts.length < 1 || !currentUser.carts.includes(cart)){
+    const carts = currentUser.carts;
+    let index = undefined;
+    if (carts.length > 0){
+      for (let i = 0; i < carts.length; i++){
+        if (carts[i].product.id === cart.product_id){
+          index = i;
+        }
+      }
+    }
+
+    if (index === undefined){
       this.props.addToCart(cart);
     } else {
-      let index = currentUser.carts.findIndex(cart);
+      cart.quantity += carts[i].quantity; 
       this.props.editCart(cart);
     }
+  }
+
+  renderErrors() {
+    return (
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            { error }
+          </li>
+        ))}
+      </ul>
+    )
   }
 
 
   render(){
     if (!this.props.product) {return null};
-    console.log(this.props);
-    console.log(this.state);
     const { name, price, discount, sales, description, quantity, imageUrl } = this.props.product;
     const { username } = this.props.product.seller;
 
     const quanArr = (quantity) => {
       let arr = []
-      for(let i = 1; i <= quantity; i++){
+      for(let i = 0; i <= quantity; i++){
         arr.push(i);
       }
       return arr;
@@ -89,6 +108,7 @@ class ProductShow extends React.Component{
           <img className="display-image"src={imageUrl}/>
         </div>
         <div className="product-info">
+          {this.renderErrors()}
           <i className="product-seller">{username}</i>
           <br/>
           <i className="product-sales">{sales.toLocaleString()} sales</i>

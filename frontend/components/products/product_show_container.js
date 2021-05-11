@@ -6,7 +6,8 @@ import ProductShow from './product_show';
 const mSTP = (state, ownProps) => {
   return {
     product: state.entities.products[ownProps.match.params.productId],
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id],
+    errors: state.errors.carts
   }
 };
 
