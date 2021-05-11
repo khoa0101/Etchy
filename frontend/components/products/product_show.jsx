@@ -1,14 +1,44 @@
 import React from 'react';
 
 class ProductShow extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      product_id: this.props.match.params.productId,
+      buyer_id: this.props.currentUser.id,
+      quantity: 0
+    }
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
   componentDidMount(){
     this.props.requestProduct(this.props.match.params.productId);
   }
 
+  handleChange(field){
+    return e => this.setState({
+      [field]: e.target.value
+    });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const { currentUser } = this.props;
+    const cart = Object.assign({}, this.state);
+    console.log(cart);
+    if (currentUser.carts.length < 1 || !currentUser.carts.includes(cart)){
+      this.props.addToCart(cart);
+    } else {
+      let index = currentUser.carts.findIndex(cart);
+      this.props.editCart(cart);
+    }
+  }
+
+
   render(){
-
     if (!this.props.product) {return null};
-
+    console.log(this.props);
+    console.log(this.state);
     const { name, price, discount, sales, description, quantity, imageUrl } = this.props.product;
     const { username } = this.props.product.seller;
 
@@ -64,14 +94,16 @@ class ProductShow extends React.Component{
           <i className="product-sales">{sales.toLocaleString()} sales</i>
           <h1 className="product-name">{name}</h1>
           {discountInfo()}
-          <label>Quantity<br/>
-            <select>
-              {quanArr(quantity).map((option) => 
-                <option key={`opt-${option}`}>{option}</option>
-              )}
-            </select>
-          </label>
-          <button className="add-cart-button">Add to cart</button>
+          <form onSubmit={this.handleSubmit}>
+            <label>Quantity<br/>
+              <select onChange={this.handleChange('quantity')}>
+                {quanArr(quantity).map((option) => 
+                  <option key={`opt-${option}`}>{option}</option>
+                )}
+              </select>
+            </label>
+            <button className="add-cart-button">Add to cart</button>
+          </form>
           <h1 className="des-header">Description</h1>
           <p>{description}</p>
         </div>

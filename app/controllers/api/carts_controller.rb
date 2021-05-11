@@ -11,6 +11,7 @@ class Api::CartsController < ApplicationController
       render "api/users/show"
     else
       render json: @cart.errors.full_messages, status: 422
+    end
   end
 
   def update
@@ -34,6 +35,7 @@ class Api::CartsController < ApplicationController
 
   private
   def cart_params
-    self.params.require(:cart).permit(:quantity)
+    self.params.require(:cart).permit(:quantity, :buyer_id, :product_id)
   end
+
 end
