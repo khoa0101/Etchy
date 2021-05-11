@@ -28,7 +28,7 @@ class Api::CartsController < ApplicationController
     @cart = Cart.find(params[:id])
     @cart.destroy
 
-    render "api/user/show"
+    render "api/carts/show"
   end
 
   private

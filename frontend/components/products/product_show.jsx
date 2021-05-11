@@ -4,7 +4,7 @@ class ProductShow extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      product_id: this.props.match.params.productId,
+      product_id: parseInt(this.props.match.params.productId),
       buyer_id: this.props.currentUser.id,
       quantity: 0
     }
@@ -29,7 +29,7 @@ class ProductShow extends React.Component{
     let index = undefined;
     if (carts.length > 0){
       for (let i = 0; i < carts.length; i++){
-        if (carts[i].product.id === cart.product_id){
+        if (carts[i].product_id === cart.product_id){
           index = i;
         }
       }
@@ -38,7 +38,7 @@ class ProductShow extends React.Component{
     if (index === undefined){
       this.props.addToCart(cart);
     } else {
-      cart.quantity += carts[i].quantity; 
+      cart["quantity"] = cart.quantity + carts[index].quantity; 
       this.props.editCart(cart);
     }
   }
