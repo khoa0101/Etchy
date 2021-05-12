@@ -14,8 +14,7 @@ const mSTP = (state, ownProps) => {
 const mDTP = (dispatch) => {
   return {
     requestProduct: (productId) => dispatch(requestProduct(productId)),
-    addToCart: (cart) => dispatch(addToCart(cart)),
-    editCart: (cart) => dispatch(editCart(cart))
+    addToCart: (cart) => dispatch(addToCart(cart))
   }
 }
 

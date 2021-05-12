@@ -3,8 +3,18 @@ class Api::CartsController < ApplicationController
   before_action :require_logged_in
 
   def create
-    @cart = Cart.new(cart_params)
+    @cart = current_user.carts.find_by(product_id: cart_params[:product_id])
     
+    if @cart
+      if (@cart.quantity + cart_params[:quantity].to_i < @cart.product.quantity)
+        @cart.update_attribute(:quantity, @cart.quantity += cart_params[:quantity].to_i)
+      else
+        @cart.update_attribute(:quantity, @cart.quantity = @cart.product.quantity)
+      end    
+    else
+      @cart = Cart.new(cart_params)
+    end
+
     if @cart.save
       render "api/carts/show"
     else
