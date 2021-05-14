@@ -23,26 +23,8 @@ class ProductShow extends React.Component{
 
   handleSubmit(e) {
     e.preventDefault();
-    // const { currentUser } = this.props;
     const cart = Object.assign({}, this.state);
-    // const carts = currentUser.carts;
-    // let index = undefined;
-    // if (carts.length > 0){
-    //   for (let i = 0; i < carts.length; i++){
-    //     if (carts[i].product_id === cart.product_id){
-    //       index = i;
-    //     }
-    //   }
-    // }
-
-    // if (index === undefined){
-      this.props.addToCart(cart);
-    // } else {
-    //   console.log(cart);
-    //   cart["quantity"] = parseInt(cart.quantity) + parseInt(carts[index].quantity); 
-    //   console.log(cart);
-    //   // this.props.editCart(cart);
-    // }
+    this.props.addToCart(cart);
   }
 
   renderErrors() {
