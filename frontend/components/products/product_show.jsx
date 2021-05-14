@@ -3,9 +3,11 @@ import React from 'react';
 class ProductShow extends React.Component{
   constructor(props){
     super(props);
+    let current = this.props.currentUser;
+    let id = current ? current.id : 0 ;
     this.state = {
       product_id: parseInt(this.props.match.params.productId),
-      buyer_id: this.props.currentUser.id,
+      buyer_id: id,
       quantity: 0
     }
     this.handleSubmit = this.handleSubmit.bind(this);
