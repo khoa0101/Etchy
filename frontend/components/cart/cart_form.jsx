@@ -19,11 +19,13 @@ class CartForm extends React.Component{
       return (
        <div className="cart_page">
          <ul className="item_list">
-            {currentUser.carts.forEach(
+            {currentUser.carts.forEach(item => {
               <li className="item">
-                
+                <img src={item.imgUrl}/>
+                <h1 className="item-name">{item.name}</h1>
+                <i className="item-price">{item.price}</i>
               </li>
-            )}
+            })}
          </ul>
        </div> 
       )
