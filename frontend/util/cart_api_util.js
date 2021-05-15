@@ -1,3 +1,9 @@
+export const fetchCarts = () => (
+  $.ajax({
+    url: '/api/carts'
+  })
+)
+
 export const addToCart = (cart) => (
   $.ajax({
     url: '/api/carts',
@@ -6,14 +12,13 @@ export const addToCart = (cart) => (
   })
 )
 
-export const editCart = (cart) => {
-  console.log(cart);
-  return $.ajax({
+export const editCart = (cart) => (
+  $.ajax({
     url: `/api/cart/${cart.id}`,
     method: 'PATCH',
     data: { cart }
   })
-}
+)
 
 export const deleteCart = (cartId) => (
   $.ajax({

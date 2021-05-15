@@ -1,8 +1,15 @@
 import * as CartAPIUtil from '../util/cart_api_util';
-
+export const RECEIVE_CARTS = 'RECEIVE_CARTS';
 export const RECEIVE_CART = 'RECEIVE_CART';
 export const REMOVE_CART = 'REMOVE_CART';
 export const RECEIVE_CART_ERRORS = 'RECEIVE_CART_ERRORS';
+
+const receiveCarts = (carts) => {
+  return {
+    type: RECEIVE_CARTS,
+    carts
+  }
+}
 
 const receiveCart = (cart) => {
   return {
@@ -23,6 +30,12 @@ const receiveErrors = (errors) => {
     type: RECEIVE_CART_ERRORS,
     errors
   }
+}
+
+export const fetchCarts = () => dispatch => {
+  return CartAPIUtil.fetchCarts()
+    .then(carts => dispatch(receiveCarts(carts)),
+      err => dispatch(receiveErrors(err.responseJson)))
 }
 
 export const addToCart = (cart) => dispatch => {

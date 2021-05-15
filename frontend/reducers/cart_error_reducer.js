@@ -1,4 +1,4 @@
-import { RECEIVE_CART, REMOVE_CART, RECEIVE_CART_ERRORS } from '../actions/cart_actions';
+import { RECEIVE_CARTS, RECEIVE_CART, REMOVE_CART, RECEIVE_CART_ERRORS } from '../actions/cart_actions';
 import { RECEIVE_PRODUCTS, RECEIVE_PRODUCT} from '../actions/product_actions';
 
 export default (state = [], action) => {
@@ -6,6 +6,7 @@ export default (state = [], action) => {
   switch(action.type){
     case RECEIVE_CART_ERRORS:
       return action.errors;
+    case RECEIVE_CARTS:
     case RECEIVE_CART:
     case RECEIVE_PRODUCTS:
     case RECEIVE_PRODUCT:

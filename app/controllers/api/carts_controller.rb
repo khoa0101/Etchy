@@ -2,6 +2,12 @@ class Api::CartsController < ApplicationController
 
   before_action :require_logged_in
 
+  def index
+    @carts = Cart.all.includes(:product, :buyer)
+
+    render 'api/carts/index'
+  end
+
   def create
     @cart = current_user.carts.find_by(product_id: cart_params[:product_id])
     
