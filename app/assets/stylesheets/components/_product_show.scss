@@ -22,14 +22,21 @@
 
     .price-header{
       margin-top: 20px;
-      margin-bottom: 20px;  
+      margin-bottom: 20px;
+      .price-availibility{
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+      } 
       .current-price{
         font-size: 24px;
         font-weight: bold;
+        margin-right: 5px;
       }
       .original-price{
         text-decoration: line-through;
         color: rgb(160, 160, 160);
+        flex-grow: 2;
         font-size: 18px;
       }
       .saving, .discount{

@@ -8,7 +8,7 @@ class ProductShow extends React.Component{
     this.state = {
       product_id: parseInt(this.props.match.params.productId),
       buyer_id: id,
-      quantity: 0
+      quantity: 1
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -49,7 +49,7 @@ class ProductShow extends React.Component{
 
     const quanArr = (quantity) => {
       let arr = []
-      for(let i = 0; i <= quantity; i++){
+      for(let i = 1; i <= quantity; i++){
         arr.push(i);
       }
       return arr;
@@ -58,12 +58,13 @@ class ProductShow extends React.Component{
     let avalibility;
 
     if (quantity > 0) { 
-      avalibility = <i className="fal fa-check"></i>  
+      avalibility = <i className="fal fa-check">✓ In stock</i>  
     }
 
     const originalPrice = (
-      <div className="price-avalibility">
+      <div className="price-availibility">
         <i className="current-price">${(price * ((100 - discount)/100)).toFixed(2)} </i>
+        <i className="original-price"> ${(price).toFixed(2)} </i>
         {avalibility}
       </div>)
 
@@ -72,7 +73,6 @@ class ProductShow extends React.Component{
         return (
           <div className="price-header">
             {originalPrice}
-            <i className="original-price"> ${(price).toFixed(2)} </i>
             <br/>
             <i className="saving">You save ${(price * (discount/100)).toFixed(2)}</i>
             <i className="discount">({discount}% off)</i>
