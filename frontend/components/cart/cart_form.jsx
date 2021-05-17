@@ -6,9 +6,29 @@ class CartForm extends React.Component{
     this.props.fetchCarts();
   }
 
+  subtotal(){
+
+  }
+
+  handleDelete(cartId){
+    this.props.deleteCart(cartId);
+  }
+  handleChange(field){
+
+  }
+
   render(){
     const { currentUser } = this.props;
     const cartItems = Object.values(this.props.cartItems);
+
+    const quanArr = (quantity) => {
+      let arr = []
+      for(let i = 1; i <= quantity; i++){
+        arr.push(i);
+      }
+      return arr;
+    }
+
     if (currentUser.carts.length === 0){
       return (
         <div className="empty_cart_page">
@@ -21,14 +41,18 @@ class CartForm extends React.Component{
       return (
        <div className="cart_page">
          <ul className="item_list">
+            <h1 className="cart-header">{currentUser.carts.length} {currentUser.carts.length > 1 ? "items" : "item"} in cart.</h1>
             {cartItems.map(item => (
               <li key={`item-${item.id}`} className="item">
-                <img src={item.imgUrl}/>
+                <img src={item.imageUrl}/>
                 <h1 className="item-name">{item.product.name}</h1>
-                <i className="item-price">{item.product.price}</i>
-                <option className="item-option"></option>
-                <input type=""/>
-                <button className="remove-item" onClick={this.props.deleteCart(item.id)}>Remove</button>
+                <i className="item-price">{(item.product.price).toFixed(2)}</i>
+                <select onChange={this.handleChange('quantity')}>
+                  {quanArr(item.product.quantity).map((option) => 
+                    <option key={`opt-${option}`}>{option}</option>
+                  )}
+                </select>
+                <button className="remove-item" onClick={this.handleDelete(item.id)}>Remove</button>
               </li>
             ))}
          </ul>
@@ -36,7 +60,8 @@ class CartForm extends React.Component{
           <h1>How you'll pay</h1>
           <input type="radio"></input>
           <input type="radio"></input>
-          <button className="paymentSubmit">Checkout</button>
+          <input type="radio"></input>
+          <button className="paymentSubmit">Proceed to checkout</button>
          </div>
        </div> 
       )
