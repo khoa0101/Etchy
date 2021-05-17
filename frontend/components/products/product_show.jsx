@@ -55,16 +55,20 @@ class ProductShow extends React.Component{
       return arr;
     }
 
-    let avalibility;
+    let avalibility, originalPrice ;
 
     if (quantity > 0) { 
       avalibility = <i className="fal fa-check">✓ In stock</i>  
     }
 
-    const originalPrice = (
+    if (discount != 0){
+      originalPrice = <i className="original-price"> ${(price).toFixed(2)} </i>
+    }
+
+    const currentPrice = (
       <div className="price-availibility">
         <i className="current-price">${(price * ((100 - discount)/100)).toFixed(2)} </i>
-        <i className="original-price"> ${(price).toFixed(2)} </i>
+        {originalPrice}
         {avalibility}
       </div>)
 
@@ -72,7 +76,7 @@ class ProductShow extends React.Component{
       if (discount != 0){
         return (
           <div className="price-header">
-            {originalPrice}
+            {currentPrice}
             <br/>
             <i className="saving">You save ${(price * (discount/100)).toFixed(2)}</i>
             <i className="discount">({discount}% off)</i>
@@ -82,7 +86,7 @@ class ProductShow extends React.Component{
       else {
         return (
         <div className="price-header">
-          {originalPrice}
+          {currentPrice}
         </div>);
       }
     }
