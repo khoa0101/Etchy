@@ -26,7 +26,8 @@ class ProductShow extends React.Component{
   handleSubmit(e) {
     e.preventDefault();
     const cart = Object.assign({}, this.state);
-    this.props.addToCart(cart);
+    this.props.addToCart(cart).then(this.props.history.push("/cart"));
+    // this.props.push("/cart");
   }
 
   renderErrors() {

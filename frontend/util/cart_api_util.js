@@ -14,7 +14,7 @@ export const addToCart = (cart) => (
 
 export const editCart = (cart) => (
   $.ajax({
-    url: `/api/cart/${cart.id}`,
+    url: `/api/carts/${cart.id}`,
     method: 'PATCH',
     data: { cart }
   })
@@ -22,7 +22,7 @@ export const editCart = (cart) => (
 
 export const deleteCart = (cartId) => (
   $.ajax({
-    url: `/api/cart/${cartId}`,
+    url: `/api/carts/${cartId}`,
     method: 'DELETE'
   })
 )

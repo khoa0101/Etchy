@@ -2,25 +2,32 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 class CartForm extends React.Component{
+  constructor(props){
+    super(props);
+
+  }
+  
   componentDidMount(){
     this.props.fetchCarts();
   }
 
   subtotal(){
-
+    
   }
 
   handleDelete(cartId){
     this.props.deleteCart(cartId);
   }
+
   handleChange(field){
 
   }
 
   render(){
     const { currentUser } = this.props;
-    const cartItems = Object.values(this.props.cartItems);
-
+    let cartItems = Object.values(this.props.cartItems);
+    cartItems = cartItems.filter(item => item.buyer.id === currentUser.id);
+    
     const quanArr = (quantity) => {
       let arr = []
       for(let i = 1; i <= quantity; i++){
@@ -29,7 +36,7 @@ class CartForm extends React.Component{
       return arr;
     }
 
-    if (currentUser.carts.length === 0){
+    if (cartItems.length === 0){
       return (
         <div className="empty_cart_page">
           <h1>Your cart is empty.</h1>
@@ -47,12 +54,12 @@ class CartForm extends React.Component{
                 <img src={item.imageUrl}/>
                 <h1 className="item-name">{item.product.name}</h1>
                 <i className="item-price">{(item.product.price).toFixed(2)}</i>
-                <select onChange={this.handleChange('quantity')}>
+                <select value={item.quantity} onChange={this.handleChange('quantity')}>
                   {quanArr(item.product.quantity).map((option) => 
                     <option key={`opt-${option}`}>{option}</option>
                   )}
                 </select>
-                <button className="remove-item" onClick={this.handleDelete(item.id)}>Remove</button>
+                <button className="remove-item" onClick={() => this.handleDelete(item.id)}>Remove</button>
               </li>
             ))}
          </ul>
