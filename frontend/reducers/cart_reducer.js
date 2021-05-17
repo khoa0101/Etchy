@@ -1,4 +1,4 @@
-import { RECEIVE_CARTS, RECEIVE_CART, REMOVE_CART } from '../actions/product_actions'
+import { RECEIVE_CARTS, RECEIVE_CART, REMOVE_CART } from '../actions/product_actions';
 
 const cartReducers = (state = {}, action) => {
   Object.freeze(state);

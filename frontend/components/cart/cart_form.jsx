@@ -2,9 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 class CartForm extends React.Component{
+  componentDidMount(){
+    this.props.fetchCarts();
+  }
+
   render(){
     const { currentUser } = this.props;
-    console.log(currentUser.carts);
+    const cartItems = Object.values(this.props.cartItems);
     if (currentUser.carts.length === 0){
       return (
         <div className="empty_cart_page">
@@ -19,11 +23,11 @@ class CartForm extends React.Component{
       return (
        <div className="cart_page">
          <ul className="item_list">
-            {currentUser.carts.map(item => (
+            {cartItems.map(item => (
               <li key={`item-${item.id}`} className="item">
                 <img src={item.imgUrl}/>
-                <h1 className="item-name">{item.name}</h1>
-                <i className="item-price">{item.price}</i>
+                <h1 className="item-name">{item.product.name}</h1>
+                <i className="item-price">{item.product.price}</i>
               </li>
             ))}
          </ul>

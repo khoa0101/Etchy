@@ -24,3 +24,12 @@ button {
     box-shadow: 0 0 5px 10px rgba(0, 0, 0, 0.05);
   }
 }
+
+.error-page{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  font-family: 'Gaurdian Egyptian Headline', Georgia, serif;
+  font-size: 70px;
+  padding: 20vh 20vh;
+}

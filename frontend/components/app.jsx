@@ -27,7 +27,7 @@ const App = () => (
       <Route exact path="/" component={SplashContainer}/>
       <Route exact path="/products/:productId" component={ProductShowContainer}/>
       <ProtectedRoute exact path="/cart" component={CartFormContainer}/>
-      <Route path="*" component={() => "404 NOT FOUND "} />
+      <Route path="*" component={() => <div className="error-page">404 NOT FOUND</div>} />
     </Switch>
   </div>
 );
