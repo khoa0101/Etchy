@@ -48,13 +48,13 @@ class CartForm extends React.Component{
       return (
        <div className="cart_page">
          <ul className="item_list">
-            <h1 className="cart-header">{currentUser.carts.length} {currentUser.carts.length > 1 ? "items" : "item"} in cart.</h1>
+            <h1 className="cart-header">{cartItems.length} {cartItems.length > 1 ? "items" : "item"} in cart.</h1>
             {cartItems.map(item => (
               <li key={`item-${item.id}`} className="item">
                 <img src={item.imageUrl}/>
                 <h1 className="item-name">{item.product.name}</h1>
                 <i className="item-price">{(item.product.price).toFixed(2)}</i>
-                <select value={item.quantity} onChange={this.handleChange('quantity')}>
+                <select defaultalue={item.quantity} onChange={this.handleChange('quantity')}>
                   {quanArr(item.product.quantity).map((option) => 
                     <option key={`opt-${option}`}>{option}</option>
                   )}
