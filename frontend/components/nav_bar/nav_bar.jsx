@@ -13,7 +13,9 @@ const NavBar = ({ currentUser, logout, openModal }) => {
     </nav>
   );   
 
-    return (currentUser ? dropdown() : sessionButton());
+    return (
+      (currentUser ? dropdown() : sessionButton())
+      );
 }
 
 export default NavBar;

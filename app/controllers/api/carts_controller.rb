@@ -35,7 +35,7 @@ class Api::CartsController < ApplicationController
       if @cart && @cart.update_attributes(cart_params)
         render "api/carts/show"
       else
-        render json: @event.errors.full_messages, status: 422
+        render json: @cart.errors.full_messages, status: 422
       end
     end
   end

@@ -4,23 +4,29 @@ import { Link } from 'react-router-dom';
 class CartForm extends React.Component{
   constructor(props){
     super(props);
-
   }
   
   componentDidMount(){
     this.props.fetchCarts();
   }
 
-  subtotal(){
-    
-  }
-
   handleDelete(cartId){
     this.props.deleteCart(cartId);
   }
 
-  handleChange(field){
-
+  handleChange(item){
+    return e => {
+      const target = e.target;
+      const value = target.value;
+      const oldItem = item;
+      const newItem = {
+        id: item.id,
+        product_id: oldItem.product.id,
+        quantity: value,
+        buyer_id: oldItem.buyer.id,
+      };
+      this.props.editCart(newItem);
+    }
   }
 
   render(){
@@ -52,22 +58,33 @@ class CartForm extends React.Component{
             {cartItems.map(item => (
               <li key={`item-${item.id}`} className="item">
                 <img src={item.imageUrl}/>
-                <h1 className="item-name">{item.product.name}</h1>
-                <i className="item-price">{(item.product.price).toFixed(2)}</i>
-                <select defaultalue={item.quantity} onChange={this.handleChange('quantity')}>
-                  {quanArr(item.product.quantity).map((option) => 
-                    <option key={`opt-${option}`}>{option}</option>
-                  )}
-                </select>
-                <button className="remove-item" onClick={() => this.handleDelete(item.id)}>Remove</button>
+                <div className="item-info">
+                  <h1 className="item-name">{item.product.name}</h1>
+                  <select defaultValue={item.quantity} onChange={this.handleChange(item)}>
+                    {quanArr(item.product.quantity).map((option) => 
+                      <option key={`opt-${option}`}>{option}</option>
+                    )}
+                  </select>
+                  <div className="item-price-info">
+                    <i className="item-price">${((item.product.price - (item.product.price * (item.product.discount / 100))) * item.quantity).toFixed(2)}</i>
+                    {item.product.discount > 0 ? <i className="item-original-price">${(item.product.price).toFixed(2)}</i> : ""}
+                    {item.quantity > 1 ? <i className="item-price-per">
+                      (${(item.product.price - (item.product.price * (item.product.discount / 100))).toFixed(2)} each)</i> : ""}
+                    {item.product.discount > 0 ? <i className="item-discount"><i className="important">Sale:</i> {item.product.discount}% off</i> : ""}
+                  </div>
+                  <button className="remove-item" onClick={() => this.handleDelete(item.id)}>Remove</button>
+                </div>
               </li>
             ))}
          </ul>
          <div className="payment-container">
           <h1>How you'll pay</h1>
-          <input type="radio"></input>
-          <input type="radio"></input>
-          <input type="radio"></input>
+          <label htmlFor="payment-type">
+            <input name="payment-type" type="radio"></input>
+            <input name="payment-type" type="radio"></input>
+            <input name="payment-type" type="radio"></input>
+          </label>
+
           <button className="paymentSubmit">Proceed to checkout</button>
          </div>
        </div> 

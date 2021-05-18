@@ -20,3 +20,74 @@
     }
   }
 }
+
+.cart_page{
+  display: flex;
+  flex-direction: row;
+  .cart-header{
+    margin: 20px 0;
+    color: black;
+    font-family: 'Gaurdian Egyptian Headline', Georgia, serif;
+    font-size: 30px;
+  }
+  ul{
+    list-style: none;
+    margin-right: 10px;
+    li{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      color: black;
+      height: 30vh;
+      width: 100vh;
+      margin: 10px 0;
+      img{
+        object-fit: cover;
+        max-height: 200px;
+        max-width: 200px;
+      }
+      .item-info{
+        flex-grow: 2;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        h1{
+          flex-grow: 2;
+          font-size: 20px;
+        }
+        select{
+          height: 40px;
+        }
+        .item-price-info{
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          .item-price{
+            font-size: 20px;
+            font-weight: bold;
+          }
+          .item-original-price{
+            text-decoration: line-through;
+            color: gray;
+            font-weight: lighter;
+          }
+          .item-discount{
+            margin-top: 30px;
+            font-size: 18px;
+            color: green;
+            .important{
+              font-weight: bold;
+            }
+          }
+        }
+        button{
+          text-align: center;
+          height: 20px;
+          width: 50px;
+        }
+      }
+    }
+  }
+  .payment-container{
+    margin: 20px;
+  }
+}

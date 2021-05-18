@@ -16,6 +16,10 @@ const Modal = ({ modal, closeModal }) => {
     case 'Signup':
       component = <SignupFormContainer />;
       break;
+    case 'SignInMessage':
+      component = (
+        <h1>Please sign in!</h1>
+      )
     default: return null;
   }
 

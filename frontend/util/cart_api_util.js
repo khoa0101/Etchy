@@ -12,13 +12,14 @@ export const addToCart = (cart) => (
   })
 )
 
-export const editCart = (cart) => (
-  $.ajax({
+export const editCart = (cart) => {
+  console.log(cart)
+  return $.ajax({
     url: `/api/carts/${cart.id}`,
     method: 'PATCH',
     data: { cart }
   })
-)
+}
 
 export const deleteCart = (cartId) => (
   $.ajax({
