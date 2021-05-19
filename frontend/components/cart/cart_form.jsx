@@ -70,9 +70,9 @@ class CartForm extends React.Component{
                     {item.product.discount > 0 ? <i className="item-original-price">${(item.product.price).toFixed(2)}</i> : ""}
                     {item.quantity > 1 ? <i className="item-price-per">
                       (${(item.product.price - (item.product.price * (item.product.discount / 100))).toFixed(2)} each)</i> : ""}
-                    {item.product.discount > 0 ? <i className="item-discount"><i className="important">Sale:</i> {item.product.discount}% off</i> : ""}
                   </div>
                   <button className="remove-item" onClick={() => this.handleDelete(item.id)}>Remove</button>
+                  {item.product.discount > 0 ? <i className="item-discount"><i className="important">Sale:</i> {item.product.discount}% off</i> : ""}
                 </div>
               </li>
             ))}

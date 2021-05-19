@@ -50,11 +50,14 @@
         flex-grow: 2;
         display: grid;
         grid-template-columns: 2fr 1fr 1fr;
+        grid-gap: 5px;
         .item-name{
           font-size: 20px;
         }
         select{
           height: 40px;
+          border-width: 3px;
+          border-radius: 5px;
         }
         .item-price-info{
           display: flex;
@@ -69,19 +72,21 @@
             color: gray;
             font-weight: lighter;
           }
-          .item-discount{
-            margin-top: 30px;
-            font-size: 18px;
-            color: green;
-            .important{
-              font-weight: bold;
-            }
-          }
         }
         button{
           text-align: center;
           height: 20px;
           width: 50px;
+        }
+        .item-discount{
+          justify-self: flex-end;
+          grid-row: 2;
+          grid-column: 3;
+          font-size: 18px;
+          color: green;
+          .important{
+            font-weight: bold;
+          }
         }
       }
     }
