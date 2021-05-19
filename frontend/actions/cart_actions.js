@@ -1,3 +1,4 @@
+import { ReactReduxContext } from 'react-redux';
 import * as CartAPIUtil from '../util/cart_api_util';
 export const RECEIVE_CARTS = 'RECEIVE_CARTS';
 export const RECEIVE_CART = 'RECEIVE_CART';
@@ -38,9 +39,12 @@ export const fetchCarts = () => dispatch => {
       err => dispatch(receiveErrors(err.responseJson)))
 }
 
-export const addToCart = (cart) => dispatch => {
+export const addToCart = (cart, reroute) => dispatch => {
   return CartAPIUtil.addToCart(cart)
-    .then(cart => dispatch(receiveCart(cart)),
+    .then((cart) => { 
+      dispatch(receiveCart(cart));
+      reroute();
+    },
       err => dispatch(receiveErrors(err.responseJSON)))
 }
 

@@ -93,14 +93,14 @@ class CartForm extends React.Component{
             <i>Item(s) total</i>
             <i>${itemTotal.toFixed(2)}</i>
             <i>Discount</i>
-            <i>- ${itemDiscount.toFixed(2)}</i>          
+            <i>{itemDiscount > 0 ? "-" : "" }${itemDiscount.toFixed(2)}</i>          
           </div>
           <div className="subtotal-container">
             <i><i className="important">Subtotal</i></i>
             <i>${(itemTotal - itemDiscount).toFixed(2)}</i>
             <i>Shipping</i><i>FREE</i>
           </div>
-          <button className="paymentSubmit">Proceed to checkout</button>
+          <button className="payment-submit">Proceed to checkout</button>
          </div>
        </div> 
       )
