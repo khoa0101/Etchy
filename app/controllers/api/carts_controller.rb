@@ -1,7 +1,6 @@
 class Api::CartsController < ApplicationController
 
-  before_action :require_logged_in
-
+  before_action :require_logged_in, only: [:create, :update, :delete]
   def index
     @carts = Cart.all.includes(:product, :buyer)
 

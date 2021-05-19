@@ -1,8 +1,5 @@
 class Api::ProductsController < ApplicationController
   
-  before_action :require_logged_in, only: [:create, :update, :delete]
-
-  
   def index
     @products = Product.all.includes(:seller)
     
