@@ -6,6 +6,10 @@ class CartNav extends React.Component{
     super(props);
   }
 
+  componentWillMount(){
+    this.props.fetchCarts();
+  }
+
   render(){
     const { currentUser } = this.props;
 
@@ -17,8 +21,13 @@ class CartNav extends React.Component{
     else{ 
       let cartItems = Object.values(this.props.cartItems);
       cartItems = cartItems.filter(item => item.buyer.id === currentUser.id);
+      let count = cartItems.length;
       return (
-        <Link to="/cart" className="shopping-cart"><button className="shopping-cart-button"/></Link>
+        <Link to="/cart" className="shopping-cart">
+          <button className="shopping-cart-button">
+            {count > 0 ? <span className="items-in-cart">{count}</span> : ""}
+          </button>
+        </Link>
       )
     }
   }

@@ -43,9 +43,10 @@
       margin: 10px 0;
       img{
         object-fit: cover;
-        max-height: 200px;
-        max-width: 200px;
+        height: 200px;
+        width: 200px;
         margin-right: 5px;
+        border-radius: 5px;
       }
       .item-info{
         flex-grow: 2;

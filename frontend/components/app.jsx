@@ -21,7 +21,6 @@ const App = () => (
         <button className="search-button"></button>
       </form>
       <NavBarContainer />
-      {/* <Link to="/cart" className="shopping-cart"><button className="shopping-cart-button"/></Link> */}
     </header>
     <Switch>
       <Route exact path="/" component={SplashContainer}/>
