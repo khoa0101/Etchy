@@ -57,7 +57,7 @@ class CartForm extends React.Component{
             <h1 className="cart-header">{cartItems.length} {cartItems.length > 1 ? "items" : "item"} in cart.</h1>
             {cartItems.map(item => (
               <li key={`item-${item.id}`} className="item">
-                <img src={item.imageUrl}/>
+                <Link to={`/products/${item.product.id}`}><img src={item.imageUrl}/></Link>
                 <div className="item-info">
                   <Link to={`/products/${item.product.id}`} className="item-name">{item.product.name}</Link>
                   <select defaultValue={item.quantity} onChange={this.handleChange(item)}>
