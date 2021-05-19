@@ -33,7 +33,12 @@ class CartForm extends React.Component{
     const { currentUser } = this.props;
     let cartItems = Object.values(this.props.cartItems);
     cartItems = cartItems.filter(item => item.buyer.id === currentUser.id);
-    
+    const itemTotal = cartItems.reduce((accumulator, cartItem) => 
+      accumulator + (cartItem.product.price * cartItem.quantity), 0);
+    const itemDiscount = cartItems.reduce((accumulator, cartItem) => (
+      accumulator + ((cartItem.product.price * (cartItem.product.discount / 100) * cartItem.quantity))
+    ), 0)
+
     const quanArr = (quantity) => {
       let arr = []
       for(let i = 1; i <= quantity; i++){
@@ -84,7 +89,17 @@ class CartForm extends React.Component{
             <input name="payment-type" type="radio"></input>
             <input name="payment-type" type="radio"></input>
           </label>
-
+          <div>
+            <i>Item(s) total</i>
+            <i>${itemTotal.toFixed(2)}</i>
+            <i>Discount</i>
+            <i>- ${itemDiscount.toFixed(2)}</i>          
+          </div>
+          <div className="subtotal-container">
+            <i><i className="important">Subtotal</i></i>
+            <i>${(itemTotal - itemDiscount).toFixed(2)}</i>
+            <i>Shipping</i><i>FREE</i>
+          </div>
           <button className="paymentSubmit">Proceed to checkout</button>
          </div>
        </div> 
