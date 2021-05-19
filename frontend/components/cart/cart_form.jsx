@@ -1,5 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {
+  FaCcVisa,
+  FaCcMastercard,
+  FaCcDiscover,
+  FaCcAmex,
+  FaCcPaypal,
+} from "react-icons/fa";
 
 class CartForm extends React.Component{
   constructor(props){
@@ -85,9 +92,18 @@ class CartForm extends React.Component{
          <div className="payment-container">
           <h1>How you'll pay</h1>
           <label htmlFor="payment-type">
-            <input name="payment-type" type="radio"></input>
-            <input name="payment-type" type="radio"></input>
-            <input name="payment-type" type="radio"></input>
+            <label htmlFor="credit">
+              <input name="payment-type" id="credit" type="radio"/>
+              <FaCcVisa size={32} color="#1A1F71"/>
+              <FaCcMastercard size={32} color="#EB001B"/>
+              <FaCcDiscover size={32} color="#eb8f34"/>
+              <FaCcAmex size={32} color="#2671B9"/>
+            </label>
+            <label htmlFor="paypal">
+              <input name="payment-type" id="paypal" type="radio"/>
+              <FaCcPaypal size={32} color="#0079C1"/>
+            </label>
+
           </label>
           <div>
             <i>Item(s) total</i>

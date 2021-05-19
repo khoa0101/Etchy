@@ -58,7 +58,7 @@ class ProductShow extends React.Component{
     let avalibility, originalPrice ;
 
     if (quantity > 0) { 
-      avalibility = <i className="fal fa-check">✓ In stock</i>  
+      avalibility = <i>✓ In stock</i>  
     }
 
     if (discount != 0){
