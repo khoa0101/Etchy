@@ -5,6 +5,11 @@ header {
   justify-content: space-between;
   align-items: center;
   border-bottom: 3px solid rgb(223, 223, 223);
+  div{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1em;
+  }
 }
 
 .header-link{
@@ -36,7 +41,7 @@ button.shopping-cart-button{
   }
   .search-button{
     padding: 15px 20px;
-    padding: 20px;
+    padding: 20px 40px;
     border: solid 2px rgb(184, 184, 184);
     border-left: none;
     border-top-right-radius: 50px ;

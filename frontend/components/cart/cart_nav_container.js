@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { fetchCarts } from '../../actions/cart_actions';
 import { openModal, closeModal } from '../../actions/modal_actions';
-import CartForm from './cart_form';
+import CartNav from './cart_nav';
 
 const mSTP = (state) => {
   return {
@@ -18,4 +18,4 @@ const mDTP = (dispatch) => {
   }
 }
 
-export default connect(mSTP, mDTP)(CartForm);
+export default connect(mSTP, mDTP)(CartNav);
