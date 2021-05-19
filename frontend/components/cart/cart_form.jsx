@@ -59,7 +59,7 @@ class CartForm extends React.Component{
               <li key={`item-${item.id}`} className="item">
                 <img src={item.imageUrl}/>
                 <div className="item-info">
-                  <h1 className="item-name">{item.product.name}</h1>
+                  <Link to={`/products/${item.product.id}`} className="item-name">{item.product.name}</Link>
                   <select defaultValue={item.quantity} onChange={this.handleChange(item)}>
                     {quanArr(item.product.quantity).map((option) => 
                       <option key={`opt-${option}`}>{option}</option>
