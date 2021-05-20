@@ -8,6 +8,7 @@ import {
   FaCcPaypal,
 } from "react-icons/fa";
 
+
 class CartForm extends React.Component{
   constructor(props){
     super(props);
@@ -34,6 +35,13 @@ class CartForm extends React.Component{
       };
       this.props.editCart(newItem);
     }
+  }
+
+  handleSubmit(cart){
+    cart.forEach((item) => {
+      this.props.deleteCart(item.id);
+    });
+    this.props.openModal("CheckoutMessage");
   }
 
   render(){
@@ -117,7 +125,7 @@ class CartForm extends React.Component{
             <i id="subtotal">${(itemTotal - itemDiscount).toFixed(2)}</i>
             <i id="shipping-label">Shipping</i><i id="shipping-total">FREE</i>
           </div>
-          <button className="payment-submit">Proceed to checkout</button>
+          <button className="payment-submit" onClick={() => this.handleSubmit(cartItems)}>Proceed to checkout</button>
          </div>
        </div> 
       )
