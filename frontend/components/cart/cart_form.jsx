@@ -91,30 +91,31 @@ class CartForm extends React.Component{
          </ul>
          <div className="payment-container">
           <h1>How you'll pay</h1>
-          <label htmlFor="payment-type">
+          <label className="payment-type" htmlFor="payment-type">
             <label htmlFor="credit">
               <input name="payment-type" id="credit" type="radio"/>
-              <FaCcVisa size={32} color="#1A1F71"/>
-              <FaCcMastercard size={32} color="#EB001B"/>
-              <FaCcDiscover size={32} color="#eb8f34"/>
-              <FaCcAmex size={32} color="#2671B9"/>
+              <span className="radio-button"/>
+              <FaCcVisa size={40} color="#1A1F71"/>
+              <FaCcMastercard size={40} color="#EB001B"/>
+              <FaCcDiscover size={40} color="#F9A021"/>
+              <FaCcAmex size={40} color="#2671B9"/>
             </label>
             <label htmlFor="paypal">
               <input name="payment-type" id="paypal" type="radio"/>
-              <FaCcPaypal size={32} color="#0079C1"/>
+              <span className="radio-button"/>
+              <FaCcPaypal size={40} color="#0079C1"/>
             </label>
-
           </label>
-          <div>
-            <i>Item(s) total</i>
-            <i>${itemTotal.toFixed(2)}</i>
-            <i>Discount</i>
-            <i>{itemDiscount > 0 ? "-" : "" }${itemDiscount.toFixed(2)}</i>          
+          <div className="total-discount-container">
+            <i id="og-label">Item(s) total</i>
+            <i id="og-total">${itemTotal.toFixed(2)}</i>
+            <i id="dis-lable">Discount</i>
+            <i id="dis-total">{itemDiscount > 0 ? "-" : "" }${itemDiscount.toFixed(2)}</i>          
           </div>
           <div className="subtotal-container">
-            <i><i className="important">Subtotal</i></i>
-            <i>${(itemTotal - itemDiscount).toFixed(2)}</i>
-            <i>Shipping</i><i>FREE</i>
+            <i id="subtotal-label"><i className="important">Subtotal</i></i>
+            <i id="subtotal">${(itemTotal - itemDiscount).toFixed(2)}</i>
+            <i id="shipping-label">Shipping</i><i id="shipping-total">FREE</i>
           </div>
           <button className="payment-submit">Proceed to checkout</button>
          </div>

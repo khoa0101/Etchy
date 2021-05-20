@@ -101,8 +101,8 @@ class ProductShow extends React.Component{
           {this.renderErrors()}
           <i className="product-seller">{username}</i>
           <br/>
-          <i className="product-sales">{sales.toLocaleString()} sales</i>
           <h1 className="product-name">{name}</h1>
+          <i className="product-sales">{sales > 0 ? sales.toLocaleString() + " sales" : ""}</i>
           {discountInfo()}
           <form onSubmit={this.handleSubmit}>
             <label>Quantity<br/>
