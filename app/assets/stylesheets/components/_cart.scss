@@ -35,14 +35,15 @@
     padding: 0;
     align-self: flex-start;
     list-style: none;
-    margin-right: 10px;
+    margin-right: 30px;
     li{
+      justify-self: center;
+      // align-self: center;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       color: black;
       height: 30vh;
-      width: 100vh;
       margin: 10px 0;
       img{
         object-fit: cover;
@@ -63,6 +64,7 @@
           height: 40px;
           border-width: 3px;
           border-radius: 5px;
+          border-color:rgb(197, 197, 197);
         }
         .item-price-info{
           display: flex;
@@ -96,7 +98,7 @@
   .payment-container{
     margin: 70px 30px;
     padding: 20px;
-    width: 350px;
+    width: 50vh;
     max-height: 300px;
     box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.05);
     border-radius: 20px;

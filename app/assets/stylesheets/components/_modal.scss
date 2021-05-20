@@ -124,6 +124,29 @@
   }
 }
 
+.checkout-message{
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 20px;
+  justify-content: center;
+  padding: 20px;
+  h1{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  p{
+    a{
+      text-decoration: underline;
+      &:hover{
+        color: #f1641e;
+      }
+    }
+  }
+}
+
 ul {
   color: red;
   padding-left: 5%;
