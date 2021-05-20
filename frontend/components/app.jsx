@@ -28,6 +28,9 @@ const App = () => (
       <ProtectedRoute exact path="/cart" component={CartFormContainer}/>
       <Route path="*" component={() => <div className="error-page">404 NOT FOUND</div>} />
     </Switch>
+    <footer>
+      {/* <FooterContainer /> */}
+    </footer>
   </div>
 );
 

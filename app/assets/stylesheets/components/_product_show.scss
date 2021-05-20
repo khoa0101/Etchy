@@ -1,9 +1,6 @@
 .product-show{
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
   margin: 20px 5%;
   color: #222;
   .product-info{
