@@ -59,12 +59,16 @@
         grid-gap: 5px;
         .item-name{
           font-size: 20px;
+          &:hover{
+            text-decoration: underline;
+          }
         }
         select{
           height: 40px;
-          border-width: 3px;
+          border-width: 1px;
           border-radius: 5px;
           border-color:rgb(197, 197, 197);
+          box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.05); ;
         }
         .item-price-info{
           display: flex;
