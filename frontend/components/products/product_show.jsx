@@ -3,11 +3,8 @@ import React from 'react';
 class ProductShow extends React.Component{
   constructor(props){
     super(props);
-    let current = this.props.currentUser;
-    let id = current ? current.id : 0 ;
     this.state = {
       product_id: parseInt(this.props.match.params.productId),
-      buyer_id: id,
       quantity: 1
     }
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,8 +22,13 @@ class ProductShow extends React.Component{
 
   handleSubmit(e) {
     e.preventDefault();
-    const cart = Object.assign({}, this.state);
-  this.props.addToCart(cart, () => this.props.history.push("/cart"));
+    console.log(this.props.currentUserId);
+    if(!this.props.currentUserId){
+      this.props.openModal("SignInMessage");
+    }else{
+      this.setState({ buyer_id: this.props.currentUserId }, 
+        () => this.props.addToCart(this.state, () => this.props.history.push("/cart")));
+    }
   }
 
 
