@@ -31,6 +31,7 @@ class CartNav extends React.Component{
       )
     }
   }
+
 }
 
 export default CartNav;
