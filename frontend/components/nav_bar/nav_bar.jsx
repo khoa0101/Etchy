@@ -1,4 +1,5 @@
 import React from 'react';
+import CartNavContainer from '../cart/cart_nav_container';
 
 const NavBar = ({ currentUser, logout, openModal }) => {
   const sessionButton = () => (
@@ -13,7 +14,12 @@ const NavBar = ({ currentUser, logout, openModal }) => {
     </nav>
   );   
 
-    return (currentUser ? dropdown() : sessionButton());
+    return (
+      <div>
+        {currentUser ? dropdown() : sessionButton()}
+        <CartNavContainer />
+      </div>
+      );
 }
 
 export default NavBar;

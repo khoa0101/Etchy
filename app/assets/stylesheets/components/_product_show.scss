@@ -1,13 +1,10 @@
 .product-show{
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  margin: 20px 10%;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  margin: 20px 5%;
   color: #222;
   .product-info{
-    max-width: 300px;
+    width: 400px;
     .product-seller{
       font-size: 16px;
     }
@@ -22,14 +19,22 @@
 
     .price-header{
       margin-top: 20px;
-      margin-bottom: 20px;  
+      margin-bottom: 20px;
+      .price-availibility{
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+      } 
       .current-price{
         font-size: 24px;
         font-weight: bold;
+        margin-right: 5px;
       }
       .original-price{
         text-decoration: line-through;
         color: rgb(160, 160, 160);
+        font-weight: normal;
+        flex-grow: 2;
         font-size: 18px;
       }
       .saving, .discount{
@@ -42,10 +47,14 @@
     label select{
       margin: 10px 0;
       padding: 10px;
+      font-size: 16px;
       width: 100%;
       border-color: rgb(175, 175, 175);
       border-radius: 5px;
       box-shadow: 0 0 5px 10px rgba(0, 0, 0, 0.01);
+      &:focus{
+        border-color: black;
+      }
     }
 
     .des-header {
@@ -54,26 +63,44 @@
       font-weight: bold;
       
     }
+
+    .add-cart-button{
+      background: black;
+      padding: 15px 0;
+      color: white;
+      font-size: 16px;
+      text-align: center;
+      width: 100%;
+      transition: ease 0.1s;
+      border-radius: 100px;
+      &:hover{
+        transform: scale(1.1);
+        box-shadow: none;
+        transition: ease 0.1s;
+      }
+    }
   }
 
   .image-info{
     display: flex;
     align-items: flex-start;
     justify-content: space-evenly;
-    max-width: 600px;
-    max-height: 600px;
+    max-width: 800px;
+    max-height: 800px;
+    margin-bottom: 20px;
     .display-image{
       height: 80%;
       width: 80%;
-    }
-
-    .thumbnail{
-      height: 8vh;
-      width: 8vh;
-      border: solid 3px black;
       border-radius: 5px;
     }
 
+    .thumbnail{
+      height: 10vh;
+      width: 10vh;
+      object-fit: cover;
+      border: solid 3px black;
+      border-radius: 5px;
+    }
   }  
 
 }
