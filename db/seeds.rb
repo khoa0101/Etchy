@@ -5,22 +5,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require 'open-uri'
+# require 'open-uri'
 
 # demo_1 = User.create({username:"demo_1", email:"demo@demo.com", password: "demo123"})
 # lol_merch = User.create({username: "LolMerch", email:"lol_merch@lol.com", password: "lolmerch"})
 # bob_paint = User.create({username: "Bob The Painter", email:"bob_paint@email.com", password:"bobross123"})
 
 
-# ahri_figure = Product.create({name: "KDA Ahri Figure", description: "The lead singer of K/DA is here to dazzle all of her fans as #07 Special Edition in the Series 3 figure line.", quantity: "20", sales: 534315, price: 27.50, discount: 0.00, seller_id: 2})
-# ryze_figure = Product.create({name: "Ryze Figure", description: "Ryze warps into the Series 3 line as #23.", quantity: 12, sales: 142321, price: 27.50, discount: 20.0, seller_id: 2})
-# seraphine_figure = Product.create({name: "KDA All Out Seraphine Figure", description: "K/DA Seraphine takes to the stage as Special Edition #2 in the Series 4 figure line.", quantity: "30", sales: 325289, price: 30.00, discount: 0.00, seller_id: 2})
-# battle_aca_figures = Product.create({name: "Battle Academia Team Minis Set", description: "The best of Durandal Academy are here! Battle Academia Ezreal, Jayce, Katarina and Lux, plus Battle Professor Graves is here to teach you a lesson as our newest set of Team Minis.", quantity: 12, price: 40.00, discount: 15.00, seller_id: 2})
-# ahri_tee = Product.create({name: "K/DA Ahri MORE Tee (Unisex)", description: "Emanating grace and charm, the leader of K/DA is back.", quantity: 5, price: 30.00, discount: 0.00, sales: 54235, seller_id: 2})
-# battle_aca_tee = Product.create({name: "Battle Academia Durandal Manga Tee (Unisex)", description: "Rep the class of Durandal God-Weapon ACademy in this manga tee.", quantity: 3, price: 30.00, discount: 0.00, sales: 42322, seller_id: 2})
-# whale_paint = Product.create({name: "Whale Painting \"Fathoms Below\"", description: "This is a fine art giclée print made from my original watercolor painting titled \"Fathoms Below\".", quantity: 2, price: 12.00, sales: 24, seller_id: 3})
-# marbel = Product.create({name: "Marble Wall Art, Modern Abstract Canvas Artwork", description: "Canvas Print Art for Home and Office Decor", quantity: 4, price: 69.99, discount: 10.00, sales: 538, seller_id: 3})
-# kda_art = Product.create({name: "K/DA POP/STARS Poster", description:"K/DA takes to the stage and takes the world by storm with their debut single \"POP/STARS\". This poster will probably make your other posters jealous.", quantity: 100, price: 22.00, sales: 231234, seller_id: 2})
+# ahri_figure = Product.create!({name: "KDA Ahri Figure", description: "The lead singer of K/DA is here to dazzle all of her fans as #07 Special Edition in the Series 3 figure line.", quantity: "20", sales: 534315, price: 27.50, discount: 0.00, seller_id: User.find_by(username: "LolMerch").id})
+# ryze_figure = Product.create!({name: "Ryze Figure", description: "Ryze warps into the Series 3 line as #23.", quantity: 12, sales: 142321, price: 27.50, discount: 20.0, seller_id: User.find_by(username: "LolMerch").id })
+# seraphine_figure = Product.create!({name: "KDA All Out Seraphine Figure", description: "K/DA Seraphine takes to the stage as Special Edition #2 in the Series 4 figure line.", quantity: "30", sales: 325289, price: 30.00, discount: 0.00, seller_id: User.find_by(username: "LolMerch").id})
+# battle_aca_figures = Product.create!({name: "Battle Academia Team Minis Set", description: "The best of Durandal Academy are here! Battle Academia Ezreal, Jayce, Katarina and Lux, plus Battle Professor Graves is here to teach you a lesson as our newest set of Team Minis.", quantity: 12, price: 40.00, discount: 15.00, seller_id: User.find_by(username: "LolMerch").id})
+# ahri_tee = Product.create!({name: "K/DA Ahri MORE Tee (Unisex)", description: "Emanating grace and charm, the leader of K/DA is back.", quantity: 5, price: 30.00, discount: 0.00, sales: 54235, seller_id: User.find_by(username: "LolMerch").id})
+# battle_aca_tee = Product.create!({name: "Battle Academia Durandal Manga Tee (Unisex)", description: "Rep the class of Durandal God-Weapon ACademy in this manga tee.", quantity: 3, price: 30.00, discount: 0.00, sales: 42322, seller_id: User.find_by(username: "Bob The Painter").id})
+# whale_paint = Product.create!({name: "Whale Painting \"Fathoms Below\"", description: "This is a fine art giclée print made from my original watercolor painting titled \"Fathoms Below\".", quantity: 2, price: 12.00, sales: 24, seller_id: User.find_by(username: "Bob The Painter").id})
+# marbel = Product.create!({name: "Marble Wall Art, Modern Abstract Canvas Artwork", description: "Canvas Print Art for Home and Office Decor", quantity: 4, price: 69.99, discount: 10.00, sales: 538, seller_id: User.find_by(username: "Bob The Painter").id})
+# kda_art = Product.create!({name: "K/DA POP/STARS Poster", description:"K/DA takes to the stage and takes the world by storm with their debut single \"POP/STARS\". This poster will probably make your other posters jealous.", quantity: 100, price: 22.00, sales: 231234, seller_id: User.find_by(username: "LolMerch").id})
 
 
 # ahri_image = open("https://images.contentstack.io/v3/assets/blt5bbf09732528de36/blted682763b702c597/5f59427759f25e396816b960/11-05-2018_2018_43_05_890_AHRI.png")
@@ -49,7 +49,3 @@ require 'open-uri'
 
 # kda_img = open("http://lol-stats.net/uploads/cG86fgQqVM1tRBa9JbCVrH6AyxpsRBd0UrdiyzVh.jpeg")
 # Product.find(9).image.attach(io: kda_img, filename: "KDA_Pop/Stars_post.png")
-
-# shopping_cart_1 = Cart.create({quantity: 1, buyer_id: 1, product_id: 1});
-# shopping_cart_2 = Cart.create({quantity: 2, buyer_id: 1, product_id: 2});
-# shopping_cart_3 = Cart.create({quantity: 1, buyer_id: 3, product_id: 3});
