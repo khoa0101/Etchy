@@ -22,7 +22,6 @@ class ProductShow extends React.Component{
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.props.currentUserId);
     if(!this.props.currentUserId){
       this.props.openModal("SignInMessage");
     }else{
