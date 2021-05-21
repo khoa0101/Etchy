@@ -32,14 +32,14 @@
 
 .close-x {
   color: white;
-  font-size: 20px;
+  font-size: 30px;
   top: 3%;
   left: 70%;
-  padding: 10px 15px;
+  padding: 7px 15px;
   position: absolute;
   cursor: pointer;
-  transition: ease 0.2;
   &:hover{
+    background-size: 100%;
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 50%;
   }
@@ -147,7 +147,7 @@
   }
 }
 
-ul {
+.error-list{
   color: red;
   padding-left: 5%;
   list-style: circle;

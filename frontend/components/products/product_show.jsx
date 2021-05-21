@@ -29,18 +29,6 @@ class ProductShow extends React.Component{
   this.props.addToCart(cart, () => this.props.history.push("/cart"));
   }
 
-  renderErrors() {
-    return (
-      <ul>
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            { error }
-          </li>
-        ))}
-      </ul>
-    )
-  }
-
 
   render(){
     if (!this.props.product) {return null};
@@ -48,6 +36,7 @@ class ProductShow extends React.Component{
     const { username } = this.props.product.seller;
 
     const quanArr = (quantity) => {
+      if (quantity < 1) return [];
       let arr = []
       for(let i = 1; i <= quantity; i++){
         arr.push(i);
@@ -98,7 +87,6 @@ class ProductShow extends React.Component{
           <img className="display-image"src={imageUrl}/>
         </div>
         <div className="product-info">
-          {this.renderErrors()}
           <i className="product-seller">{username}</i>
           <br/>
           <h1 className="product-name">{name}</h1>

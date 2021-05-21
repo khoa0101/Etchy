@@ -10,6 +10,7 @@ import NavBarContainer from './nav_bar/nav_bar_container';
 import SplashContainer from './splash/spash_container';
 import ProductShowContainer from './products/product_show_container';
 import CartFormContainer from './cart/cart_form_container';
+import Footer from './footer/footer';
 
 const App = () => (
   <div>
@@ -29,7 +30,7 @@ const App = () => (
       <Route path="*" component={() => <div className="error-page">404 NOT FOUND</div>} />
     </Switch>
     <footer>
-      {/* <FooterContainer /> */}
+      <Footer />
     </footer>
   </div>
 );
