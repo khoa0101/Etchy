@@ -11,6 +11,10 @@ class User < ApplicationRecord
     foreign_key: :buyer_id,
     class_name: 'Cart'
 
+  has_many :comments,
+    foreign_key: :author_id,
+    class_name: 'Comment'
+
   attr_reader :password
   after_initialize :ensure_session_token
 
