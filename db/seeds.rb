@@ -21,7 +21,7 @@
 # whale_paint = Product.create!({name: "Whale Painting \"Fathoms Below\"", description: "This is a fine art giclée print made from my original watercolor painting titled \"Fathoms Below\".", quantity: 2, price: 12.00, sales: 24, seller_id: User.find_by(username: "Bob The Painter").id})
 # marbel = Product.create!({name: "Marble Wall Art, Modern Abstract Canvas Artwork", description: "Canvas Print Art for Home and Office Decor", quantity: 4, price: 69.99, discount: 10.00, sales: 538, seller_id: User.find_by(username: "Bob The Painter").id})
 # kda_art = Product.create!({name: "K/DA POP/STARS Poster", description:"K/DA takes to the stage and takes the world by storm with their debut single \"POP/STARS\". This poster will probably make your other posters jealous.", quantity: 100, price: 22.00, sales: 231234, seller_id: User.find_by(username: "LolMerch").id})
-
+# fluid = Product.create!({name: "Canvas Painting Alcohol Ink", description: "Rescue your blank walls with beautiful Gallery Wrapped Canvas Prints. Photo to Canvas prints are the newest trend for turning any image into amazing Wall Art. Hang them on a wall in your home or office for Interior decor.", quantity: 6, price: 37.70 , discount: 40.00 ,sales: 389, seller_id: User.find_by(username: "Bob The Painter").id})
 
 # ahri_image = open("https://images.contentstack.io/v3/assets/blt5bbf09732528de36/blted682763b702c597/5f59427759f25e396816b960/11-05-2018_2018_43_05_890_AHRI.png")
 # Product.find(1).image.attach(io: ahri_image, filename: 'KDA_Ahri_Fig.png')
@@ -41,11 +41,14 @@
 # baTee = open("https://images.contentstack.io/v3/assets/blt5bbf09732528de36/blt78da6bbb6b649fa2/604be57f982f2a0bdaf5e7ac/BA_shirt_01.png")
 # Product.find(6).image.attach(io: baTee, filename: "Battle_Aca_Tee.png")
 
-# whale_image = open("https://i.etsystatic.com/8585009/r/il/18ea08/1207942531/il_794xN.1207942531_78qo.jpg");
+# whale_image = open("https://i.etsystatic.com/8585009/r/il/18ea08/1207942531/il_794xN.1207942531_78qo.jpg")
 # Product.find(7).image.attach(io: whale_image, filename: "Fathom_Below.png")
 
-# marbel_img = open("https://i.etsystatic.com/25302440/r/il/162f14/2556620008/il_794xN.2556620008_8d0a.jpg");
+# marbel_img = open("https://i.etsystatic.com/25302440/r/il/162f14/2556620008/il_794xN.2556620008_8d0a.jpg")
 # Product.find(8).image.attach(io: marbel_img, filename: "Marbel_decor.png")
 
 # kda_img = open("http://lol-stats.net/uploads/cG86fgQqVM1tRBa9JbCVrH6AyxpsRBd0UrdiyzVh.jpeg")
 # Product.find(9).image.attach(io: kda_img, filename: "KDA_Pop/Stars_post.png")
+
+# fluid_img = open("https://i.etsystatic.com/26632434/r/il/535496/2809509452/il_794xN.2809509452_q9k6.jpg")
+# Product.find(10).image.attach(io: fluid_img, filename: "Fluid_Paint.png")

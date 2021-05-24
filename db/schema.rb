@@ -70,8 +70,6 @@ ActiveRecord::Schema.define(version: 2021_05_23_213545) do
     t.integer "seller_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_products_on_name"
-    t.index ["seller_id"], name: "index_products_on_seller_id"
   end
 
   create_table "users", force: :cascade do |t|
