@@ -15,6 +15,7 @@ class Api::CommentsController < ApplicationController
       render 'api/comments/show'
     else
       render json: @comment.errors.full_messages, status: 422
+    end
   end
 
   def update
@@ -40,4 +41,5 @@ class Api::CommentsController < ApplicationController
   def comment_params
     self.params.require(:comment).permit(:title, :body, :rating, :buyer_id, :product_id)
   end
+
 end

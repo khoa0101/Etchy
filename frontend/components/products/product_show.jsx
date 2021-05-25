@@ -1,4 +1,5 @@
 import React from 'react';
+import CommentIndexContainer from '../comment/comment_index_container';
 
 class ProductShow extends React.Component{
   constructor(props){
@@ -106,7 +107,7 @@ class ProductShow extends React.Component{
           <h1 className="des-header">Description</h1>
           <p>{description}</p>
         </div>
-        
+        <CommentIndexContainer />
       </div>
     )
   }
