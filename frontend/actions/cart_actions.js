@@ -1,4 +1,3 @@
-import { ReactReduxContext } from 'react-redux';
 import * as CartAPIUtil from '../util/cart_api_util';
 export const RECEIVE_CARTS = 'RECEIVE_CARTS';
 export const RECEIVE_CART = 'RECEIVE_CART';
