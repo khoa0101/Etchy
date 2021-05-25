@@ -1,7 +1,9 @@
 class Api::CommentsController < ApplicationController
 
+  before_action :require_logged_in, only: [:create, :update, :delete]
+
   def index
-    @comments = Comment.all.includes(:author, :product)
+    @comments = Comment.all.includes(:author)
 
     render 'api/comments/index'
   end
