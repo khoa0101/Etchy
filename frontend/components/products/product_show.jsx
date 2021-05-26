@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaCommentSlash } from 'react-icons/fa';
 import CommentIndexContainer from '../comment/comment_index_container';
 
 class ProductShow extends React.Component{
@@ -13,6 +14,7 @@ class ProductShow extends React.Component{
 
   componentDidMount(){
     this.props.requestProduct(this.props.match.params.productId);
+    this.props.requestComments();
   }
 
   handleChange(field){
@@ -34,8 +36,12 @@ class ProductShow extends React.Component{
 
   render(){
     if (!this.props.product) {return null};
-    const { name, price, discount, sales, description, quantity, imageUrl } = this.props.product;
+    const { id ,name, price, discount, sales, description, quantity, imageUrl } = this.props.product;
     const { username } = this.props.product.seller;
+    let comments = Object.values(this.props.comments);
+    comments = comments.filter(comment => comment.product_id === id);
+    let ratingAvg = (comments.reduce((acc, comment) => 
+      acc + (comment.rating), 0) / comments.length).toFixed(1);
 
     const quanArr = (quantity) => {
       if (quantity < 1) return [];
@@ -92,7 +98,7 @@ class ProductShow extends React.Component{
           <i className="product-seller">{username}</i>
           <br/>
           <h1 className="product-name">{name}</h1>
-          <i className="product-sales">{sales > 0 ? sales.toLocaleString() + " sales" : ""}</i>
+          <i className="product-sales">{sales > 0 ? sales.toLocaleString() + " sales |" : ""} {comments.length < 1 ? "No ratings yet" : ratingAvg }</i>
           {discountInfo()}
           <form onSubmit={this.handleSubmit}>
             <label>Quantity<br/>
@@ -107,7 +113,7 @@ class ProductShow extends React.Component{
           <h1 className="des-header">Description</h1>
           <p>{description}</p>
         </div>
-        <CommentIndexContainer />
+        <CommentIndexContainer currentProductId={id}/>
       </div>
     )
   }

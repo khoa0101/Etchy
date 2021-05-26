@@ -1,6 +1,12 @@
 import { connect } from 'react-redux';
 import { createComment, editComment, deleteComment } from '../../actions/comment_actions';
-import CommentShow from 'comment-show';
+import CommentIndexItem from './comment_index_item';
+
+const mSTP = (state) => {
+  return {
+    currentUserId: state.session.id
+  }
+}
 
 const mDTP = (dispatch) => {
   return {
@@ -10,4 +16,4 @@ const mDTP = (dispatch) => {
   }
 }
 
-export default connect(mDTP)(CommentShow);
+export default connect(mSTP, mDTP)(CommentIndexItem);
