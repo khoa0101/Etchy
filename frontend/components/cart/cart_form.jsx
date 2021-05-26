@@ -10,10 +10,6 @@ import {
 
 
 class CartForm extends React.Component{
-  constructor(props){
-    super(props);
-  }
-  
   componentDidMount(){
     this.props.fetchCarts();
   }

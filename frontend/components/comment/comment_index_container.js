@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchComments, createComment, editComment, deleteComment } from '../../actions/comment_actions';
+import { fetchComments } from '../../actions/comment_actions';
 import CommentIndex from './comment_index';
 
 const mSTP = (state) => {
