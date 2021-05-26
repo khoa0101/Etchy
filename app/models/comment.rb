@@ -1,8 +1,7 @@
 class Comment < ApplicationRecord
-  validates :author_id, :product_id, :quantity, presence: true
-  validates :quantity, numericality: { greater_than: 0 }
+  validates :author_id, :product_id, :rating, :body, presence: true
 
-  belongs_to :author_id,
+  belongs_to :author,
     foreign_key: :author_id,
     class_name: 'User'
 

@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(version: 2021_05_23_213545) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.string "title", null: false
     t.text "body", null: false
     t.integer "rating", null: false
     t.integer "product_id", null: false
@@ -57,7 +56,6 @@ ActiveRecord::Schema.define(version: 2021_05_23_213545) do
     t.index ["author_id"], name: "index_comments_on_author_id"
     t.index ["product_id"], name: "index_comments_on_product_id"
     t.index ["rating"], name: "index_comments_on_rating"
-    t.index ["title"], name: "index_comments_on_title"
   end
 
   create_table "products", force: :cascade do |t|

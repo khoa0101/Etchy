@@ -39,7 +39,7 @@ class Api::CommentsController < ApplicationController
 
   private
   def comment_params
-    self.params.require(:comment).permit(:title, :body, :rating, :buyer_id, :product_id)
+    self.params.require(:comment).permit(:body, :rating, :buyer_id, :product_id)
   end
 
 end

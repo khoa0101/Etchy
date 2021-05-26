@@ -10,7 +10,7 @@
 # demo_1 = User.create({username:"demo_1", email:"demo@demo.com", password: "demo123"})
 # lol_merch = User.create({username: "LolMerch", email:"lol_merch@lol.com", password: "lolmerch"})
 # bob_paint = User.create({username: "Bob The Painter", email:"bob_paint@email.com", password:"bobross123"})
-
+drake = User.create({username: "Drake", email: "drake@drake.com", password: "drake123"})
 
 # ahri_figure = Product.create!({name: "KDA Ahri Figure", description: "The lead singer of K/DA is here to dazzle all of her fans as #07 Special Edition in the Series 3 figure line.", quantity: "20", sales: 534315, price: 27.50, discount: 0.00, seller_id: User.find_by(username: "LolMerch").id})
 # ryze_figure = Product.create!({name: "Ryze Figure", description: "Ryze warps into the Series 3 line as #23.", quantity: 12, sales: 142321, price: 27.50, discount: 20.0, seller_id: User.find_by(username: "LolMerch").id })
@@ -52,3 +52,8 @@
 
 # fluid_img = open("https://i.etsystatic.com/26632434/r/il/535496/2809509452/il_794xN.2809509452_q9k6.jpg")
 # Product.find(10).image.attach(io: fluid_img, filename: "Fluid_Paint.png")
+
+drake_review = Comment.create({rating: 5, body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+  Ut quis nisl eros. Duis ut tellus suscipit, efficitur tortor sit amet, maximus felis. Quisque rhoncus commodo diam, in viverra eros. 
+  Pellentesque posuere erat libero, in sagittis nunc rhoncus nec. Curabitur elementum iaculis orci, at pretium urna fermentum a.", 
+  product_id: 1, author_id: User.find_by(username: "Drake")})
