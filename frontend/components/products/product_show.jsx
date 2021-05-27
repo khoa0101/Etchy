@@ -102,16 +102,16 @@ class ProductShow extends React.Component{
           <i className="product-sales">{sales > 0 ? sales.toLocaleString() + " sales | " : ""} 
             {comments.length < 1 ? "No ratings yet" :
               <ReactStars
-              count={5}
-              size={12.5}
-              value={ratingAvg}
-              isHalf={true}
-              edit={false}
-              color={"black"}
-              activeColor={"black"}
-              emptyIcon={<BsStar/>}
-              halfIcon={<BsStarHalf/>}
-              filledIcon={<BsStarFill/>} />
+                count={5}
+                size={12.5}
+                value={ratingAvg}
+                isHalf={true}
+                edit={false}
+                color={"black"}
+                activeColor={"black"}
+                emptyIcon={<BsStar/>}
+                halfIcon={<BsStarHalf/>}
+                filledIcon={<BsStarFill/>} />
             }
           </i>
           {discountInfo()}
