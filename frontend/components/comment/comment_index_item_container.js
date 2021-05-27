@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { createComment, editComment, deleteComment } from '../../actions/comment_actions';
+import { editComment, deleteComment } from '../../actions/comment_actions';
 import CommentIndexItem from './comment_index_item';
 
 const mSTP = (state) => {
@@ -10,7 +10,6 @@ const mSTP = (state) => {
 
 const mDTP = (dispatch) => {
   return {
-    createComment: (comment) => dispatch(createComment(comment)),
     editComment: (comment) => dispatch(editComment(comment)),
     deleteComment: (comment) => dispatch(deleteComment(comment))
   }

@@ -1,15 +1,18 @@
 import React from 'react';
-import { FaUserCircle } from 'react-icons/fa'
-import StarRatingPrint from '../../util/star_print_util'
+import { FaUserCircle } from 'react-icons/fa';
 
 const CommentIndexItem = (props) => {
-  const { rating, body, author} = props;
+  const { rating, body, author} = props.comment;
   return (
     <li>
-      <FaUserCircle size={32} />
-      {/* {StarRatingPrint(rating)} */}
-      <h1>{author.username}</h1>
-      <p>{body}</p>
+      <div className="author-info">
+        <FaUserCircle size={32} />
+        <h1>{author.username}</h1>
+      </div>
+      <div className="comment-info">
+        {/* {StarRatingPrint(rating)} */}
+        <p>{body}</p>
+      </div>
     </li>
   )
 }

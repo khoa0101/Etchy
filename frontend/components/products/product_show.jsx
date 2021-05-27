@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaCommentSlash } from 'react-icons/fa';
+import ReactStars from 'react-rating-stars-component';
 import CommentIndexContainer from '../comment/comment_index_container';
 
 class ProductShow extends React.Component{
@@ -40,8 +40,8 @@ class ProductShow extends React.Component{
     const { username } = this.props.product.seller;
     let comments = Object.values(this.props.comments);
     comments = comments.filter(comment => comment.product_id === id);
-    let ratingAvg = (comments.reduce((acc, comment) => 
-      acc + (comment.rating), 0) / comments.length).toFixed(1);
+    let ratingAvg = comments.reduce((acc, comment) => 
+      acc + (comment.rating), 0) / comments.length;
 
     const quanArr = (quantity) => {
       if (quantity < 1) return [];
@@ -98,7 +98,16 @@ class ProductShow extends React.Component{
           <i className="product-seller">{username}</i>
           <br/>
           <h1 className="product-name">{name}</h1>
-          <i className="product-sales">{sales > 0 ? sales.toLocaleString() + " sales |" : ""} {comments.length < 1 ? "No ratings yet" : ratingAvg }</i>
+          <i className="product-sales">{sales > 0 ? sales.toLocaleString() + " sales |" : ""} 
+            {comments.length < 1 ? "No ratings yet" : 
+              <ReactStars
+              count={5}
+              size={24}
+              value={2.5}
+              isHalf={true}
+              edit={false}
+            />}
+          </i>
           {discountInfo()}
           <form onSubmit={this.handleSubmit}>
             <label>Quantity<br/>
@@ -113,7 +122,7 @@ class ProductShow extends React.Component{
           <h1 className="des-header">Description</h1>
           <p>{description}</p>
         </div>
-        <CommentIndexContainer currentProductId={id}/>
+        <CommentIndexContainer currentUserId={this.props.currentUserId} currentProductId={id}/>
       </div>
     )
   }
