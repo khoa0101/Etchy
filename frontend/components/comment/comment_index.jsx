@@ -33,9 +33,11 @@ class CommentIndex extends React.Component{
         { this.props.currentUserId ?
           <div>
             {showForm ? 
-              (
-              <div className="review-form-container">  
-                <button onClick={() => this.showForm(this.SHOW_FORM)}>Close</button>
+              (<div className="review-form-container">
+                <div className="review-form-header">
+                  <h1>Create a Review!</h1>  
+                  <button onClick={() => this.showForm(this.SHOW_FORM)}>Close</button>
+                </div>
                 <CreateCommentContainer 
                   currentProductId={this.props.currentProductId} 
                   currentUserId={this.props.currentUserId}

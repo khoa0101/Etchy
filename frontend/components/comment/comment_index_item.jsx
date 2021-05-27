@@ -2,7 +2,7 @@ import React from 'react';
 import { FaUserCircle } from 'react-icons/fa';
 
 const CommentIndexItem = (props) => {
-  const { rating, body, author} = props.comment;
+  const { id, body, author} = props.comment;
   return (
     <li>
       <div className="author-info">
@@ -11,6 +11,9 @@ const CommentIndexItem = (props) => {
       </div>
       <div className="comment-info">
         <p>{body}</p>
+        {author.id === props.currentUserId && (
+          <button onClick={() => props.deleteComment(id)}>Delete</button>
+        )}
       </div>
     </li>
   )

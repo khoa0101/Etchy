@@ -30,8 +30,8 @@ class Api::CommentsController < ApplicationController
     end 
   end
 
-  def delete
-    @comment = comment.find(params[:id])
+  def destroy
+    @comment = Comment.find(params[:id])
     @comment.destroy
 
     render 'api/comments/show'
