@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactStars from 'react-rating-stars-component';
+import { BsStarFill, BsStarHalf, BsStar } from 'react-icons/bs';
 import CommentIndexContainer from '../comment/comment_index_container';
 
 class ProductShow extends React.Component{
@@ -98,15 +99,20 @@ class ProductShow extends React.Component{
           <i className="product-seller">{username}</i>
           <br/>
           <h1 className="product-name">{name}</h1>
-          <i className="product-sales">{sales > 0 ? sales.toLocaleString() + " sales |" : ""} 
-            {comments.length < 1 ? "No ratings yet" : 
+          <i className="product-sales">{sales > 0 ? sales.toLocaleString() + " sales | " : ""} 
+            {comments.length < 1 ? "No ratings yet" :
               <ReactStars
               count={5}
-              size={24}
-              value={2.5}
+              size={12.5}
+              value={ratingAvg}
               isHalf={true}
               edit={false}
-            />}
+              color={"black"}
+              activeColor={"black"}
+              emptyIcon={<BsStar/>}
+              halfIcon={<BsStarHalf/>}
+              filledIcon={<BsStarFill/>} />
+            }
           </i>
           {discountInfo()}
           <form onSubmit={this.handleSubmit}>
