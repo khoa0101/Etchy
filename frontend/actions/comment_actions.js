@@ -47,9 +47,12 @@ export const createComment = (comment, reroute) => dispatch => {
       err => dispatch(receiveErrors(err.responseJSON)))
 }
 
-export const editComment = (comment) => dispatch => {
+export const editComment = (comment, reroute) => dispatch => {
   return CommentAPIUtil.editComment(comment)
-    .then(comment => dispatch(receiveComment(comment)),
+    .then(comment => {
+      dispatch(receiveComment(comment))
+      reroute();
+    },
       err => dispatch(receiveErrors(err.responseJSON)))
 }
 

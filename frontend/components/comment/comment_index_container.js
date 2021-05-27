@@ -5,6 +5,7 @@ import CommentIndex from './comment_index';
 const mSTP = (state, ownProps) => {
   return {
     comments: state.entities.comments,
+    errors: state.errors.comments,
     ownProps
   }
 }

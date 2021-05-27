@@ -10,7 +10,6 @@ const CommentIndexItem = (props) => {
         <h1>{author.username}</h1>
       </div>
       <div className="comment-info">
-        {/* {StarRatingPrint(rating)} */}
         <p>{body}</p>
       </div>
     </li>
