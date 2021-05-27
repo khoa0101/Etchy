@@ -19,7 +19,7 @@ class Api::CommentsController < ApplicationController
   end
 
   def update
-    @comment = Commnet.find_by(id: params[:id])
+    @comment = Comment.find_by(id: params[:id])
 
     if current_user.id == @comment.author_id
       if @comment && @comment.update_attributes(comment_params)
