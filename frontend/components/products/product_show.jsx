@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactStars from 'react-rating-stars-component';
 import { BsStarFill, BsStarHalf, BsStar } from 'react-icons/bs';
-import CommentIndexContainer from '../comment/comment_index_container';
+import CommentIndex from '../comment/comment_index';
 
 class ProductShow extends React.Component{
   constructor(props){
@@ -128,7 +128,7 @@ class ProductShow extends React.Component{
           <h1 className="des-header">Description</h1>
           <p>{description}</p>
         </div>
-        <CommentIndexContainer currentUserId={this.props.currentUserId} currentProductId={id}/>
+        <CommentIndex comments={comments} currentUserId={this.props.currentUserId} currentProductId={id}/>
       </div>
     )
   }

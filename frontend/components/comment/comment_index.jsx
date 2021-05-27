@@ -1,24 +1,15 @@
 import React from 'react';
 import CommentIndexItemContainer from './comment_index_item_container';
-import { BsStarFill, BsStar } from 'react-icons/bs';
-import ReactStars from 'react-rating-stars-component';
+import CreateCommentContainer from './create_comment_container';
 
 class CommentIndex extends React.Component{  
   constructor(props){
     super(props);
     this.state = {
-      rating: 1,
-      body: "",
       showForm: false
     };
     this.SHOW_FORM = 'SHOW_FORM';
     this.showForm = this.showForm.bind(this);
-    this.createComment = this.createComment.bind(this);
-    this.ratingChange = this.ratingChange.bind(this);
-  }
-
-  componentDidMount(){
-    this.props.fetchComments();
   }
 
   showForm(form){
@@ -28,35 +19,6 @@ class CommentIndex extends React.Component{
         break
       default: null;
     }
-  }
-
-  ratingChange(newRating){
-    return this.setState({rating: newRating})
-  }
-
-  handleChange(field){
-    return e => this.setState({
-      [field]: e.target.value
-    });
-  }
-
-  createComment(e){
-    e.preventDefault();
-    this.setState({rating: this.state.rating, body: this.state.body, 
-      product_id: this.props.currentProductId, author_id: this.props.currentUserId},
-       () => this.props.createComment(this.state), () => this.showForm(this.SHOW_FORM));
-  }
-
-  renderErrors() {
-    return (
-      <ul className="error-list">
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            { error }
-          </li>
-        ))}
-      </ul>
-    )
   }
 
   render(){
@@ -73,21 +35,12 @@ class CommentIndex extends React.Component{
             {showForm ? 
               (
               <div className="review-form-container">  
-                <form className="review-form" onSubmit={this.createComment}>
-                  {this.renderErrors()}
-                    <ReactStars
-                      count={5}
-                      size={12.5}
-                      onChange={this.ratingChange}
-                      value={1}
-                      color={"black"}
-                      activeColor={"black"}
-                      emptyIcon={<BsStar/>}
-                      filledIcon={<BsStarFill/>} 
-                    />
-                  <input type="text" value="" onChange={this.handleChange("body")}/>
-                  <button>Create Review</button>
-                </form>
+                <button onClick={() => this.showForm(this.SHOW_FORM)}>Close</button>
+                <CreateCommentContainer 
+                  currentProductId={this.props.currentProductId} 
+                  currentUserId={this.props.currentUserId}
+                  showForm={this.state.showForm}
+                  />
               </div>) :
               <button onClick={() => this.showForm(this.SHOW_FORM)}>Leave a Review</button>
             }
