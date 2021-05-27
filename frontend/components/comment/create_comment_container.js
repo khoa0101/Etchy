@@ -2,21 +2,20 @@ import { connect } from 'react-redux';
 import { createComment } from '../../actions/comment_actions';
 import CommentForm from './comment_form';
 
-const mSTP = (state, ownProps) => {
+const mSTP = (state) => {
   return {
     comment: {
       rating: 1,
       body: ""
     },
     errors: state.errors.comments,
-    formType: 'Create Review',
-    ownProps
+    formType: 'Create Review'
   }
 }
 
 const mDTP = (dispatch) => {
   return {
-    submitComment: (comment) => dispatch(createComment(comment))
+    submitComment: (comment, callback) => dispatch(createComment(comment, callback))
   }
 }
 

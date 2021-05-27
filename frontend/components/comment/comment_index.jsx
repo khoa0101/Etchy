@@ -40,7 +40,7 @@ class CommentIndex extends React.Component{
                   currentProductId={this.props.currentProductId} 
                   currentUserId={this.props.currentUserId}
                   showForm={this.state.showForm}
-                  />
+                />
               </div>) :
               <button onClick={() => this.showForm(this.SHOW_FORM)}>Leave a Review</button>
             }

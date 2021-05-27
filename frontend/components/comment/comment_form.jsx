@@ -7,12 +7,14 @@ class CommentForm extends React.Component{
     super(props);
     this.state = this.props.comment;
     this.state.showForm = this.props.showForm;
+    this.FORM = 'SHOW_FORM';
     this.showForm = this.showForm.bind(this);
     this.ratingChange = this.ratingChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   showForm(form){
+    console.log(this.state);
     switch(form){
       case 'SHOW_FORM':
         this.setState({showForm: !this.state.showForm})
@@ -35,7 +37,7 @@ class CommentForm extends React.Component{
     e.preventDefault();
     this.setState({rating: this.state.rating, body: this.state.body, 
       product_id: this.props.currentProductId, author_id: this.props.currentUserId},
-       () => this.props.submitComment(this.state), () => this.showForm('SHOW_FORM'));
+      () => this.props.submitComment(this.state, () => this.showForm(this.FORM)));
   }
 
   renderErrors() {
@@ -52,8 +54,9 @@ class CommentForm extends React.Component{
 
   render(){
     return(
+      this.state.showForm && (
       <form className="review-form" onSubmit={this.handleSubmit}>
-      {this.renderErrors()}
+        {this.renderErrors()}
         <ReactStars
           count={5}
           size={12.5}
@@ -64,9 +67,9 @@ class CommentForm extends React.Component{
           emptyIcon={<BsStar/>}
           filledIcon={<BsStarFill/>} 
         />
-      <input type="text" value={this.state.body} onChange={this.handleChange("body")}/>
+      <textarea value={this.state.body} onChange={this.handleChange("body")}/>
       <button>{this.props.formType}</button>
-    </form>
+    </form>)
     )
   }
 }
