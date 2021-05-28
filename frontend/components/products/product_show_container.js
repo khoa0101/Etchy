@@ -8,7 +8,7 @@ import { fetchComments } from '../../actions/comment_actions';
 const mSTP = (state, ownProps) => {
   return {
     product: state.entities.products[ownProps.match.params.productId],
-    comments: state.entities.comments,
+    comments: Object.values(state.entities.comments).filter(comment => comment.product_id === +ownProps.match.params.productId),
     currentUserId: state.session.id,
     errors: state.errors.carts
   }

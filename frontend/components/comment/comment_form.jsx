@@ -6,20 +6,8 @@ class CommentForm extends React.Component{
   constructor(props){
     super(props);
     this.state = this.props.comment;
-    this.state.showForm = this.props.showForm;
-    this.FORM = 'SHOW_FORM';
-    this.showForm = this.showForm.bind(this);
     this.ratingChange = this.ratingChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  showForm(form){
-    switch(form){
-      case 'SHOW_FORM':
-        this.setState({showForm: !this.state.showForm})
-        break
-      default: null;
-    }
   }
 
   ratingChange(newRating){
@@ -36,7 +24,7 @@ class CommentForm extends React.Component{
     e.preventDefault();
     this.setState({rating: this.state.rating, body: this.state.body, 
       product_id: this.props.currentProductId, author_id: this.props.currentUserId},
-      () => this.props.submitComment(this.state, () => this.showForm(this.FORM)));
+      () => this.props.submitComment(this.state, () => this.props.closeForm()));
   }
 
   renderErrors() {
@@ -53,23 +41,28 @@ class CommentForm extends React.Component{
 
   render(){
     return(
-      this.state.showForm && (
-      <form className="review-form" onSubmit={this.handleSubmit}>
-        {this.renderErrors()}
-        <ReactStars
-          count={5}
-          size={12.5}
-          onChange={this.ratingChange}
-          value={this.state.rating}
-          color={"black"}
-          activeColor={"black"}
-          emptyIcon={<BsStar/>}
-          filledIcon={<BsStarFill/>} 
-        />
-      <textarea value={this.state.body} onChange={this.handleChange("body")}/>
-      <button>{this.props.formType}</button>
-    </form>)
-    )
+        <div className="review-form-container">
+          <div className="review-form-header">
+            <h1>{this.props.formType}!</h1>  
+          <button onClick={this.props.closeForm}>Close</button>
+        </div>
+        <form className="review-form" onSubmit={this.handleSubmit}>
+          {this.renderErrors()}
+          <ReactStars
+            count={5}
+            size={12.5}
+            onChange={this.ratingChange}
+            value={this.state.rating}
+            color={"black"}
+            activeColor={"black"}
+            emptyIcon={<BsStar/>}
+            filledIcon={<BsStarFill/>} 
+          />
+        <textarea value={this.state.body} onChange={this.handleChange("body")}/>
+        <button>{this.props.formType}</button>
+        </form>
+      </div>
+      )
   }
 }
 

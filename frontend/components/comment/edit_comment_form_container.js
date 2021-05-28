@@ -6,7 +6,7 @@ import CommentForm from './comment_form';
 class EditCommentForm extends React.Component {
 
   render() {
-    const { comment, errors, submitComment, showForm } = this.props;
+    const { comment, errors, submitComment, showForm, closeForm } = this.props;
 
     if (!comment) return null;
     return (
@@ -15,7 +15,8 @@ class EditCommentForm extends React.Component {
         errors={errors}
         formType="Edit Review"
         submitComment={submitComment}
-        showForm={showForm} 
+        showForm={showForm}
+        closeForm={closeForm} 
       />
     );
   }

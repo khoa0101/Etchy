@@ -8,7 +8,7 @@ class ProductShow extends React.Component{
     super(props);
     this.state = {
       product_id: parseInt(this.props.match.params.productId),
-      quantity: 1
+      quantity: 1,
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -39,10 +39,8 @@ class ProductShow extends React.Component{
     if (!this.props.product) {return null};
     const { id ,name, price, discount, sales, description, quantity, imageUrl } = this.props.product;
     const { username } = this.props.product.seller;
-    let comments = Object.values(this.props.comments);
-    comments = comments.filter(comment => comment.product_id === id);
-    let ratingAvg = comments.reduce((acc, comment) => 
-      acc + (comment.rating), 0) / comments.length;
+    let ratingAvg = this.props.comments.reduce((acc, comment) => 
+    acc + (comment.rating), 0) / this.props.comments.length;
 
     const quanArr = (quantity) => {
       if (quantity < 1) return [];
@@ -100,7 +98,7 @@ class ProductShow extends React.Component{
           <br/>
           <h1 className="product-name">{name}</h1>
           <i className="product-sales">{sales > 0 ? sales.toLocaleString() + " sales | " : ""} 
-            {comments.length < 1 ? "No ratings yet" :
+            {this.props.comments.length < 1 ? "No ratings yet" :
               <ReactStars
                 count={5}
                 size={12.5}
@@ -128,7 +126,7 @@ class ProductShow extends React.Component{
           <h1 className="des-header">Description</h1>
           <p>{description}</p>
         </div>
-        <CommentIndex comments={comments} currentUserId={this.props.currentUserId} currentProductId={id}/>
+        <CommentIndex comments={this.props.comments} currentUserId={this.props.currentUserId} currentProductId={id}/>
       </div>
     )
   }

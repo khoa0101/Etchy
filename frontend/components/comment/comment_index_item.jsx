@@ -18,13 +18,7 @@ const CommentIndexItem = (props) => {
           (
             <div className="comment-buttons">
               { showForm ?
-                <div className="review-form-container">
-                  <div className="review-form-header">
-                    <h1>Update Review!</h1>  
-                  <button onClick={() => setShowForm(false)}>Close</button>
-                  </div>
-                  <EditCommentFormContainer comment={props.comment} showForm={showForm}/>
-                </div>
+                  <EditCommentFormContainer comment={props.comment} closeForm={() => setShowForm(false)}/>
                 : <button onClick={() => setShowForm(true)}>Edit</button>
               }
               <button onClick={() => props.deleteComment(id)}>Delete</button>
