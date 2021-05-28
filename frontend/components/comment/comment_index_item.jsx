@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaUserCircle } from 'react-icons/fa';
+import EditCommentFormContainer from './edit_comment_form_container';
 
 const CommentIndexItem = (props) => {
   const { id, body, author} = props.comment;
@@ -12,7 +13,12 @@ const CommentIndexItem = (props) => {
       <div className="comment-info">
         <p>{body}</p>
         {author.id === props.currentUserId && (
-          <button onClick={() => props.deleteComment(id)}>Delete</button>
+          (
+            <div>
+              <EditCommentFormContainer comment={props.comment}/> 
+              <button onClick={() => props.deleteComment(id)}>Delete</button>
+            </div>
+          )
         )}
       </div>
     </li>

@@ -50,7 +50,11 @@ class CommentIndex extends React.Component{
         : null }
         <ul className="comment-list">
           {comments.map(comment => (
-            <CommentIndexItemContainer key={`comment-${comment.id}`} comment={comment}/>
+            <CommentIndexItemContainer 
+              key={`comment-${comment.id}`} 
+              comment={comment}
+              showForm={this.state.showForm} 
+              />
           ))}
         </ul>
       </div>

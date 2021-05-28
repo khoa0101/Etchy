@@ -38,6 +38,12 @@ export const fetchComments = () => dispatch => {
       err => dispatch(receiveErrors(err.responseJson)))
 }
 
+export const fetchComment = (commentId) => dispatch => {
+  return CommentAPIUtil.fetchComment(commentId)
+    .then(comment => dispatch(receiveComment(comment)),
+      err => dispatch(receiveErrors(err.responseJSON)));
+}
+
 export const createComment = (comment, reroute) => dispatch => {
   return CommentAPIUtil.createComment(comment)
     .then((comment) => { 
