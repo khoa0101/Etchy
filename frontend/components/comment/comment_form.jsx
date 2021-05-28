@@ -60,7 +60,7 @@ class CommentForm extends React.Component{
           count={5}
           size={12.5}
           onChange={this.ratingChange}
-          value={1}
+          value={this.state.rating}
           color={"black"}
           activeColor={"black"}
           emptyIcon={<BsStar/>}
