@@ -6,17 +6,24 @@ import CommentForm from './comment_form';
 class EditCommentForm extends React.Component {
 
   render() {
-    const { comment, submitEvent, showForm } = this.props;
+    const { comment, errors, submitComment, showForm } = this.props;
 
     if (!comment) return null;
     return (
       <CommentForm
         comment={comment}
+        errors={errors}
         formType="Edit Review"
-        submitEvent={submitEvent}
+        submitComment={submitComment}
         showForm={showForm} 
       />
     );
+  }
+}
+
+const mSTP = (state) => {
+  return {
+    errors: state.errors.comments
   }
 }
 
@@ -26,4 +33,4 @@ const mDTP = (dispatch) => {
   }
 };
 
-export default connect(null, mDTP)(EditCommentForm);
+export default connect(mSTP, mDTP)(EditCommentForm);

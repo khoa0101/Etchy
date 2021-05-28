@@ -16,7 +16,7 @@ export const editComment = (comment) => {
   return $.ajax({
     url: `/api/comments/${comment.id}`,
     method: 'PATCH',
-    data: { cart }
+    data: { comment }
   })
 }
 

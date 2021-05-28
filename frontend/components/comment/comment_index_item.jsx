@@ -17,7 +17,7 @@ const CommentIndexItem = (props) => {
             <div>
               <EditCommentFormContainer 
                 comment={props.comment}
-                showForm={props.showForm}
+                showForm={true}
               /> 
               <button onClick={() => props.deleteComment(id)}>Delete</button>
             </div>
