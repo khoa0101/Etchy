@@ -14,7 +14,6 @@ class CommentForm extends React.Component{
   }
 
   showForm(form){
-    console.log(this.state);
     switch(form){
       case 'SHOW_FORM':
         this.setState({showForm: !this.state.showForm})
