@@ -29,7 +29,7 @@ const mSTP = (state) => {
 
 const mDTP = (dispatch) => {
   return {
-    submitComment: (comment) => dispatch(editComment(comment)) 
+    submitComment: (comment, callback) => dispatch(editComment(comment, callback)) 
   }
 };
 
