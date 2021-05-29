@@ -98,8 +98,8 @@ class ProductShow extends React.Component{
           <br/>
           <h1 className="product-name">{name}</h1>
           <i className="product-sales">{sales > 0 ? sales.toLocaleString() + " sales | " : ""} 
-            {this.props.comments.length < 1 ? "No ratings yet" :
-              <ReactStars
+            {this.props.comments.length < 1 ? "No ratings yet" : 
+            <ReactStars
                 count={5}
                 size={12.5}
                 value={ratingAvg}
@@ -109,8 +109,7 @@ class ProductShow extends React.Component{
                 activeColor={"black"}
                 emptyIcon={<BsStar/>}
                 halfIcon={<BsStarHalf/>}
-                filledIcon={<BsStarFill/>} />
-            }
+                filledIcon={<BsStarFill/>} />}
           </i>
           {discountInfo()}
           <form onSubmit={this.handleSubmit}>
