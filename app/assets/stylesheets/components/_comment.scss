@@ -1,6 +1,25 @@
 .comment-container{
+  margin-bottom: 10px;
   .comment-header{
     font-family: 'Gaurdian Egyptian Headline', Georgia, serif;
     font-size: 30px;
+    margin: 10px 0;
+  }
+
+  .comment-info-container{
+    .author-info{
+      display: flex;
+      margin: 10px 0;
+      & > * {
+        margin-right: 10px;
+        color: #595959;
+      }
+      svg{
+        color: black;
+      }
+      h1{
+        text-decoration: underline;
+      }
+    }
   }
 }

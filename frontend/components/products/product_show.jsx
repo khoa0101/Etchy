@@ -74,7 +74,7 @@ class ProductShow extends React.Component{
           <div className="price-header">
             {currentPrice}
             <br/>
-            <i className="saving">You save ${(price * (discount/100)).toFixed(2)}</i>
+            <i className="saving">You save ${(price * (discount/100)).toFixed(2)} </i>
             <i className="discount">({discount}% off)</i>
           </div>
         )

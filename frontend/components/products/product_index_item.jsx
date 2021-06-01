@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom';
 
 const ProductIndexItem = (props) => {
   let { product } = props;
-  const originalPrice= <i className="current-price">${(product.price * ((100 - product.discount)/100)).toFixed(2)}</i>
+  const originalPrice= <i className="current-price">${(product.price * ((100 - product.discount)/100)).toFixed(2)} </i>
 
   const discountInfo = () => {
     if (product.discount != 0){
       return (
         <div>
           {originalPrice}
-          <i className="original-price"> ${(product.price).toFixed(2)} </i>
-          <i className="discount">({product.discount}% off)</i>
+          <i className="original-price">${(product.price).toFixed(2)}</i>
+          <i className="discount"> ({product.discount}% off)</i>
         </div>
       )
     }
