@@ -7,9 +7,10 @@
   }
 
   .comment-info-container{
+    padding: 10px 0;
     .author-info{
       display: flex;
-      margin: 10px 0;
+      margin-bottom: 10px;
       & > * {
         margin-right: 10px;
         color: #595959;
@@ -20,6 +21,12 @@
       h1{
         text-decoration: underline;
       }
+    }
+    .comment-info{
+      margin-left: 40px;
+    }
+    p{
+      min-height: 100px;
     }
   }
 }

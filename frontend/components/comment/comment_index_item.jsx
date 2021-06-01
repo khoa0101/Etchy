@@ -23,7 +23,7 @@ const CommentIndexItem = (props) => {
         <div className="comment-info">
           <ReactStars
             count={5}
-            size={12.5}
+            size={16}
             value={rating}
             edit={false}
             color={"black"}
