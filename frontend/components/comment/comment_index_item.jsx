@@ -13,7 +13,7 @@ const CommentIndexItem = (props) => {
   return (
     <li>
       { showForm ?
-        <EditCommentFormContainer comment={props.comment} closeForm={() => setShowForm(false)}/>:
+        <EditCommentFormContainer comment={props.comment} closeForm={() => setShowForm(false)}/> :
       (<div className="comment-info-container">
         <div className="author-info">
           <FaUserCircle size={32}/>

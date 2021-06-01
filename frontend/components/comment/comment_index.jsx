@@ -36,6 +36,7 @@ class CommentIndex extends React.Component{
           <h1><i className="important">{comments.length} </i>
           {comments.length < 2 ? "review" : "reviews" }</h1>
           {ratingAvg ? <ReactStars
+              key={ratingAvg}
               count={5}
               size={30}
               value={ratingAvg}
@@ -45,7 +46,7 @@ class CommentIndex extends React.Component{
               activeColor={"black"}
               emptyIcon={<BsStar/>}
               halfIcon={<BsStarHalf/>}
-              filledIcon={<BsStarFill/>} /> : null}
+              filledIcon={<BsStarFill/>} /> : null }
         </div>
         { this.props.currentUserId ?
           <div>

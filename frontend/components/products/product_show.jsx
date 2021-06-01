@@ -100,6 +100,7 @@ class ProductShow extends React.Component{
           <i className="product-sales">{sales > 0 ? sales.toLocaleString() + " sales | " : ""} 
             {this.props.comments.length < 1 ? "No ratings yet" : 
             <ReactStars
+                key={ratingAvg}
                 count={5}
                 size={12.5}
                 value={ratingAvg}
