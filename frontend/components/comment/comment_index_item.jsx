@@ -37,7 +37,7 @@ const CommentIndexItem = (props) => {
           (
             <div className="comment-buttons">
               <button onClick={() => setShowForm(true)}>Edit</button>
-              <button onClick={() => props.deleteComment(id)}>Delete</button>
+              <button className="delete-buttons" onClick={() => props.deleteComment(id)}>Delete</button>
             </div>
           )
         )}

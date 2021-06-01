@@ -28,7 +28,6 @@ class CommentIndex extends React.Component{
     const { showForm } = this.state;
     let ratingAvg = this.props.comments.reduce((acc, comment) => 
     acc + (comment.rating), 0) / this.props.comments.length;
-    console.log("ratingAvg:", ratingAvg);
 
     return (
       <div className="comment-container">

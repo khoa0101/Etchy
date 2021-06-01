@@ -40,7 +40,6 @@ class CommentForm extends React.Component{
   }
 
   render(){
-    console.log(this.state);
     return(
         <div className="review-form-container">
           <div className="review-form-header">
@@ -51,7 +50,7 @@ class CommentForm extends React.Component{
           {this.renderErrors()}
           <ReactStars
             count={5}
-            size={16}
+            size={30}
             onChange={this.ratingChange}
             value={this.state.rating}
             color={"black"}
@@ -59,8 +58,14 @@ class CommentForm extends React.Component{
             emptyIcon={<BsStar/>}
             filledIcon={<BsStarFill/>} 
           />
-        <textarea value={this.state.body} onChange={this.handleChange("body")}/>
-        <button>{this.props.formType}</button>
+          <textarea value={this.state.body} onChange={this.handleChange("body")}/>
+          <div className="comment-buttons">
+            <button>{this.props.formType}</button>
+            {this.props.formType === "Edit Review" && (
+              <button className="delete-buttons" onClick={() => this.props.deleteComment(this.state.id)}>Delete Review</button>
+            )}
+          </div>
+          
         </form>
       </div>
       )

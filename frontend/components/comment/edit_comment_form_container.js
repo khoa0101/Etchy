@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { editComment } from '../../actions/comment_actions';
+import { editComment, deleteComment } from '../../actions/comment_actions';
 import CommentForm from './comment_form';
 
 class EditCommentForm extends React.Component {
 
   render() {
-    const { comment, errors, submitComment, showForm, closeForm } = this.props;
+    const { comment, errors, submitComment, deleteComment, closeForm } = this.props;
 
     if (!comment) return null;
     return (
@@ -14,8 +14,8 @@ class EditCommentForm extends React.Component {
         comment={comment}
         errors={errors}
         formType="Edit Review"
+        deleteComment={deleteComment}
         submitComment={submitComment}
-        showForm={showForm}
         closeForm={closeForm} 
       />
     );
@@ -30,7 +30,8 @@ const mSTP = (state) => {
 
 const mDTP = (dispatch) => {
   return {
-    submitComment: (comment, callback) => dispatch(editComment(comment, callback)) 
+    submitComment: (comment, callback) => dispatch(editComment(comment, callback)),
+    deleteComment: (comment) => dispatch(deleteComment(comment))
   }
 };
 

@@ -2,9 +2,11 @@
   margin-bottom: 10px;
   
   button{
+    text-align: center;
     box-shadow: none;
     background-color: black;
     color: white;
+    max-width: 100px;
     border-radius: 100px;
     margin: 10px 20px 10px 0px;
     &:hover{
@@ -12,8 +14,41 @@
     }
   }
 
+  .delete-buttons{
+    &:hover{
+      background-color: red;
+    }
+  }
+
   .review-form-container{
+    margin-left: 10px;
     .review-form-header{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      h1{
+        font-family: 'Gaurdian Egyptian Headline', Georgia, serif;
+        font-size: 40px;
+        align-self: center;
+      }
+    }
+    form{
+      display: flex;
+      flex-direction: column;
+      & > * {
+        margin: 10px 0;
+      } 
+      textarea{
+        resize: none;
+        height: 100px;
+        padding: 10px;
+        border: solid rgb(175, 175, 175) 1px;
+        border-radius: 10px;
+      }
+      .comment-buttons{
+        display: flex;
+        justify-content: center;
+      }
     }
   }
   .comment-header{
