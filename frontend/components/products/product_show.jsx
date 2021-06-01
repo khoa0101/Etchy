@@ -125,7 +125,10 @@ class ProductShow extends React.Component{
           <h1 className="des-header">Description</h1>
           <p>{description}</p>
         </div>
-        <CommentIndex comments={this.props.comments} currentUserId={this.props.currentUserId} currentProductId={id}/>
+        <CommentIndex 
+          comments={this.props.comments} 
+          currentUserId={this.props.currentUserId} 
+          currentProductId={id} />
       </div>
     )
   }

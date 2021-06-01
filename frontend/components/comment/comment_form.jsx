@@ -40,6 +40,7 @@ class CommentForm extends React.Component{
   }
 
   render(){
+    console.log(this.state);
     return(
         <div className="review-form-container">
           <div className="review-form-header">
@@ -50,7 +51,7 @@ class CommentForm extends React.Component{
           {this.renderErrors()}
           <ReactStars
             count={5}
-            size={12.5}
+            size={16}
             onChange={this.ratingChange}
             value={this.state.rating}
             color={"black"}

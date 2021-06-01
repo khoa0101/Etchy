@@ -1,6 +1,8 @@
 import React from 'react';
 import CommentIndexItemContainer from './comment_index_item_container';
 import CreateCommentContainer from './create_comment_container';
+import ReactStars from 'react-rating-stars-component';
+import { BsStarFill, BsStarHalf, BsStar } from 'react-icons/bs';
 
 class CommentIndex extends React.Component{  
   constructor(props){
@@ -24,12 +26,27 @@ class CommentIndex extends React.Component{
   render(){
     let comments = Object.values(this.props.comments);
     const { showForm } = this.state;
-    comments = comments.filter(comment => comment.product_id === this.props.currentProductId)
+    let ratingAvg = this.props.comments.reduce((acc, comment) => 
+    acc + (comment.rating), 0) / this.props.comments.length;
+    console.log("ratingAvg:", ratingAvg);
 
     return (
       <div className="comment-container">
-        <h1 className="comment-header"><i className="important">{comments.length + " "}</i>
-        {comments.length < 2 ? "review" : "reviews" }</h1>
+        <div className="comment-header">
+          <h1><i className="important">{comments.length} </i>
+          {comments.length < 2 ? "review" : "reviews" }</h1>
+          {ratingAvg ? <ReactStars
+              count={5}
+              size={30}
+              value={ratingAvg}
+              isHalf={true}
+              edit={false}
+              color={"black"}
+              activeColor={"black"}
+              emptyIcon={<BsStar/>}
+              halfIcon={<BsStarHalf/>}
+              filledIcon={<BsStarFill/>} /> : null}
+        </div>
         { this.props.currentUserId ?
           <div>
             {showForm ? 
@@ -38,7 +55,7 @@ class CommentIndex extends React.Component{
                   currentUserId={this.props.currentUserId}
                   closeForm={() => this.showForm(this.SHOW_FORM)}
                 /> :
-              <button onClick={() => this.showForm(this.SHOW_FORM)}>Leave a Review</button>
+              <button className="comment-create" onClick={() => this.showForm(this.SHOW_FORM)}>Leave a Review</button>
             }
           </div>
         : null }

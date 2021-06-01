@@ -1,9 +1,29 @@
 .comment-container{
   margin-bottom: 10px;
+  
+  button{
+    box-shadow: none;
+    background-color: black;
+    color: white;
+    border-radius: 100px;
+    margin: 10px 20px 10px 0px;
+    &:hover{
+      transform: scale(1.2);
+    }
+  }
+
+  .review-form-container{
+    .review-form-header{
+    }
+  }
   .comment-header{
+    display: flex;
     font-family: 'Gaurdian Egyptian Headline', Georgia, serif;
     font-size: 30px;
     margin: 10px 0;
+    h1{
+      margin-right: 10px;
+    }
   }
 
   .comment-info-container{
