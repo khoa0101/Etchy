@@ -15,7 +15,7 @@ const NavBar = ({ currentUser, logout, openModal }) => {
   );   
 
     return (
-      <div>
+      <div className="user-nav">
         {currentUser ? dropdown() : sessionButton()}
         <CartNavContainer />
       </div>

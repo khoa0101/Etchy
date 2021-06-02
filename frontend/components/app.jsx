@@ -11,16 +11,14 @@ import SplashContainer from './splash/spash_container';
 import ProductShowContainer from './products/product_show_container';
 import CartFormContainer from './cart/cart_form_container';
 import Footer from './footer/footer';
+import SearchBarContainer from './search/search_bar_container';
 
 const App = () => (
   <div>
     <Modal />
     <header>
       <Link to="/" className="header-link"><h1>Etchy</h1></Link>
-      <form className="search-box">
-        <input type="text" className="search-bar" readOnly value="Search bar coming soon!"/>
-        <button className="search-button"></button>
-      </form>
+      <SearchBarContainer />
       <NavBarContainer />
     </header>
     <Switch>
