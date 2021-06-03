@@ -41,7 +41,7 @@ class Splash extends React.Component{
           </ul>
           <div className="contact-git">
             <h2>Have a question? Well, we've got some answers.</h2>
-            <form action="https://github.com/khoa0101/Etchy">
+            <form action="https://github.com/khoa0101/Etchy" target="_blank">
               <input type="submit" value="Go to Github" />
             </form>
           </div>

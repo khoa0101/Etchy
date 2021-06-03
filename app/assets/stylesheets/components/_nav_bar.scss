@@ -54,6 +54,10 @@ button.shopping-cart-button{
     border-top-left-radius: 50px ;
     border-bottom-left-radius: 50px ;
     flex-grow: 2;
+    &:focus{
+      background-color: white;
+      color: black;
+    }
   }
   .search-button{
     background-color: rgb(240, 240, 240);
