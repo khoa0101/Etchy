@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class SearchBar extends React.Component{
   constructor(props){
@@ -10,19 +11,18 @@ class SearchBar extends React.Component{
   }
 
   componentDidMount(){
-    this.props.fetchProducts;
+    this.props.fetchProducts();
   }
 
   handleChange(field){
     return e => {
       this.setState({[field]: e.target.value});
-      filter
     }
   }
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.history.push("/results", this.state);
+    this.props.history.push(`/results/${this.state.searchTerm}`);
   }
 
   render(){
@@ -35,4 +35,4 @@ class SearchBar extends React.Component{
   }
 }
 
-export default SearchBar;
+export default withRouter(SearchBar);

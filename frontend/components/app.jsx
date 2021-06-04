@@ -12,7 +12,7 @@ import ProductShowContainer from './products/product_show_container';
 import CartFormContainer from './cart/cart_form_container';
 import Footer from './footer/footer';
 import SearchBarContainer from './search/search_bar_container';
-// import SearchResult from './search/search_result';
+import SearchResult from './search/search_result';
 
 const App = () => (
   <div>
@@ -25,7 +25,7 @@ const App = () => (
     <Switch>
       <Route exact path="/" component={SplashContainer}/>
       <Route exact path="/products/:productId" component={ProductShowContainer}/>
-      {/* <Route exact path="/results" component={SearchResult} /> */}
+      <Route exact path="/results/:searchTerm" component={SearchResult} />
       <ProtectedRoute exact path="/cart" component={CartFormContainer}/>
       <Route path="*" component={() => <div className="error-page">404 NOT FOUND</div>} />
     </Switch>
