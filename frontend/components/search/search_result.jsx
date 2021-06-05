@@ -1,20 +1,33 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { requestProducts } from '../../actions/product_actions';
 
 class SearchResult extends React.Component {
   constructor(props){
-    
+    super(props);
+  }
+
+  componentDidMount(){
+    this.props.requestProducts();
   }
 
   render(){
     return (
-      <div>This is search result!</div>
+      <div>
+        
+      </div>
     )
+  }
+}
+const mSTP = (state, ownProps) => {
+  return {
+    products: state.entities.products,
+    searchTerm : ownProps.match.params.searchTerm,
   }
 }
 
 const mDTP = dispatch => ({
-  fetchProducts: () => dispatch(requestProducts())
+  requestProducts: () => dispatch(requestProducts())
 });
 
-export default connect(mDTP)(SearchResult);
+export default connect(mSTP, mDTP)(SearchResult);
