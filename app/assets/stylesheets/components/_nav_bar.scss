@@ -43,10 +43,13 @@ button.shopping-cart-button{
 }
 
 .search-box{
+  box-sizing: border-box;
   display: flex;
   margin: 10px;
   flex-grow: 4;
   .search-bar{
+    display: flex;
+    position: relative;
     padding: 15px 20px;
     border: solid 1px rgb(184, 184, 184);
     background-color: rgb(240, 240, 240);
@@ -54,9 +57,28 @@ button.shopping-cart-button{
     border-top-left-radius: 50px ;
     border-bottom-left-radius: 50px ;
     flex-grow: 2;
-    &:focus{
+    &:focus-within {
       background-color: white;
       color: black;
+    }
+
+    #search-clear{
+      text-align: center;
+      margin: -10px;
+      padding: 10px;
+      width: 36.8px;
+      font-size: 10px;
+      font-weight: bold;
+      transition: ease-in 0.2s;
+      &:hover{
+        cursor: pointer;
+        border-radius: 100%;
+        background-color: rgb(240, 240, 240);
+      }
+    }
+
+    #search-input{
+      flex-grow: 2;
     }
   }
   .search-button{

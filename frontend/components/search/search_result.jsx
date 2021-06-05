@@ -13,9 +13,7 @@ class SearchResult extends React.Component {
 
   render(){
     return (
-      <div>
-        
-      </div>
+      <div>{this.props.searchTerm}</div>
     )
   }
 }

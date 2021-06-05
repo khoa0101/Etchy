@@ -5,18 +5,28 @@ class SearchBar extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      searchTerm :"",
+      searchTerm : "",
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.clearInput = this.clearInput.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount(){
     this.props.fetchProducts();
   }
 
-  handleChange(field){
+  clearInput(e){
+    console.log(this.state);
+    document.getElementById("search-input").value = "";
+    this.setState({searchTerm: ""});
+    console.log(this.state);
+  }
+
+  handleChange(){
+    console.log(this.state);
     return e => {
-      this.setState({[field]: e.target.value});
+      this.setState({searchTerm: e.target.value});
     }
   }
 
@@ -28,7 +38,10 @@ class SearchBar extends React.Component{
   render(){
     return (
     <form className="search-box" onSubmit={this.handleSubmit}>
-      <input type="text" className="search-bar" placeholder="Search for anything" onChange={this.handleChange("searchTerm")}/>
+      <div className="search-bar">
+        <input type="text" id="search-input" placeholder="Search for anything" onChange={this.handleChange()}/>
+        {this.state.searchTerm.length > 0 && <input type="button" id="search-clear" onClick={this.clearInput} value="╳"/>}
+      </div>
       <button className="search-button"></button>
     </form>
     )
