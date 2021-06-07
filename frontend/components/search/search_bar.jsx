@@ -62,7 +62,7 @@ class SearchBar extends React.Component{
         </div>
         <button className="search-button"></button>
       </form>
-        { this.state.searchTerm.length  > 0 && (
+        { this.state.suggestions.length  > 0 && (
           <div className="search-suggestion">
             <ul>
               {this.state.suggestions.map( product => (
