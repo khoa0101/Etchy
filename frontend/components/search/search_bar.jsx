@@ -25,7 +25,7 @@ class SearchBar extends React.Component{
 
   handleChange(){
     return e => {
-      this.setState({searchTerm: e.target.value});
+      this.setState({searchTerm: `${this.state.searchTerm} + ${e.target.value[-1]}`});
       const regex = new RegExp(this.state.searchTerm, 'i');
       const products = Object.values(this.props.products);
       this.setState({ suggestions: products.filter(product => regex.test(product.name))});
