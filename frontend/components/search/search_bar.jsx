@@ -36,14 +36,19 @@ class SearchBar extends React.Component{
       ],
       includeScore: true,
       threshold: 0.5
-    })
+    });
     const results = fuse.search(this.state.searchTerm);
-    this.setState({suggestions: results.map( result => result.item)});
+    this.setState({suggestions: results.map( result => result.item).slice(0, 10)});
   }
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.history.push(`/results/${this.state.searchTerm}`);
+    if (this.state.searchTerm === ""){
+      this.props.history.push(`/results/all`);
+    } else {
+      this.props.history.push(`/results/${this.state.searchTerm}`);
+    }
+    this.setState({suggestions: []});
   }
 
   render(){
@@ -62,12 +67,11 @@ class SearchBar extends React.Component{
             <ul>
               {this.state.suggestions.map( product => (
                 <li key={`${product.name}`}>
-                  <Link to={`/products/${product. id}`}>{product.name}</Link>
+                  <Link to={`/products/${product. id}`} onClick={this.clearInput}>{product.name}</Link>
                 </li>
               ))}
             </ul>
-          </div>)
-        }
+          </div> )}
     </div>  
     )
   }

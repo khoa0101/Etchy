@@ -43,6 +43,7 @@ button.shopping-cart-button{
 }
 
 .search-box{
+  position: relative;
   box-sizing: border-box;
   display: flex;
   margin: 10px;
@@ -102,5 +103,11 @@ button.shopping-cart-button{
       border-top-right-radius: 50px ;
       border-bottom-right-radius: 50px ;
     }
+  }
+
+  .search-suggestion{
+    position: absolute;
+    background: white;
+    z-index: 1;
   }
 }
