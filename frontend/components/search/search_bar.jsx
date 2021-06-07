@@ -1,12 +1,14 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class SearchBar extends React.Component{
   constructor(props){
     super(props);
     this.state = {
       searchTerm : "",
+      suggestions: [],
     }
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.clearInput = this.clearInput.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -17,16 +19,18 @@ class SearchBar extends React.Component{
   }
 
   clearInput(e){
-    console.log(this.state);
     document.getElementById("search-input").value = "";
     this.setState({searchTerm: ""});
-    console.log(this.state);
   }
 
   handleChange(){
-    console.log(this.state);
     return e => {
       this.setState({searchTerm: e.target.value});
+      const regex = new RegExp(this.state.searchTerm, 'i');
+      const products = Object.values(this.props.products);
+      this.setState({ suggestions: products.filter(product => regex.test(product.name))});
+      console.log(regex);
+      console.log(this.state);
     }
   }
 
@@ -37,13 +41,27 @@ class SearchBar extends React.Component{
 
   render(){
     return (
-    <form className="search-box" onSubmit={this.handleSubmit}>
-      <div className="search-bar">
-        <input type="text" id="search-input" placeholder="Search for anything" onChange={this.handleChange()}/>
-        {this.state.searchTerm.length > 0 && <input type="button" id="search-clear" onClick={this.clearInput} value="╳"/>}
-      </div>
-      <button className="search-button"></button>
-    </form>
+    <div className="search-box">
+      <form className="search-box" onSubmit={this.handleSubmit}>
+        <div className="search-bar">
+          <input type="text" id="search-input" placeholder="Search for anything" onChange={this.handleChange()}/>
+          {this.state.searchTerm.length > 0 && <input type="button" id="search-clear" onClick={this.clearInput} value="╳"/>}
+        </div>
+        <button className="search-button"></button>
+      </form>
+        { this.state.searchTerm.length  > 0 && (
+          <div className="search-suggestion">
+            <ul>
+              {this.state.suggestions.map( product => (
+                <li>
+                  <Link to={`/products/${product. id}`}>{product.name}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+        }
+    </div>  
     )
   }
 }
