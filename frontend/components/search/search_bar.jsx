@@ -34,11 +34,10 @@ class SearchBar extends React.Component{
         'name',
         'description'
       ],
-      includeScore: true,
       threshold: 0.5
     });
     const results = fuse.search(this.state.searchTerm);
-    this.setState({suggestions: results.map( result => result.item).slice(0, 10)});
+    this.setState({suggestions: results.map(result => result.item).slice(0, 10)});
   }
 
   handleSubmit(e){
@@ -52,7 +51,6 @@ class SearchBar extends React.Component{
   }
 
   render(){
-    console.log(this.state);
     return (
     <div className="search-box">
       <form className="search-box" onSubmit={this.handleSubmit}>
