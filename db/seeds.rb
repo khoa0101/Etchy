@@ -21,7 +21,7 @@ drake = User.create({username: "Drake", email: "drake@drake.com", password: "dra
 # whale_paint = Product.create!({name: "Whale Painting \"Fathoms Below\"", description: "This is a fine art giclée print made from my original watercolor painting titled \"Fathoms Below\".", quantity: 2, price: 12.00, sales: 24, seller_id: User.find_by(username: "Bob The Painter").id})
 # marbel = Product.create!({name: "Marble Wall Art, Modern Abstract Canvas Artwork", description: "Canvas Print Art for Home and Office Decor", quantity: 4, price: 69.99, discount: 10.00, sales: 538, seller_id: User.find_by(username: "Bob The Painter").id})
 # kda_art = Product.create!({name: "K/DA POP/STARS Poster", description:"K/DA takes to the stage and takes the world by storm with their debut single \"POP/STARS\". This poster will probably make your other posters jealous.", quantity: 100, price: 22.00, sales: 231234, seller_id: User.find_by(username: "LolMerch").id})
-# fluid = Product.create!({name: "Canvas Painting Alcohol Ink", description: "Rescue your blank walls with beautiful Gallery Wrapped Canvas Prints. Photo to Canvas prints are the newest trend for turning any image into amazing Wall Art. Hang them on a wall in your home or office for Interior decor.", quantity: 6, price: 37.70 , discount: 40.00 ,sales: 389, seller_id: User.find_by(username: "Bob The Painter").id})
+fluid = Product.create!({name: "Canvas Painting Alcohol Ink", description: "Rescue your blank walls with beautiful Gallery Wrapped Canvas Prints. Photo to Canvas prints are the newest trend for turning any image into amazing Wall Art. Hang them on a wall in your home or office for Interior decor.", quantity: 6, price: 37.70 , discount: 40.00 ,sales: 389, seller_id: User.find_by(username: "Bob The Painter").id})
 
 # ahri_image = open("https://images.contentstack.io/v3/assets/blt5bbf09732528de36/blted682763b702c597/5f59427759f25e396816b960/11-05-2018_2018_43_05_890_AHRI.png")
 # Product.find(1).image.attach(io: ahri_image, filename: 'KDA_Ahri_Fig.png')
@@ -50,8 +50,8 @@ drake = User.create({username: "Drake", email: "drake@drake.com", password: "dra
 # kda_img = open("http://lol-stats.net/uploads/cG86fgQqVM1tRBa9JbCVrH6AyxpsRBd0UrdiyzVh.jpeg")
 # Product.find(9).image.attach(io: kda_img, filename: "KDA_Pop/Stars_post.png")
 
-# fluid_img = open("https://i.etsystatic.com/26632434/r/il/535496/2809509452/il_794xN.2809509452_q9k6.jpg")
-# Product.find(10).image.attach(io: fluid_img, filename: "Fluid_Paint.png")
+fluid_img = open("https://i.etsystatic.com/26632434/r/il/535496/2809509452/il_794xN.2809509452_q9k6.jpg")
+Product.find(10).image.attach(io: fluid_img, filename: "Fluid_Paint.png")
 
 drake_review = Comment.create({rating: 5, body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
   Ut quis nisl eros. Duis ut tellus suscipit, efficitur tortor sit amet, maximus felis. Quisque rhoncus commodo diam, in viverra eros. 
