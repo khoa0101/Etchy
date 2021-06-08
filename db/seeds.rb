@@ -53,7 +53,7 @@
 # fluid_img = open("https://i.etsystatic.com/26632434/r/il/535496/2809509452/il_794xN.2809509452_q9k6.jpg")
 # Product.find(10).image.attach(io: fluid_img, filename: "Fluid_Paint.png")
 
-drake_review = Comment.create({rating: 5, body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-  Ut quis nisl eros. Duis ut tellus suscipit, efficitur tortor sit amet, maximus felis. Quisque rhoncus commodo diam, in viverra eros. 
-  Pellentesque posuere erat libero, in sagittis nunc rhoncus nec. Curabitur elementum iaculis orci, at pretium urna fermentum a.", 
-  product_id: 1, author_id: User.find_by(username: "Drake").id})
+# drake_review = Comment.create({rating: 5, body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+#   Ut quis nisl eros. Duis ut tellus suscipit, efficitur tortor sit amet, maximus felis. Quisque rhoncus commodo diam, in viverra eros. 
+#   Pellentesque posuere erat libero, in sagittis nunc rhoncus nec. Curabitur elementum iaculis orci, at pretium urna fermentum a.", 
+#   product_id: 1, author_id: User.find_by(username: "Drake").id})
