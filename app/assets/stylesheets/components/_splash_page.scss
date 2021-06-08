@@ -4,7 +4,7 @@
   flex-wrap: wrap;
   overflow: auto;
   .new-products {
-    display: flex;
+    display: grid;
     flex-direction: column;
     flex-wrap: wrap;
     padding: 0 5%;
@@ -30,9 +30,9 @@
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
-          max-height: 16px;
+          max-height: 18px;
           max-width: 220px;
-          font-size: 14px;
+          font-size: 16px;
           font-weight: normal;
         }
         a img{

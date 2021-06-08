@@ -7,11 +7,9 @@
   .search-results-list{
     padding: 20px 0 ;
     list-style: none; 
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     min-height: 300px;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
     li{
       color: black;
       margin: 20px;
