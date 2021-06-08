@@ -1,5 +1,5 @@
 import React from 'react';
-import Fuse from 'fuse.js';
+// import Fuse from 'fuse.js';
 import { Link, withRouter } from 'react-router-dom';
 
 class SearchBar extends React.Component{
@@ -20,7 +20,8 @@ class SearchBar extends React.Component{
 
   clearInput(e){
     document.getElementById("search-input").value = "";
-    this.setState({searchTerm: ""});
+    this.setState({searchTerm: "", suggestions: []});
+
   }
 
   handleChange(e){
@@ -55,7 +56,7 @@ class SearchBar extends React.Component{
     <div className="search-box">
       <form className="search-box" onSubmit={this.handleSubmit}>
         <div className="search-bar">
-          <input type="text" id="search-input" placeholder="Search for anything" onChange={this.handleChange}/>
+          <input type="text" id="search-input" placeholder="Search for anything" onChange={this.handleChange} autoComplete="off"/>
           {this.state.searchTerm.length > 0 && <input type="button" id="search-clear" onClick={this.clearInput} value="╳"/>}
         </div>
         <button className="search-button"></button>

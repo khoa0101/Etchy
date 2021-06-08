@@ -1,5 +1,5 @@
 import React from 'react';
-import Fuse from 'fuse.js';
+// import Fuse from 'fuse.js';
 import ProductIndexItem from '../products/product_index_item';
 import { connect } from 'react-redux';
 import { requestProducts } from '../../actions/product_actions';
@@ -24,7 +24,8 @@ class SearchResult extends React.Component {
       threshold: 0.5
     });
     const results = (searchTerm === 'all' ? 
-      Object.values(products) : fuse.search(searchTerm).map(v => v.item));
+       Object.values(products) : fuse.search(searchTerm).map(v => v.item));
+    
     return (
       <div className="search-results">
         <h1>{results.length} results</h1>
