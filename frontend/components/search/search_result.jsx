@@ -14,7 +14,8 @@ class SearchResult extends React.Component {
   }
 
   render(){
-    const { products, searchTerm } = this.props;
+    const { searchTerm } = this.props;
+    const products = Object.values(this.props.products);
     const fuse = new Fuse(products, {
       keys: [
         'name',
@@ -22,12 +23,12 @@ class SearchResult extends React.Component {
       ],
       threshold: 0.5
     });
-    const results = searchTerm === 'all' ? 
-      Object.values(products) : fuse.search(searchTerm).map(result => result.item);
+    const results = (searchTerm === 'all' ? 
+      Object.values(products) : fuse.search(searchTerm).map(v => v.item));
     return (
-      <div>
+      <div className="search-results">
         <h1>{results.length} results</h1>
-        <ul>
+        <ul className="search-results-list">
           {results.map(product =>
             <ProductIndexItem 
             key={`product-${product.id}`}
