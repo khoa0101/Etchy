@@ -1,7 +1,7 @@
 class Api::ProductsController < ApplicationController
   
   def index
-    @products = Product.all.includes(:seller)
+    @products = Product.all.includes(:seller, image_attachment: :blob)
     
     render 'api/products/index'
   end

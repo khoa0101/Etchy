@@ -1,17 +1,21 @@
 import React from 'react';
+import ReactStars from 'react-rating-stars-component';
+import { BsStarFill, BsStarHalf, BsStar } from 'react-icons/bs';
+import CommentIndex from '../comment/comment_index';
 
 class ProductShow extends React.Component{
   constructor(props){
     super(props);
     this.state = {
       product_id: parseInt(this.props.match.params.productId),
-      quantity: 1
+      quantity: 1,
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount(){
     this.props.requestProduct(this.props.match.params.productId);
+    this.props.requestComments();
   }
 
   handleChange(field){
@@ -33,8 +37,10 @@ class ProductShow extends React.Component{
 
   render(){
     if (!this.props.product) {return null};
-    const { name, price, discount, sales, description, quantity, imageUrl } = this.props.product;
+    const { id ,name, price, discount, sales, description, quantity, imageUrl } = this.props.product;
     const { username } = this.props.product.seller;
+    let ratingAvg = this.props.comments.reduce((acc, comment) => 
+    acc + (comment.rating), 0) / this.props.comments.length;
 
     const quanArr = (quantity) => {
       if (quantity < 1) return [];
@@ -68,7 +74,7 @@ class ProductShow extends React.Component{
           <div className="price-header">
             {currentPrice}
             <br/>
-            <i className="saving">You save ${(price * (discount/100)).toFixed(2)}</i>
+            <i className="saving">You save ${(price * (discount/100)).toFixed(2)} </i>
             <i className="discount">({discount}% off)</i>
           </div>
         )
@@ -91,7 +97,21 @@ class ProductShow extends React.Component{
           <i className="product-seller">{username}</i>
           <br/>
           <h1 className="product-name">{name}</h1>
-          <i className="product-sales">{sales > 0 ? sales.toLocaleString() + " sales" : ""}</i>
+          <i className="product-sales">{sales > 0 ? sales.toLocaleString() + " sales | " : ""} 
+            {this.props.comments.length < 1 ? "No ratings yet" : 
+            <ReactStars
+                key={ratingAvg}
+                count={5}
+                size={12.5}
+                value={ratingAvg}
+                isHalf={true}
+                edit={false}
+                color={"black"}
+                activeColor={"black"}
+                emptyIcon={<BsStar/>}
+                halfIcon={<BsStarHalf/>}
+                filledIcon={<BsStarFill/>} />}
+          </i>
           {discountInfo()}
           <form onSubmit={this.handleSubmit}>
             <label>Quantity<br/>
@@ -106,7 +126,10 @@ class ProductShow extends React.Component{
           <h1 className="des-header">Description</h1>
           <p>{description}</p>
         </div>
-        
+        <CommentIndex 
+          comments={this.props.comments} 
+          currentUserId={this.props.currentUserId} 
+          currentProductId={id} />
       </div>
     )
   }

@@ -9,6 +9,9 @@
       font-size: 16px;
     }
     .product-sales{
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-column-gap: 5px;
       font-size: 12px;
     }
     .product-name{
@@ -89,8 +92,7 @@
     max-height: 800px;
     margin-bottom: 20px;
     .display-image{
-      height: 80%;
-      width: 80%;
+      max-width: 80%;
       border-radius: 5px;
     }
 

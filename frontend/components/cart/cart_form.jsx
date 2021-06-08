@@ -10,10 +10,6 @@ import {
 
 
 class CartForm extends React.Component{
-  constructor(props){
-    super(props);
-  }
-  
   componentDidMount(){
     this.props.fetchCarts();
   }
@@ -101,7 +97,7 @@ class CartForm extends React.Component{
           <h1>How you'll pay</h1>
           <label className="payment-type" htmlFor="payment-type">
             <label htmlFor="credit">
-              <input name="payment-type" id="credit" type="radio"/>
+              <input name="payment-type" id="credit" type="radio" defaultChecked/>
               <span className="radio-button"/>
               <FaCcVisa size={40} color="#1A1F71"/>
               <FaCcMastercard size={40} color="#EB001B"/>

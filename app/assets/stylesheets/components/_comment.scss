@@ -1,0 +1,87 @@
+.comment-container{
+  margin-bottom: 10px;
+  
+  button{
+    text-align: center;
+    box-shadow: none;
+    background-color: black;
+    color: white;
+    max-width: fit-content;
+    border-radius: 100px;
+    margin: 10px 20px 10px 0px;
+    &:hover{
+      transform: scale(1.2);
+    }
+  }
+
+  .delete-buttons{
+    &:hover{
+      background-color: red;
+    }
+  }
+
+  .review-form-container{
+    margin-left: 10px;
+    .review-form-header{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      h1{
+        font-family: 'Gaurdian Egyptian Headline', Georgia, serif;
+        font-size: 40px;
+        align-self: center;
+      }
+    }
+    form{
+      display: flex;
+      flex-direction: column;
+      & > * {
+        margin: 10px 0;
+      } 
+      textarea{
+        resize: none;
+        height: 100px;
+        padding: 10px;
+        border: solid rgb(175, 175, 175) 1px;
+        border-radius: 10px;
+      }
+      .comment-buttons{
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+  .comment-header{
+    display: flex;
+    font-family: 'Gaurdian Egyptian Headline', Georgia, serif;
+    font-size: 30px;
+    margin: 10px 0;
+    h1{
+      margin-right: 10px;
+    }
+  }
+
+  .comment-info-container{
+    padding: 10px 0;
+    .author-info{
+      display: flex;
+      margin-bottom: 10px;
+      & > * {
+        margin-right: 10px;
+        color: #595959;
+      }
+      svg{
+        color: black;
+      }
+      h1{
+        text-decoration: underline;
+      }
+    }
+    .comment-info{
+      margin-left: 40px;
+    }
+    p{
+      min-height: 100px;
+    }
+  }
+}

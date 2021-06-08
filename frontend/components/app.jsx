@@ -11,21 +11,21 @@ import SplashContainer from './splash/spash_container';
 import ProductShowContainer from './products/product_show_container';
 import CartFormContainer from './cart/cart_form_container';
 import Footer from './footer/footer';
+import SearchBarContainer from './search/search_bar_container';
+import SearchResult from './search/search_result';
 
 const App = () => (
   <div>
     <Modal />
     <header>
       <Link to="/" className="header-link"><h1>Etchy</h1></Link>
-      <form className="search-box">
-        <input type="text" className="search-bar" readOnly value="Search bar coming soon!"/>
-        <button className="search-button"></button>
-      </form>
+      <SearchBarContainer />
       <NavBarContainer />
     </header>
     <Switch>
       <Route exact path="/" component={SplashContainer}/>
       <Route exact path="/products/:productId" component={ProductShowContainer}/>
+      <Route path="/results/:searchTerm" component={SearchResult} />
       <ProtectedRoute exact path="/cart" component={CartFormContainer}/>
       <Route path="*" component={() => <div className="error-page">404 NOT FOUND</div>} />
     </Switch>

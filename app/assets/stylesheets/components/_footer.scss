@@ -30,13 +30,12 @@ footer{
       grid-template-columns: repeat(3, 1fr);
       li{
         justify-self: start;
-        padding: 10px;
+        padding: 5px 7px;
         grid-row: 2;
-        transition: ease 0.2s;
-        border-radius: 50%;
-        transition: ease-in-out 0.2s;
+        border-radius: 100%;
+        transition: all ease-in-out 0.2s;
         &:hover{
-          background-color: rgba(255, 255, 255, 0.2);
+          box-shadow:  inset 100px 100px 100px 50px rgba(255, 255, 255, 0.2);
         }
       }
     }

@@ -6,4 +6,8 @@ class Product < ApplicationRecord
     class_name: 'User'
 
   has_one_attached :image
+
+  has_many :comments,
+    foreign_key: :product_id,
+    class_name: 'Comment'
 end
