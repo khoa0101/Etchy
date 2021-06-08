@@ -1,5 +1,5 @@
 import React from 'react';
-// import Fuse from 'fuse.js';
+import Fuse from 'fuse.js';
 import { Link, withRouter } from 'react-router-dom';
 
 class SearchBar extends React.Component{

@@ -1,5 +1,5 @@
 import React from 'react';
-// import Fuse from 'fuse.js';
+import Fuse from 'fuse.js';
 import ProductIndexItem from '../products/product_index_item';
 import { connect } from 'react-redux';
 import { requestProducts } from '../../actions/product_actions';
