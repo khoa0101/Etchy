@@ -4,6 +4,7 @@ import ProductIndexItem from '../products/product_index_item';
 
 class Splash extends React.Component{
   componentDidMount(){
+    window.scrollTo(0, 0);
     this.props.requestProducts();
   }
 

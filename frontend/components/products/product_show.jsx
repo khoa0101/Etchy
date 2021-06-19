@@ -14,6 +14,7 @@ class ProductShow extends React.Component{
   }
 
   componentDidMount(){
+    window.scrollTo(0,0);
     this.props.requestProduct(this.props.match.params.productId);
     this.props.requestComments();
   }
