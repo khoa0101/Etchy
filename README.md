@@ -21,10 +21,11 @@ Etchy is a clone of Etsy.com. Simular to Etsy, Etchy is an online shopping websi
 ### Products
 * Users can browse through products and checkout listed products in greater details. 
 ![Product demo](https://media.giphy.com/media/21lQjkeG4fHBF3Z3vy/giphy.gif)
+### Shopping Cart
+### Reviews
+### Search 
 ## Future Plans
-* Shopping Cart
-* Reviews
-* Search Bar
+* Category
 ## Code Snippet
 ````
 <div className="product-show">
