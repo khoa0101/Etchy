@@ -25,6 +25,7 @@ Etchy is a clone of Etsy.com. Simular to Etsy, Etchy is an online shopping websi
 * Users can add products to the shopping cart
 * Users can purchase products from the shopping cart
 * Users can view products added to the shopping cart from previous visits that have not been purchase
+![Cart demo](https://media.giphy.com/media/cbo365S9p95UFqsnSK/giphy.gif)
 ### Reviews
 * Logged in user can write reviews/comments on products
 * Users can view reviews/comments on products
