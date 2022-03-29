@@ -39,8 +39,8 @@ const Footer = () => {
         <ul className="about">
           <h1>About</h1>
           <li><a href="https://github.com/khoa0101" target="_blank"><AiFillGithub size={40} color="white"/></a></li>
-          <li><a href="https://www.linkedin.com/in/khoa-nguyen-814465133/" target="_blank"><AiFillLinkedin size={40} color="white"/></a></li>
-          <li><a href="https://angel.co/u/khoa-nguyen-59" target="_blank"><FaAngellist size={40} color="white"/></a></li>
+          {/* <li><a href="https://www.linkedin.com/in/khoa-nguyen-814465133/" target="_blank"><AiFillLinkedin size={40} color="white"/></a></li>
+          <li><a href="https://angel.co/u/khoa-nguyen-59" target="_blank"><FaAngellist size={40} color="white"/></a></li> */}
         </ul>
       </div>
       <div className="footer-copy">
