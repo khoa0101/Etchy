@@ -224,6 +224,7 @@ GEM
       nokogiri (~> 1.8)
 
 PLATFORMS
+  X86_64-linux
   ruby
 
 DEPENDENCIES

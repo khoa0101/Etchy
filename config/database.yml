@@ -78,8 +78,12 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+# production:
+#   <<: *default
+#   database: Etchy_production
+#   username: Etchy
+#   password: <%= ENV['ETCHY_DATABASE_PASSWORD'] %>
+
 production:
   <<: *default
-  database: Etchy_production
-  username: Etchy
-  password: <%= ENV['ETCHY_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
