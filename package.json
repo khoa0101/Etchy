@@ -28,7 +28,7 @@
     "redux-logger": "^3.0.6"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm install --prefix frontend && npm run build --prefix frontend",
     "start": "webpack --mode=development --watch",
     "postinstall": "webpack"
   },
