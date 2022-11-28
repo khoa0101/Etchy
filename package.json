@@ -43,7 +43,7 @@
     "url": "https://github.com/khoa0101/Etchy/issues"
   },
   "engines": {
-    "node": "v10.13.0",
+    "node": "v16.x",
     "npm": "6.4.1"
   },
   "homepage": "https://github.com/khoa0101/Etchy#readme"
