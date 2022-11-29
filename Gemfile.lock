@@ -225,7 +225,6 @@ GEM
       nokogiri (~> 1.8)
 
 PLATFORMS
-  X86_64-linux
   ruby
 
 DEPENDENCIES
@@ -243,6 +242,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
+  nokogiri (~> 1.12, >= 1.12.5)
   pg (>= 0.18, < 2.0)
   pry-rails
   puma (~> 3.11)
