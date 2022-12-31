@@ -5,5 +5,3 @@ bundle.js.map
 /config/master.key
 tmp/
 /public
-# Ignore master key for decrypting credentials and more.
-/config/master.key
