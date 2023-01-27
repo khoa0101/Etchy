@@ -6940,3 +6940,632 @@ Processing by Api::ProductsController#index as JSON
 Completed 200 OK in 19ms (Views: 17.8ms | ActiveRecord: 1.4ms)
 
 
+Started GET "/" for ::1 at 2023-01-10 20:55:38 -0800
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#root as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (Duration: 12.9ms | Allocations: 509)
+  Rendered layout layouts/application.html.erb (Duration: 15136.3ms | Allocations: 1349564)
+Completed 200 OK in 15169ms (Views: 15150.3ms | ActiveRecord: 0.0ms | Allocations: 1353465)
+
+
+Started GET "/api/products" for ::1 at 2023-01-10 20:55:54 -0800
+Started GET "/api/carts" for ::1 at 2023-01-10 20:55:54 -0800
+Processing by Api::ProductsController#index as JSON
+Processing by Api::CartsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  Rendering api/carts/index.json.jbuilder
+  [1m[36mProduct Load (3.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  [1m[36mCart Load (8.9ms)[0m  [1m[34mSELECT "carts".* FROM "carts"[0m
+  ↳ app/views/api/carts/index.json.jbuilder:1
+  Rendered api/carts/index.json.jbuilder (Duration: 61.2ms | Allocations: 17623)
+Completed 200 OK in 116ms (Views: 31.6ms | ActiveRecord: 32.6ms | Allocations: 27267)
+
+
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2)[0m  [["id", 2], ["id", 3]]
+  ↳ app/views/api/products/index.json.jbuilder:1
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zXOSuyZDY4Xo8y/ehBtkkg=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `ensure_session_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "EBlvRANaqxBp46+yTal+/Q=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `ensure_session_token'
+  [1m[36mActiveStorage::Attachment Load (2.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5, $6, $7, $8, $9, $10, $11, $12)[0m  [["record_type", "Product"], ["name", "image"], ["record_id", 2], ["record_id", 3], ["record_id", 4], ["record_id", 5], ["record_id", 6], ["record_id", 7], ["record_id", 8], ["record_id", 9], ["record_id", 10], ["record_id", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:1
+  [1m[36mActiveStorage::Blob Load (1.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)[0m  [["id", 11], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6], ["id", 7], ["id", 8], ["id", 9], ["id", 10]]
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/index.json.jbuilder (Duration: 248.0ms | Allocations: 127997)
+Completed 500 Internal Server Error in 303ms (ActiveRecord: 21.6ms | Allocations: 137695)
+
+
+
+NoMethodError - undefined method `service_name' for #<ActiveStorage::Blob:0x00007ff46f639028>
+Did you mean?  service:
+  app/views/api/products/index.json.jbuilder:1
+  app/controllers/api/products_controller.rb:6:in `index'
+
+Started GET "/api/products" for ::1 at 2023-01-10 20:55:55 -0800
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2)[0m  [["id", 2], ["id", 3]]
+  ↳ app/views/api/products/index.json.jbuilder:1
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FZgbNDvJGvcyPnbJ74UH1g=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `ensure_session_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VMsUaYP6HqPZxxboI+uXLA=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `ensure_session_token'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5, $6, $7, $8, $9, $10, $11, $12)[0m  [["record_type", "Product"], ["name", "image"], ["record_id", 2], ["record_id", 3], ["record_id", 4], ["record_id", 5], ["record_id", 6], ["record_id", 7], ["record_id", 8], ["record_id", 9], ["record_id", 10], ["record_id", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:1
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)[0m  [["id", 11], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6], ["id", 7], ["id", 8], ["id", 9], ["id", 10]]
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/index.json.jbuilder (Duration: 17.5ms | Allocations: 9676)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 1.5ms | Allocations: 10000)
+
+
+
+NoMethodError - undefined method `service_name' for #<ActiveStorage::Blob:0x00007ff46ec0b2e0>
+Did you mean?  service:
+  app/views/api/products/index.json.jbuilder:1
+  app/controllers/api/products_controller.rb:6:in `index'
+
+Started GET "/api/products" for ::1 at 2023-01-10 20:56:08 -0800
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2)[0m  [["id", 2], ["id", 3]]
+  ↳ app/views/api/products/index.json.jbuilder:1
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "YxRVxa8MZpWj23IGOqckyw=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `ensure_session_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "LCOA4zJ77lwGN+2swHm7NQ=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `ensure_session_token'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5, $6, $7, $8, $9, $10, $11, $12)[0m  [["record_type", "Product"], ["name", "image"], ["record_id", 2], ["record_id", 3], ["record_id", 4], ["record_id", 5], ["record_id", 6], ["record_id", 7], ["record_id", 8], ["record_id", 9], ["record_id", 10], ["record_id", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:1
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)[0m  [["id", 11], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6], ["id", 7], ["id", 8], ["id", 9], ["id", 10]]
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/index.json.jbuilder (Duration: 25.9ms | Allocations: 9676)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 1.7ms | Allocations: 9999)
+
+
+
+NoMethodError - undefined method `service_name' for #<ActiveStorage::Blob:0x00007ff46e6fd708>
+Did you mean?  service:
+  app/views/api/products/index.json.jbuilder:1
+  app/controllers/api/products_controller.rb:6:in `index'
+
+Started POST "/__better_errors/19498ad01e13267b/variables" for ::1 at 2023-01-10 20:56:08 -0800
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2)[0m  [["id", 2], ["id", 3]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "K5YRyZBv2Jd8VciPC+AIfQ=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `ensure_session_token'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "O6yHrtrVIHmeEYFLOPpgKQ=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `ensure_session_token'
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5, $6, $7, $8, $9, $10, $11, $12)[0m  [["record_type", "Product"], ["name", "image"], ["record_id", 2], ["record_id", 3], ["record_id", 4], ["record_id", 5], ["record_id", 6], ["record_id", 7], ["record_id", 8], ["record_id", 9], ["record_id", 10], ["record_id", 1]]
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)[0m  [["id", 11], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6], ["id", 7], ["id", 8], ["id", 9], ["id", 10]]
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2)[0m  [["id", 2], ["id", 3]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "hT4OYlx7tm7d1lyrWnS/DA=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `ensure_session_token'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "ukcB5TXiyAcCMYPQiYvhEg=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `ensure_session_token'
+  [1m[36mCACHE ActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5, $6, $7, $8, $9, $10, $11, $12)[0m  [["record_type", "Product"], ["name", "image"], ["record_id", 2], ["record_id", 3], ["record_id", 4], ["record_id", 5], ["record_id", 6], ["record_id", 7], ["record_id", 8], ["record_id", 9], ["record_id", 10], ["record_id", 1]]
+  [1m[36mCACHE ActiveStorage::Blob Load (0.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)[0m  [["id", 11], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6], ["id", 7], ["id", 8], ["id", 9], ["id", 10]]
+Started GET "/favicon.ico" for ::1 at 2023-01-10 20:56:09 -0800
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1280)
+
+
+
+ArgumentError - `render file:` should be given the absolute path to a file. '/home/khoa/Etchy/public/index.html' was given instead:
+  app/controllers/static_pages_controller.rb:3:in `frontend_index'
+
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+Started GET "/api/products" for ::1 at 2023-01-10 20:57:34 -0800
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2)[0m  [["id", 2], ["id", 3]]
+  ↳ app/views/api/products/index.json.jbuilder:1
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Vr4vJym9olv6z3+/vNlNwQ=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `ensure_session_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HGvp6PxnrcgWMJR8QO9sRw=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `ensure_session_token'
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5, $6, $7, $8, $9, $10, $11, $12)[0m  [["record_type", "Product"], ["name", "image"], ["record_id", 2], ["record_id", 3], ["record_id", 4], ["record_id", 5], ["record_id", 6], ["record_id", 7], ["record_id", 8], ["record_id", 9], ["record_id", 10], ["record_id", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:1
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)[0m  [["id", 11], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6], ["id", 7], ["id", 8], ["id", 9], ["id", 10]]
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/index.json.jbuilder (Duration: 18.0ms | Allocations: 9676)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 1.5ms | Allocations: 9999)
+
+
+
+NoMethodError - undefined method `service_name' for #<ActiveStorage::Blob:0x00007ff46f63aba8>
+Did you mean?  service:
+  app/views/api/products/index.json.jbuilder:1
+  app/controllers/api/products_controller.rb:6:in `index'
+
+Started POST "/__better_errors/0edf5145942a8f1d/variables" for ::1 at 2023-01-10 20:57:34 -0800
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2)[0m  [["id", 2], ["id", 3]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "koJIJ7s7EzbtOYXTPYh1mQ=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `ensure_session_token'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "UnngO4mEgFTMavxYpsF2pQ=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `ensure_session_token'
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5, $6, $7, $8, $9, $10, $11, $12)[0m  [["record_type", "Product"], ["name", "image"], ["record_id", 2], ["record_id", 3], ["record_id", 4], ["record_id", 5], ["record_id", 6], ["record_id", 7], ["record_id", 8], ["record_id", 9], ["record_id", 10], ["record_id", 1]]
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)[0m  [["id", 11], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6], ["id", 7], ["id", 8], ["id", 9], ["id", 10]]
+  [1m[36mCACHE Product Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2)[0m  [["id", 2], ["id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "/NBU5UBfmTd2bkbfPiauTA=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `ensure_session_token'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Avcf2Ar0CZ02w9QA5UZ+2g=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `ensure_session_token'
+  [1m[36mCACHE ActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5, $6, $7, $8, $9, $10, $11, $12)[0m  [["record_type", "Product"], ["name", "image"], ["record_id", 2], ["record_id", 3], ["record_id", 4], ["record_id", 5], ["record_id", 6], ["record_id", 7], ["record_id", 8], ["record_id", 9], ["record_id", 10], ["record_id", 1]]
+  [1m[36mCACHE ActiveStorage::Blob Load (0.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)[0m  [["id", 11], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6], ["id", 7], ["id", 8], ["id", 9], ["id", 10]]
+Started GET "/favicon.ico" for ::1 at 2023-01-10 20:57:35 -0800
+Processing by StaticPagesController#frontend_index as */*
+  Parameters: {"path"=>"favicon"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 1278)
+
+
+
+ArgumentError - `render file:` should be given the absolute path to a file. '/home/khoa/Etchy/public/index.html' was given instead:
+  app/controllers/static_pages_controller.rb:3:in `frontend_index'
+
+Started POST "/__better_errors/0edf5145942a8f1d/variables" for ::1 at 2023-01-10 20:57:39 -0800
+Started GET "/" for ::1 at 2023-01-26 21:53:15 -0800
+
+PG::ConnectionBad - FATAL:  the database system is starting up:
+
+Started POST "/__better_errors/cd5c5c0d5267016f/variables" for ::1 at 2023-01-26 21:53:15 -0800
+Started GET "/favicon.ico" for ::1 at 2023-01-26 21:53:15 -0800
+
+PG::ConnectionBad - FATAL:  the database system is starting up:
+
+Started GET "/" for ::1 at 2023-01-26 21:53:54 -0800
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/khoa/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (6.6ms)
+Started GET "/" for ::1 at 2023-01-26 21:53:56 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 1487ms (Views: 1486.4ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 104ms (Views: 103.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/carts" for ::1 at 2023-01-26 21:53:56 -0800
+Processing by Api::CartsController#index as JSON
+  Rendering api/carts/index.json.jbuilder
+  [1m[36mCart Load (2.0ms)[0m  [1m[34mSELECT "carts".* FROM "carts"[0m
+  ↳ app/views/api/carts/index.json.jbuilder:1
+  Rendered api/carts/index.json.jbuilder (17.1ms)
+Completed 200 OK in 60ms (Views: 20.5ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/api/products" for ::1 at 2023-01-26 21:53:56 -0800
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (1.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2)[0m  [["id", 2], ["id", 3]]
+  ↳ app/views/api/products/index.json.jbuilder:1
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Rvs26xhWfDahbUPPj8JBzw=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "xITKiauv3Zbb7HAx/y8c/A=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48
+  [1m[36mActiveStorage::Attachment Load (1.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5, $6, $7, $8, $9, $10, $11, $12)[0m  [["record_type", "Product"], ["name", "image"], ["record_id", 2], ["record_id", 3], ["record_id", 4], ["record_id", 5], ["record_id", 6], ["record_id", 7], ["record_id", 8], ["record_id", 9], ["record_id", 10], ["record_id", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:1
+  [1m[36mActiveStorage::Blob Load (1.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)[0m  [["id", 11], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6], ["id", 7], ["id", 8], ["id", 9], ["id", 10]]
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/_product.json.jbuilder (15.3ms)
+  Rendered api/products/_product.json.jbuilder (0.4ms)
+  Rendered api/products/_product.json.jbuilder (0.4ms)
+  Rendered api/products/_product.json.jbuilder (0.3ms)
+  Rendered api/products/_product.json.jbuilder (0.2ms)
+  Rendered api/products/_product.json.jbuilder (0.3ms)
+  Rendered api/products/_product.json.jbuilder (0.4ms)
+  Rendered api/products/_product.json.jbuilder (0.4ms)
+  Rendered api/products/_product.json.jbuilder (0.3ms)
+  Rendered api/products/_product.json.jbuilder (0.3ms)
+  Rendered api/products/index.json.jbuilder (230.2ms)
+Completed 200 OK in 264ms (Views: 211.3ms | ActiveRecord: 27.9ms)
+
+
+Started GET "/api/products" for ::1 at 2023-01-26 21:53:56 -0800
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2)[0m  [["id", 2], ["id", 3]]
+  ↳ app/views/api/products/index.json.jbuilder:1
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "a98cSwMW0958GDetJMR/Fw=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "/qS8C5OyFeZsAIr3wlY3HQ=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5, $6, $7, $8, $9, $10, $11, $12)[0m  [["record_type", "Product"], ["name", "image"], ["record_id", 2], ["record_id", 3], ["record_id", 4], ["record_id", 5], ["record_id", 6], ["record_id", 7], ["record_id", 8], ["record_id", 9], ["record_id", 10], ["record_id", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:1
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)[0m  [["id", 11], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6], ["id", 7], ["id", 8], ["id", 9], ["id", 10]]
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/_product.json.jbuilder (0.6ms)
+  Rendered api/products/_product.json.jbuilder (0.3ms)
+  Rendered api/products/_product.json.jbuilder (0.3ms)
+  Rendered api/products/_product.json.jbuilder (0.2ms)
+  Rendered api/products/_product.json.jbuilder (0.2ms)
+  Rendered api/products/_product.json.jbuilder (0.4ms)
+  Rendered api/products/_product.json.jbuilder (0.4ms)
+  Rendered api/products/_product.json.jbuilder (0.3ms)
+  Rendered api/products/_product.json.jbuilder (0.3ms)
+  Rendered api/products/_product.json.jbuilder (0.2ms)
+  Rendered api/products/index.json.jbuilder (16.2ms)
+Completed 200 OK in 19ms (Views: 17.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5c4250d7d075fde1d9bd09d4ea759b32dc4803e9/KDA_Ahri_Fig.png" for ::1 at 2023-01-26 21:53:56 -0800
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--4ae20c7a7b4aa0d577e92b5e6e05f24ac76eb413/Ryze_Fig.png" for ::1 at 2023-01-26 21:53:56 -0800
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--b965ac269622c5d984ca8ff2b5189c0bc4ee3b5b/KDA_AllOut_Seraphine_Fig.png" for ::1 at 2023-01-26 21:53:56 -0800
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--0e4c9f2d8464557d8f1865f1c24352afcdd373a4/Battle_Aca_Mini_Figs.png" for ::1 at 2023-01-26 21:53:56 -0800
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c440d1f4973d2ff4c52a3fe177ad3238f8f25028/KDA_Ahri_More_Tee.png" for ::1 at 2023-01-26 21:53:56 -0800
+Processing by ActiveStorage::BlobsController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--b965ac269622c5d984ca8ff2b5189c0bc4ee3b5b", "filename"=>"KDA_AllOut_Seraphine_Fig"}
+Processing by ActiveStorage::BlobsController#show as PNG
+Processing by ActiveStorage::BlobsController#show as PNG
+Processing by ActiveStorage::BlobsController#show as PNG
+Processing by ActiveStorage::BlobsController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c440d1f4973d2ff4c52a3fe177ad3238f8f25028", "filename"=>"KDA_Ahri_More_Tee"}
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5c4250d7d075fde1d9bd09d4ea759b32dc4803e9", "filename"=>"KDA_Ahri_Fig"}
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--4ae20c7a7b4aa0d577e92b5e6e05f24ac76eb413", "filename"=>"Ryze_Fig"}
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--0e4c9f2d8464557d8f1865f1c24352afcdd373a4", "filename"=>"Battle_Aca_Mini_Figs"}
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ /home/khoa/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mActiveStorage::Blob Load (1.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /home/khoa/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mActiveStorage::Blob Load (1.9ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (1.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (1.7ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ /home/khoa/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+  ↳ /home/khoa/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+  ↳ /home/khoa/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+[36m  S3 Storage (242.3ms) [0m[34mGenerated URL for file at key: y9Hy3pYoz4aaBEa8dDMZGE5L (https://etchy-dev.s3.us-west-1.amazonaws.com/y9Hy3pYoz4aaBEa8dDMZGE5L?response-content-disposition=inline%3B%20filename%3D%22Battle_Aca_Mini_Figs.png%22%3B%20filename%2A%3DUTF-8%27%27Battle_Aca_Mini_Figs.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQB7AWZP3LTFOMFW3%2F20230127%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230127T055357Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=8e0fc83f553aea7db7263c848dfbff62237220e3ffdcf4f8d65f31126c90ee62)[0m
+Redirected to https://etchy-dev.s3.us-west-1.amazonaws.com/y9Hy3pYoz4aaBEa8dDMZGE5L?response-content-disposition=inline%3B%20filename%3D%22Battle_Aca_Mini_Figs.png%22%3B%20filename%2A%3DUTF-8%27%27Battle_Aca_Mini_Figs.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQB7AWZP3LTFOMFW3%2F20230127%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230127T055357Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=8e0fc83f553aea7db7263c848dfbff62237220e3ffdcf4f8d65f31126c90ee62
+[36m  S3 Storage (248.0ms) [0m[34mGenerated URL for file at key: 1SfJA5hymLQm6deknbMkUEu4 (https://etchy-dev.s3.us-west-1.amazonaws.com/1SfJA5hymLQm6deknbMkUEu4?response-content-disposition=inline%3B%20filename%3D%22KDA_Ahri_Fig.png%22%3B%20filename%2A%3DUTF-8%27%27KDA_Ahri_Fig.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQB7AWZP3LTFOMFW3%2F20230127%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230127T055357Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=0f2e3fc327ae9b964788f87496889b738e4a478b78af64f4e1de40982ca98c72)[0m
+[36m  S3 Storage (249.6ms) [0m[34mGenerated URL for file at key: PGyMz7Gesa7SfSYFcctvpR33 (https://etchy-dev.s3.us-west-1.amazonaws.com/PGyMz7Gesa7SfSYFcctvpR33?response-content-disposition=inline%3B%20filename%3D%22KDA_Ahri_More_Tee.png%22%3B%20filename%2A%3DUTF-8%27%27KDA_Ahri_More_Tee.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQB7AWZP3LTFOMFW3%2F20230127%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230127T055357Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=d0305cd2b516df9685044c7f343f57ca017361ff498d4c9de023b868c98271bc)[0m
+[36m  S3 Storage (248.5ms) [0m[34mGenerated URL for file at key: ERGJyRPPnQi4XRVJBiw9erwT (https://etchy-dev.s3.us-west-1.amazonaws.com/ERGJyRPPnQi4XRVJBiw9erwT?response-content-disposition=inline%3B%20filename%3D%22Ryze_Fig.png%22%3B%20filename%2A%3DUTF-8%27%27Ryze_Fig.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQB7AWZP3LTFOMFW3%2F20230127%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230127T055357Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=dff66aa98da785598dd6e1dba78d8f569439853b5be545c3f720705a98dceba1)[0m
+Redirected to https://etchy-dev.s3.us-west-1.amazonaws.com/1SfJA5hymLQm6deknbMkUEu4?response-content-disposition=inline%3B%20filename%3D%22KDA_Ahri_Fig.png%22%3B%20filename%2A%3DUTF-8%27%27KDA_Ahri_Fig.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQB7AWZP3LTFOMFW3%2F20230127%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230127T055357Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=0f2e3fc327ae9b964788f87496889b738e4a478b78af64f4e1de40982ca98c72
+Completed 302 Found in 259ms (ActiveRecord: 2.7ms)
+
+
+Redirected to https://etchy-dev.s3.us-west-1.amazonaws.com/PGyMz7Gesa7SfSYFcctvpR33?response-content-disposition=inline%3B%20filename%3D%22KDA_Ahri_More_Tee.png%22%3B%20filename%2A%3DUTF-8%27%27KDA_Ahri_More_Tee.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQB7AWZP3LTFOMFW3%2F20230127%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230127T055357Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=d0305cd2b516df9685044c7f343f57ca017361ff498d4c9de023b868c98271bc
+Redirected to https://etchy-dev.s3.us-west-1.amazonaws.com/ERGJyRPPnQi4XRVJBiw9erwT?response-content-disposition=inline%3B%20filename%3D%22Ryze_Fig.png%22%3B%20filename%2A%3DUTF-8%27%27Ryze_Fig.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQB7AWZP3LTFOMFW3%2F20230127%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230127T055357Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=dff66aa98da785598dd6e1dba78d8f569439853b5be545c3f720705a98dceba1
+[36m  S3 Storage (249.6ms) [0m[34mGenerated URL for file at key: DwjzUwVqqR668Hw6rME2ptqd (https://etchy-dev.s3.us-west-1.amazonaws.com/DwjzUwVqqR668Hw6rME2ptqd?response-content-disposition=inline%3B%20filename%3D%22KDA_AllOut_Seraphine_Fig.png%22%3B%20filename%2A%3DUTF-8%27%27KDA_AllOut_Seraphine_Fig.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQB7AWZP3LTFOMFW3%2F20230127%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230127T055357Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=e2bc4e854d13cb795ca9d81b464d4b43ec098e2f2d32cb2a51120d3597394a33)[0m
+Completed 302 Found in 264ms (ActiveRecord: 2.4ms)
+
+
+Redirected to https://etchy-dev.s3.us-west-1.amazonaws.com/DwjzUwVqqR668Hw6rME2ptqd?response-content-disposition=inline%3B%20filename%3D%22KDA_AllOut_Seraphine_Fig.png%22%3B%20filename%2A%3DUTF-8%27%27KDA_AllOut_Seraphine_Fig.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQB7AWZP3LTFOMFW3%2F20230127%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230127T055357Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=e2bc4e854d13cb795ca9d81b464d4b43ec098e2f2d32cb2a51120d3597394a33
+Completed 302 Found in 266ms (ActiveRecord: 3.3ms)
+
+
+Completed 302 Found in 264ms (ActiveRecord: 2.4ms)
+
+
+Completed 302 Found in 263ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f196cb8b718c5c02a8e43828cb36d0233221f461/Fathom_Below.png" for ::1 at 2023-01-26 21:53:57 -0800
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--32e1badb9e116bcbc8ee6df23696c12841095a67/Marbel_decor.png" for ::1 at 2023-01-26 21:53:57 -0800
+Processing by ActiveStorage::BlobsController#show as PNG
+Processing by ActiveStorage::BlobsController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f196cb8b718c5c02a8e43828cb36d0233221f461", "filename"=>"Fathom_Below"}
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--32e1badb9e116bcbc8ee6df23696c12841095a67", "filename"=>"Marbel_decor"}
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ /home/khoa/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+  ↳ /home/khoa/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+[36m  S3 Storage (0.9ms) [0m[34mGenerated URL for file at key: swYqkYNT1SYu4s9NMeEnoynk (https://etchy-dev.s3.us-west-1.amazonaws.com/swYqkYNT1SYu4s9NMeEnoynk?response-content-disposition=inline%3B%20filename%3D%22Fathom_Below.png%22%3B%20filename%2A%3DUTF-8%27%27Fathom_Below.png&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQB7AWZP3LTFOMFW3%2F20230127%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230127T055357Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=1cb2599d3ab1e892ea3008979320c35c71af0f7ef39ecbb1a92e991c75de3980)[0m
+[36m  S3 Storage (0.7ms) [0m[34mGenerated URL for file at key: taEdi9zJEDUZLk33VoY8SaXW (https://etchy-dev.s3.us-west-1.amazonaws.com/taEdi9zJEDUZLk33VoY8SaXW?response-content-disposition=inline%3B%20filename%3D%22Marbel_decor.png%22%3B%20filename%2A%3DUTF-8%27%27Marbel_decor.png&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQB7AWZP3LTFOMFW3%2F20230127%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230127T055357Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=e41fd1d20b99cceb92dbcf0032403a1630f4fab14f62f792f2b4d1b33bc17871)[0m
+Redirected to https://etchy-dev.s3.us-west-1.amazonaws.com/swYqkYNT1SYu4s9NMeEnoynk?response-content-disposition=inline%3B%20filename%3D%22Fathom_Below.png%22%3B%20filename%2A%3DUTF-8%27%27Fathom_Below.png&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQB7AWZP3LTFOMFW3%2F20230127%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230127T055357Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=1cb2599d3ab1e892ea3008979320c35c71af0f7ef39ecbb1a92e991c75de3980
+Redirected to https://etchy-dev.s3.us-west-1.amazonaws.com/taEdi9zJEDUZLk33VoY8SaXW?response-content-disposition=inline%3B%20filename%3D%22Marbel_decor.png%22%3B%20filename%2A%3DUTF-8%27%27Marbel_decor.png&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQB7AWZP3LTFOMFW3%2F20230127%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230127T055357Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=e41fd1d20b99cceb92dbcf0032403a1630f4fab14f62f792f2b4d1b33bc17871
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms)
+
+
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--699037c935c69070df8ce395260352b867da9852/Battle_Aca_Tee.png" for ::1 at 2023-01-26 21:53:57 -0800
+Processing by ActiveStorage::BlobsController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--699037c935c69070df8ce395260352b867da9852", "filename"=>"Battle_Aca_Tee"}
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ /home/khoa/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+[36m  S3 Storage (1.0ms) [0m[34mGenerated URL for file at key: wAYEUiM91LHT6FfezEVBm3df (https://etchy-dev.s3.us-west-1.amazonaws.com/wAYEUiM91LHT6FfezEVBm3df?response-content-disposition=inline%3B%20filename%3D%22Battle_Aca_Tee.png%22%3B%20filename%2A%3DUTF-8%27%27Battle_Aca_Tee.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQB7AWZP3LTFOMFW3%2F20230127%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230127T055357Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=d95f222c659053ba8dcfee105f1416a2dfbfe35d648849b38922b47ca4f7d6eb)[0m
+Redirected to https://etchy-dev.s3.us-west-1.amazonaws.com/wAYEUiM91LHT6FfezEVBm3df?response-content-disposition=inline%3B%20filename%3D%22Battle_Aca_Tee.png%22%3B%20filename%2A%3DUTF-8%27%27Battle_Aca_Tee.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQB7AWZP3LTFOMFW3%2F20230127%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230127T055357Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=d95f222c659053ba8dcfee105f1416a2dfbfe35d648849b38922b47ca4f7d6eb
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--a783e5ede2f6a770b3f879c0fe771d83501ae62b/KDA_Pop-Stars_post.png" for ::1 at 2023-01-26 21:53:57 -0800
+Processing by ActiveStorage::BlobsController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--a783e5ede2f6a770b3f879c0fe771d83501ae62b", "filename"=>"KDA_Pop-Stars_post"}
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ /home/khoa/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+[36m  S3 Storage (1.2ms) [0m[34mGenerated URL for file at key: PxJETEWznn7AE1wxG7L71fWz (https://etchy-dev.s3.us-west-1.amazonaws.com/PxJETEWznn7AE1wxG7L71fWz?response-content-disposition=inline%3B%20filename%3D%22KDA_Pop-Stars_post.png%22%3B%20filename%2A%3DUTF-8%27%27KDA_Pop-Stars_post.png&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQB7AWZP3LTFOMFW3%2F20230127%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230127T055357Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=cb9469d337184cb72c074fdc3b9d61722b274b628f13c900c57a2a50bd103775)[0m
+Redirected to https://etchy-dev.s3.us-west-1.amazonaws.com/PxJETEWznn7AE1wxG7L71fWz?response-content-disposition=inline%3B%20filename%3D%22KDA_Pop-Stars_post.png%22%3B%20filename%2A%3DUTF-8%27%27KDA_Pop-Stars_post.png&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQB7AWZP3LTFOMFW3%2F20230127%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230127T055357Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=cb9469d337184cb72c074fdc3b9d61722b274b628f13c900c57a2a50bd103775
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--864d765c422358d54780e80d56975d653a9d239f/Fluid_Paint.png" for ::1 at 2023-01-26 21:53:57 -0800
+Processing by ActiveStorage::BlobsController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBEdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--864d765c422358d54780e80d56975d653a9d239f", "filename"=>"Fluid_Paint"}
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ /home/khoa/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.8.1/lib/active_record/log_subscriber.rb:98
+[36m  S3 Storage (1.1ms) [0m[34mGenerated URL for file at key: FTuzpVpdPyy5RV3AqymW7Tra (https://etchy-dev.s3.us-west-1.amazonaws.com/FTuzpVpdPyy5RV3AqymW7Tra?response-content-disposition=inline%3B%20filename%3D%22Fluid_Paint.png%22%3B%20filename%2A%3DUTF-8%27%27Fluid_Paint.png&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQB7AWZP3LTFOMFW3%2F20230127%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230127T055357Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=622eef25965b21a69fb0e3d20fd0a87c113454511cb831557932019509e342f7)[0m
+Redirected to https://etchy-dev.s3.us-west-1.amazonaws.com/FTuzpVpdPyy5RV3AqymW7Tra?response-content-disposition=inline%3B%20filename%3D%22Fluid_Paint.png%22%3B%20filename%2A%3DUTF-8%27%27Fluid_Paint.png&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQB7AWZP3LTFOMFW3%2F20230127%2Fus-west-1%2Fs3%2Faws4_request&X-Amz-Date=20230127T055357Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=622eef25965b21a69fb0e3d20fd0a87c113454511cb831557932019509e342f7
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2023-01-26 21:54:00 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 65ms (Views: 64.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/products" for ::1 at 2023-01-26 21:54:01 -0800
+Started GET "/api/carts" for ::1 at 2023-01-26 21:54:01 -0800
+Processing by Api::ProductsController#index as JSON
+Processing by Api::CartsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  Rendering api/carts/index.json.jbuilder
+  [1m[36mProduct Load (4.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  [1m[36mCart Load (1.5ms)[0m  [1m[34mSELECT "carts".* FROM "carts"[0m
+  ↳ app/views/api/carts/index.json.jbuilder:1
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2)[0m  [["id", 2], ["id", 3]]
+  Rendered api/carts/index.json.jbuilder (2.9ms)
+  ↳ app/views/api/products/index.json.jbuilder:1
+Completed 200 OK in 13ms (Views: 11.1ms | ActiveRecord: 1.5ms)
+
+
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "D8Hu887A6wZzsVVI6AmmkQ=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "6wsOPUT6Q2mjMuDYZcLNNw=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5, $6, $7, $8, $9, $10, $11, $12)[0m  [["record_type", "Product"], ["name", "image"], ["record_id", 2], ["record_id", 3], ["record_id", 4], ["record_id", 5], ["record_id", 6], ["record_id", 7], ["record_id", 8], ["record_id", 9], ["record_id", 10], ["record_id", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:1
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)[0m  [["id", 11], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6], ["id", 7], ["id", 8], ["id", 9], ["id", 10]]
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/_product.json.jbuilder (0.8ms)
+  Rendered api/products/_product.json.jbuilder (0.6ms)
+  Rendered api/products/_product.json.jbuilder (0.3ms)
+  Rendered api/products/_product.json.jbuilder (0.6ms)
+  Rendered api/products/_product.json.jbuilder (0.7ms)
+  Rendered api/products/_product.json.jbuilder (0.3ms)
+  Rendered api/products/_product.json.jbuilder (0.3ms)
+  Rendered api/products/_product.json.jbuilder (0.2ms)
+  Rendered api/products/_product.json.jbuilder (0.6ms)
+  Rendered api/products/_product.json.jbuilder (0.2ms)
+  Rendered api/products/index.json.jbuilder (36.8ms)
+Completed 200 OK in 44ms (Views: 37.5ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/api/products" for ::1 at 2023-01-26 21:54:01 -0800
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2)[0m  [["id", 2], ["id", 3]]
+  ↳ app/views/api/products/index.json.jbuilder:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "370tSDOzOEb3dsfUEcHBrg=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "GyvQhmJgn3bSPH9Pah1dPA=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_type" = $1 AND "active_storage_attachments"."name" = $2 AND "active_storage_attachments"."record_id" IN ($3, $4, $5, $6, $7, $8, $9, $10, $11, $12)[0m  [["record_type", "Product"], ["name", "image"], ["record_id", 2], ["record_id", 3], ["record_id", 4], ["record_id", 5], ["record_id", 6], ["record_id", 7], ["record_id", 8], ["record_id", 9], ["record_id", 10], ["record_id", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:1
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)[0m  [["id", 11], ["id", 2], ["id", 3], ["id", 4], ["id", 5], ["id", 6], ["id", 7], ["id", 8], ["id", 9], ["id", 10]]
+  ↳ app/views/api/products/index.json.jbuilder:1
+  Rendered api/products/_product.json.jbuilder (1.1ms)
+  Rendered api/products/_product.json.jbuilder (0.7ms)
+  Rendered api/products/_product.json.jbuilder (0.2ms)
+  Rendered api/products/_product.json.jbuilder (0.5ms)
+  Rendered api/products/_product.json.jbuilder (0.9ms)
+  Rendered api/products/_product.json.jbuilder (0.8ms)
+  Rendered api/products/_product.json.jbuilder (0.4ms)
+  Rendered api/products/_product.json.jbuilder (0.4ms)
+  Rendered api/products/_product.json.jbuilder (0.4ms)
+  Rendered api/products/_product.json.jbuilder (0.3ms)
+  Rendered api/products/index.json.jbuilder (26.4ms)
+Completed 200 OK in 30ms (Views: 28.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/api/products/4" for ::1 at 2023-01-26 21:54:03 -0800
+Started GET "/api/comments" for ::1 at 2023-01-26 21:54:03 -0800
+Processing by Api::ProductsController#show as JSON
+  Parameters: {"id"=>"4"}
+Processing by Api::CommentsController#index as JSON
+  [1m[36mProduct Load (8.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/products_controller.rb:10
+  Rendering api/products/show.json.jbuilder
+  [1m[36mUser Load (9.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/api/products/_product.json.jbuilder:1
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "T299eKFvksmFjBJl8ldNXQ=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 4], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/products/_product.json.jbuilder:2
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/api/products/_product.json.jbuilder:2
+  Rendered api/products/_product.json.jbuilder (27.9ms)
+  Rendered api/products/show.json.jbuilder (29.6ms)
+Completed 200 OK in 48ms (Views: 27.3ms | ActiveRecord: 18.9ms)
+
+
+  Rendering api/comments/index.json.jbuilder
+  [1m[36mComment Load (2.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/views/api/comments/index.json.jbuilder:1
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 4]]
+  ↳ app/views/api/comments/index.json.jbuilder:1
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rTDsOH/qWekWO4OpUcwsjQ=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48
+  Rendered api/comments/_comment.json.jbuilder (0.4ms)
+  Rendered api/comments/index.json.jbuilder (23.1ms)
+Completed 200 OK in 66ms (Views: 25.6ms | ActiveRecord: 8.5ms)
+
+
+Started POST "/api/session" for ::1 at 2023-01-26 21:54:09 -0800
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"demo_1", "email"=>"demo@demo.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "demo@demo.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:23
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HkvvbpvgeS3+mowdGuPkLg=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "bGei8d9yfbxg0WV3ToXr9g=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:39
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:42
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "demo_1"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:42
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "demo@demo.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:42
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "bGei8d9yfbxg0WV3ToXr9g=="], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:42
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "bGei8d9yfbxg0WV3ToXr9g=="], ["updated_at", "2023-01-27 05:54:09.823659"], ["id", 1]]
+  ↳ app/models/user.rb:42
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:42
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered api/users/show.json.jbuilder (4.5ms)
+Completed 200 OK in 203ms (Views: 11.0ms | ActiveRecord: 8.0ms)
+
+
+Started POST "/api/carts" for ::1 at 2023-01-26 21:54:11 -0800
+Processing by Api::CartsController#create as JSON
+  Parameters: {"cart"=>{"product_id"=>"4", "quantity"=>"1", "buyer_id"=>"1"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "bGei8d9yfbxg0WV3ToXr9g=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "wvYESrtzO4GIeZgt6CudJg=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."buyer_id" = $1 AND "carts"."product_id" = $2 LIMIT $3[0m  [["buyer_id", 1], ["product_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/carts_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/carts_controller.rb:23
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/carts_controller.rb:23
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "6JJbp/wgyQSKNnAlUOxorQ=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/carts_controller.rb:23
+  [1m[36mCart Create (1.9ms)[0m  [1m[32mINSERT INTO "carts" ("quantity", "product_id", "buyer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["quantity", 1], ["product_id", 4], ["buyer_id", 1], ["created_at", "2023-01-27 05:54:11.064819"], ["updated_at", "2023-01-27 05:54:11.064819"]]
+  ↳ app/controllers/api/carts_controller.rb:23
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/carts_controller.rb:23
+  Rendering api/carts/show.json.jbuilder
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 4], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/carts/_cart.json.jbuilder:2
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/api/carts/_cart.json.jbuilder:2
+  Rendered api/carts/_cart.json.jbuilder (2.9ms)
+  Rendered api/carts/show.json.jbuilder (7.7ms)
+Completed 200 OK in 42ms (Views: 12.9ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/api/carts" for ::1 at 2023-01-26 21:54:11 -0800
+Processing by Api::CartsController#index as JSON
+  Rendering api/carts/index.json.jbuilder
+  [1m[36mCart Load (0.4ms)[0m  [1m[34mSELECT "carts".* FROM "carts"[0m
+  ↳ app/views/api/carts/index.json.jbuilder:1
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1[0m  [["id", 4]]
+  ↳ app/views/api/carts/index.json.jbuilder:1
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1[0m  [["id", 1]]
+  ↳ app/views/api/carts/index.json.jbuilder:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "nsYRt7tdsLTOzBkbBNeD5A=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 4], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/carts/_cart.json.jbuilder:2
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/api/carts/_cart.json.jbuilder:2
+  Rendered api/carts/_cart.json.jbuilder (3.4ms)
+  Rendered api/carts/index.json.jbuilder (9.5ms)
+Completed 200 OK in 15ms (Views: 12.9ms | ActiveRecord: 2.0ms)
+
+
+Started PATCH "/api/carts/1" for ::1 at 2023-01-26 21:54:13 -0800
+Processing by Api::CartsController#update as JSON
+  Parameters: {"cart"=>{"id"=>"1", "product_id"=>"4", "quantity"=>"5", "buyer_id"=>"1"}, "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "bGei8d9yfbxg0WV3ToXr9g=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "HxLye0NFiZqw9W6R8Uq77Q=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48
+  [1m[36mCart Load (0.2ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/carts_controller.rb:31
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/carts_controller.rb:34
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/carts_controller.rb:34
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "PRtQdn86G1PJ9iRKaQx70A=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/carts_controller.rb:34
+  [1m[36mCart Update (0.2ms)[0m  [1m[33mUPDATE "carts" SET "quantity" = $1, "updated_at" = $2 WHERE "carts"."id" = $3[0m  [["quantity", 5], ["updated_at", "2023-01-27 05:54:13.428825"], ["id", 1]]
+  ↳ app/controllers/api/carts_controller.rb:34
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/carts_controller.rb:34
+  Rendering api/carts/show.json.jbuilder
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 4], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/carts/_cart.json.jbuilder:2
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/api/carts/_cart.json.jbuilder:2
+  Rendered api/carts/_cart.json.jbuilder (2.3ms)
+  Rendered api/carts/show.json.jbuilder (3.5ms)
+Completed 200 OK in 14ms (Views: 5.9ms | ActiveRecord: 2.0ms)
+
+
+Started PATCH "/api/carts/1" for ::1 at 2023-01-26 21:54:15 -0800
+Processing by Api::CartsController#update as JSON
+  Parameters: {"cart"=>{"id"=>"1", "product_id"=>"4", "quantity"=>"2", "buyer_id"=>"1"}, "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "bGei8d9yfbxg0WV3ToXr9g=="], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:12
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "kkDcNgK3J03JVuRFFK+6SQ=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48
+  [1m[36mCart Load (0.1ms)[0m  [1m[34mSELECT  "carts".* FROM "carts" WHERE "carts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/carts_controller.rb:31
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/carts_controller.rb:34
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/carts_controller.rb:34
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "xIWB8IbNCrtDDjSC7YqvCA=="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/carts_controller.rb:34
+  [1m[36mCart Update (0.3ms)[0m  [1m[33mUPDATE "carts" SET "quantity" = $1, "updated_at" = $2 WHERE "carts"."id" = $3[0m  [["quantity", 2], ["updated_at", "2023-01-27 05:54:15.592458"], ["id", 1]]
+  ↳ app/controllers/api/carts_controller.rb:34
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/carts_controller.rb:34
+  Rendering api/carts/show.json.jbuilder
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 4], ["record_type", "Product"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/api/carts/_cart.json.jbuilder:2
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT  "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/api/carts/_cart.json.jbuilder:2
+  Rendered api/carts/_cart.json.jbuilder (2.4ms)
+  Rendered api/carts/show.json.jbuilder (3.8ms)
+Completed 200 OK in 13ms (Views: 6.2ms | ActiveRecord: 1.8ms)
+
+
