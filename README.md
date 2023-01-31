@@ -2,7 +2,7 @@
 
 ![Capture](https://user-images.githubusercontent.com/70730501/114972517-7e096e00-9e33-11eb-94eb-660e26337825.PNG)
 
-[Etchy Live!](https://etchy-etsy.herokuapp.com/#/)
+[Etchy Live!](https://etchy.onrender.com/#/)
 
 ## Overview
 Etchy is a clone of Etsy.com. Simular to Etsy, Etchy is an online shopping website that users can checkout new and creative items for sale. Unlike the original website where only products from independent creators are available, this website allows all artistic and creative products to be listed here, independent or otherwise.  
