@@ -2,12 +2,12 @@
 
 ![Capture](https://user-images.githubusercontent.com/70730501/114972517-7e096e00-9e33-11eb-94eb-660e26337825.PNG)
 
-[Etchy Live!](https://etchy.onrender.com/#/)
+Etchy Live!(Currently Downed)
 
 ## Overview
-Etchy is a clone of Etsy.com. Simular to Etsy, Etchy is an online shopping website that users can checkout new and creative items for sale. Unlike the original website where only products from independent creators are available, this website allows all artistic and creative products to be listed here, independent or otherwise.  
+Etchy is a clone of Etsy.com. Similar to Etsy, Etchy is an online shopping website where users can checkout new and creative items for sale. Unlike the original website where only products from independent creators are available, this website allows all artistic and creative products to be listed here, independent or otherwise.  
 
-## Languagues and Frameworks
+## Languages and Frameworks
 
 * Ruby on Rails (Ruby): Backend
 * PostgeSQL: Database 
@@ -19,15 +19,15 @@ Etchy is a clone of Etsy.com. Simular to Etsy, Etchy is an online shopping websi
 * Users can create accounts, sign in with existing accounts, and sign out. Demo login available.
 ![User demo](https://media.giphy.com/media/zTwvIklAmGZJkGtRJh/giphy.gif) 
 ### Products
-* Users can browse through products and checkout listed products in greater details. 
+* Users can browse through products and check out listed products in greater detail. 
 ![Product demo](https://media.giphy.com/media/21lQjkeG4fHBF3Z3vy/giphy.gif)
 ### Shopping Cart
 * Users can add products to the shopping cart
 * Users can purchase products from the shopping cart
-* Users can view products added to the shopping cart from previous visits that have not been purchase
+* Users can view products added to the shopping cart from previous visits that have not been purchased
 ![Cart demo](https://media.giphy.com/media/cbo365S9p95UFqsnSK/giphy.gif)
 ### Reviews
-* Logged in user can write reviews/comments on products
+* Logged-in users can write reviews/comments on products
 * Users can view reviews/comments on products
 * Users can edit reviews/comments
 ### Search 
